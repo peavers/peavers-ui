@@ -7,15 +7,12 @@ function ApplySexyMapSettings()
 
         local profileName = "PeaversUI"
 
-        -- Ensure profiles table exists
         if not SexyMap2DB["profiles"] then
             SexyMap2DB["profiles"] = {}
         end
 
-        -- Clear existing profile settings if they exist
         SexyMap2DB[profileName] = nil
 
-        -- Hardcoded settings based on the global profile
         local settings = {
             ["core"] = {
                 ["clamp"] = true,

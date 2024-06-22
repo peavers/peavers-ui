@@ -1,5 +1,6 @@
 function ApplyTipTacSettings()
     if IsAddOnLoaded("TipTac") then
+
         if not TipTac_Config then
             print("TipTac saved variables not found")
             return

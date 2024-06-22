@@ -7,7 +7,6 @@ function ApplyOmniCDSettings()
 
         local profileName = "PeaversUI"
 
-        -- Define the settings
         local settings =
         {
             ["General"] = {
@@ -284,15 +283,12 @@ function ApplyOmniCDSettings()
             },
         }
 
-        -- Ensure profiles table exists
         if not OmniCDDB["profiles"] then
             OmniCDDB["profiles"] = {}
         end
 
-        -- Apply the settings to the corresponding profile
         OmniCDDB["profiles"][profileName] = settings
 
-        -- Assign the new profile to the current character
         if not OmniCDDB["profileKeys"] then
             OmniCDDB["profileKeys"] = {}
         end

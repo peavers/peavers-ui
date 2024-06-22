@@ -5,12 +5,12 @@
 ## Version: 1.0
 ## SavedVariables: PeaversUIExportDB
 
-PeaversUI.lua
-Utils.lua
-settings/Bartender.lua
-settings/SexyMap.lua
-settings/Details.lua
-settings/TitanPanel.lua
-settings/LsGlass.lua
-settings/Blizzard.lua
-settings/OmniCD.lua
+src/PeaversUI.lua
+src/Utils.lua
+src/settings/Bartender.lua
+src/settings/SexyMap.lua
+src/settings/Details.lua
+src/settings/TitanPanel.lua
+src/settings/LsGlass.lua
+src/settings/Blizzard.lua
+src/settings/OmniCD.lua

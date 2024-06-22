@@ -7,15 +7,12 @@ function ApplyLSGlassSettings()
 
         local profileName = "PeaversUI"
 
-        -- Ensure profiles table exists
         if not LS_GLASS_GLOBAL_CONFIG["profiles"] then
             LS_GLASS_GLOBAL_CONFIG["profiles"] = {}
         end
 
-        -- Clear existing profile settings if they exist
         LS_GLASS_GLOBAL_CONFIG["profiles"][profileName] = nil
 
-        -- Hardcoded settings
         local settings = {
             ["dock"] = {
                 ["font"] = {
@@ -35,14 +32,14 @@ function ApplyLSGlassSettings()
             },
         }
 
-        -- Apply the hardcoded settings under the new profile
         LS_GLASS_GLOBAL_CONFIG["profiles"][profileName] = settings
 
-        -- Assign the new profile to the current character
         if not LS_GLASS_GLOBAL_CONFIG["profileKeys"] then
             LS_GLASS_GLOBAL_CONFIG["profileKeys"] = {}
         end
+
         LS_GLASS_GLOBAL_CONFIG["profileKeys"][UnitName("player") .. " - " .. GetRealmName()] = profileName
+
     else
         print("Addon not loaded: LS Glass")
     end

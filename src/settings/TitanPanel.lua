@@ -7,15 +7,12 @@ function ApplyTitanPanelSettings()
 
         local profileName = "PeaversUI"
 
-        -- Ensure profiles table exists
         if not TitanSettings["Players"] then
             TitanSettings["Players"] = {}
         end
 
-        -- Clear existing profile settings if they exist
         TitanSettings["Players"][UnitName("player") .. "@" .. GetRealmName()] = nil
 
-        -- Placeholder for settings
         local settings = {
             ["Panel"] = {
                 ["Font"] = "Fonts\\FRIZQT__.TTF",
@@ -3880,22 +3877,18 @@ function ApplyTitanPanelSettings()
             },
         }
 
-        -- Apply the settings under the profile
         TitanSettings["Players"][UnitName("player") .. "@" .. GetRealmName()] = settings
 
-        -- Set the font with error handling
         local success, err = pcall(function()
             TitanPanelLocationButtonText:SetFont(settings["Panel"]["Font"], settings["Panel"]["FontSize"],
                 settings["Panel"]["FontFlags"])
         end)
+
         if not success then
             print("Error setting font: " .. err)
         end
 
-        -- Assign the new profile to the current character
         TitanSettings["Players"][UnitName("player") .. "@" .. GetRealmName()] = profileName
-
-        print("Assigned profile " .. profileName .. " to current character")
     else
         print("Addon not loaded: TitanPanel")
     end

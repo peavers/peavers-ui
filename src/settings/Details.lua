@@ -7,15 +7,12 @@ function ApplyDetailsSettings()
 
         local profileName = "PeaversUI"
 
-        -- Ensure profiles table exists
         if not _detalhes_global["profiles"] then
             _detalhes_global["profiles"] = {}
         end
 
-        -- Clear existing profile settings if they exist
         _detalhes_global["profiles"][profileName] = nil
 
-        -- Hardcoded settings based on the "Primary" profile
         local settings = {
             ["overall_clear_newtorghast"] = true,
             ["use_realtimedps"] = false,
@@ -2349,16 +2346,12 @@ function ApplyDetailsSettings()
             ["profile_save_pos"] = true,
         }
 
-
-        -- Apply the settings under the profile
         _detalhes_global["__profiles"][profileName] = settings
 
-        -- Apply the profile
         if _detalhes:GetCurrentProfileName() ~= profileName then
             _detalhes:ApplyProfile(profileName)
         end
 
-        -- Load the profile on all characters
         _detalhes.always_use_profile = true
         _detalhes.always_use_profile_name = profileName
     else

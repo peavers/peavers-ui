@@ -7,17 +7,14 @@ function ApplyBartenderSettings()
 
         local profileName = "PeaversUI"
 
-        -- Ensure profiles table exists
         if not Bartender4DB["profiles"] then
             Bartender4DB["profiles"] = {}
         end
 
-        -- Ensure namespaces table exists
         if not Bartender4DB["namespaces"] then
             Bartender4DB["namespaces"] = {}
         end
 
-        -- Ensure namespace tables exist for each category
         local namespaces = {
             "StatusTrackingBar",
             "QueueStatus",
@@ -30,6 +27,7 @@ function ApplyBartenderSettings()
             "PetBar",
             "Vehicle"
         }
+
         for _, namespace in ipairs(namespaces) do
             if not Bartender4DB["namespaces"][namespace] then
                 Bartender4DB["namespaces"][namespace] = { ["profiles"] = {} }
@@ -38,7 +36,6 @@ function ApplyBartenderSettings()
             end
         end
 
-        -- Hardcoded settings
         local settings = {
             ["StatusTrackingBar"] = {
                 enabled = false,
@@ -220,12 +217,10 @@ function ApplyBartenderSettings()
             }
         }
 
-        -- Apply the settings to the corresponding namespaces and profiles
         for namespace, namespaceSettings in pairs(settings) do
             Bartender4DB["namespaces"][namespace]["profiles"][profileName] = namespaceSettings
         end
 
-        -- Assign the new profile to the current character
         if not Bartender4DB["profileKeys"] then
             Bartender4DB["profileKeys"] = {}
         end
