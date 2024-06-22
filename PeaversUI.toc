@@ -6,11 +6,12 @@
 ## SavedVariables: PeaversUIExportDB
 
 src/PeaversUI.lua
-src/Utils.lua
-src/settings/Bartender.lua
-src/settings/SexyMap.lua
-src/settings/Details.lua
-src/settings/TitanPanel.lua
-src/settings/LsGlass.lua
-src/settings/Blizzard.lua
-src/settings/OmniCD.lua
+
+src/Profiles/Bartender.lua
+src/Profiles/Details.lua
+src/Profiles/LsGlass.lua
+src/Profiles/OmniCD.lua
+src/Profiles/SexyMap.lua
+src/Peavers/TipTac.lua
+
+src/Misc/Utils.lua

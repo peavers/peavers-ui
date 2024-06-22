@@ -2,18 +2,14 @@ local PeaversUI = CreateFrame("Frame")
 PeaversUI:RegisterEvent("ADDON_LOADED")
 PeaversUI:RegisterEvent("PLAYER_LOGIN")
 
-local UtilsLoaded = LoadAddOn("Utils")
-
 local profiles = {
     default = {
-        Blizzard = false,
-        TitanPanel = false,
-
         Bartender4 = true,
         SexyMap = true,
         Details = true,
         LsGlass = true,
         OmniCD = true,
+        TipTac = true,
     }
 }
 
@@ -34,10 +30,6 @@ function PeaversUI:ApplyProfile(profileName)
         return
     end
 
-    if profile.Blizzard then
-        ApplyBlizzardUILayout()
-    end
-
     if profile.Bartender4 then
         ApplyBartenderSettings()
     end
@@ -50,10 +42,6 @@ function PeaversUI:ApplyProfile(profileName)
         ApplyDetailsSettings()
     end
 
-    if profile.TitanPanel then
-        ApplyTitanPanelSettings()
-    end
-
     if profile.LsGlass then
         ApplyLSGlassSettings()
     end
@@ -61,6 +49,10 @@ function PeaversUI:ApplyProfile(profileName)
     if profile.OmniCD then
         ApplyOmniCDSettings()
     end
+
+    if profile.TipTac then
+        ApplyTipTacSettings()
+     end
 
     print("Applied profile: " .. profileName)
 end
