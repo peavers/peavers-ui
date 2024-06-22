@@ -1,0 +1,16 @@
+## Interface: 100100
+## Title: PeaversUI
+## Notes: A central addon to set profiles for other addons.
+## Author: Peavers
+## Version: 1.0
+## SavedVariables: PeaversUIExportDB
+
+PeaversUI.lua
+Utils.lua
+settings/Bartender.lua
+settings/SexyMap.lua
+settings/Details.lua
+settings/TitanPanel.lua
+settings/LsGlass.lua
+settings/Blizzard.lua
+settings/OmniCD.lua
