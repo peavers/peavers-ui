@@ -1,4 +1,4 @@
-## Interface: 100100
+## Interface: 100207
 ## Title: PeaversUI
 ## Notes: A central addon to set profiles for other addons.
 ## Author: Peavers
