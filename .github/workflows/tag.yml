@@ -8,50 +8,16 @@ on:
 jobs:
   create-tag:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: Get the current tag number
-        id: current-tag
+      - name: Create and push tag
         run: |
-          git fetch --tags
-          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) || echo "0.0.0")
-          echo "Latest tag: $latest_tag"
-          echo "::set-output name=tag::$latest_tag"
-
-      - name: Determine new tag number
-        id: new-tag
-        run: |
-          current_tag=${{ steps.current-tag.outputs.tag }}
-          if [ "$current_tag" == "0.0.0" ]; then
-            new_tag="1.0.0"
-          else
-            IFS='.' read -r -a tag_parts <<< "$current_tag"
-            major=${tag_parts[0]}
-            minor=${tag_parts[1]}
-            patch=${tag_parts[2]}
-            new_patch=$((patch + 1))
-            new_tag="$major.$minor.$new_patch"
-          fi
-          echo "New tag: $new_tag"
-          echo "::set-output name=new_tag::$new_tag"
-
-      - name: Configure git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Create new tag
-        run: |
-          new_tag=${{ steps.new-tag.outputs.new_tag }}
-          git tag $new_tag
-
-      - name: Push new tag
-        run: |
-          new_tag=${{ steps.new-tag.outputs.new_tag }}
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git push origin $new_tag
+          TAG_NAME="1.0.${{ github.run_number }}"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
