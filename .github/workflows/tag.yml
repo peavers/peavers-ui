@@ -53,6 +53,5 @@ jobs:
       - name: Push new tag
         run: |
           new_tag=${{ steps.new-tag.outputs.new_tag }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin $new_tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
