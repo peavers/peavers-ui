@@ -38,6 +38,11 @@ jobs:
           echo "New tag: $new_tag"
           echo "::set-output name=new_tag::$new_tag"
 
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Create new tag
         run: |
           new_tag=${{ steps.new-tag.outputs.new_tag }}
