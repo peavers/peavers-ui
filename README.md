@@ -19,7 +19,3 @@
 2. **Load the Addon**: Ensure PeaversUI is enabled in your addons list.
 3. **Apply Profile**: Use the slash command `/peaversui default` to switch apply the profile.
 4. **Enjoy the Game**: Experience a clean, organized, and consistent UI tailored to your needs.
-
----
-
-Upgrade your World of Warcraft experience with PeaversUI, and let us handle the UI configuration so you can focus on your adventures in Azeroth!
