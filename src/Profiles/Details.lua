@@ -1,19 +1,5 @@
 function ApplyDetailsSettings()
-    if IsAddOnLoaded("Details") then
-        if not _detalhes_global then
-            print("Details! saved variables not found")
-            return
-        end
-
-        local profileName = "PeaversUI"
-
-        if not _detalhes_global["profiles"] then
-            _detalhes_global["profiles"] = {}
-        end
-
-        _detalhes_global["profiles"][profileName] = nil
-
-        local settings = {
+    local detailsSettings = {
             ["overall_clear_newtorghast"] = true,
             ["use_realtimedps"] = false,
             ["row_fade_in"] = {
@@ -2346,15 +2332,12 @@ function ApplyDetailsSettings()
             ["profile_save_pos"] = true,
         }
 
-        _detalhes_global["__profiles"][profileName] = settings
-
-        if _detalhes:GetCurrentProfileName() ~= profileName then
-            _detalhes:ApplyProfile(profileName)
+    local function detailsCallback(savedVariables, profileName, settings)
+        if _G["_detalhes"] then
+            _G["_detalhes"].always_use_profile = true
+            _G["_detalhes"].always_use_profile_name = profileName
         end
-
-        _detalhes.always_use_profile = true
-        _detalhes.always_use_profile_name = profileName
-    else
-        print("Addon not loaded: Details!")
     end
+
+    AddonProfileManager:ApplySettings("Details", "_detalhes_global", detailsSettings, detailsCallback)
 end

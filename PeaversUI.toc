@@ -5,12 +5,15 @@
 ## Version: 1.0
 ## SavedVariables: PeaversUIExportDB
 
+src/PeaversUI.lua
+src/Misc/Utils.lua
+src/Misc/AddonProfileManager.lua
+
+src/Profiles/Cell.lua
 src/Profiles/Bartender.lua
 src/Profiles/Details.lua
 src/Profiles/LsGlass.lua
 src/Profiles/OmniCD.lua
 src/Profiles/SexyMap.lua
 src/Profiles/TipTac.lua
-
-src/Misc/Utils.lua
-src/PeaversUI.lua
+src/Profiles/Plater.lua

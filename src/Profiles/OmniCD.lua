@@ -1,14 +1,5 @@
 function ApplyOmniCDSettings()
-    if IsAddOnLoaded("OmniCD") then
-        if not OmniCDDB then
-            print("OmniCD saved variables not found")
-            return
-        end
-
-        local profileName = "PeaversUI"
-
-        local settings =
-        {
+    local omniCDSettings = {
             ["General"] = {
                 ["textures"] = {
                     ["statusBar"] = {
@@ -283,18 +274,11 @@ function ApplyOmniCDSettings()
             },
         }
 
-        if not OmniCDDB["profiles"] then
-            OmniCDDB["profiles"] = {}
+    local function omniCDCallback(savedVariables, profileName, settings)
+        if savedVariables.profile then
+            savedVariables.profile.currentProfile = profileName
         end
-
-        OmniCDDB["profiles"][profileName] = settings
-
-        if not OmniCDDB["profileKeys"] then
-            OmniCDDB["profileKeys"] = {}
-        end
-
-        OmniCDDB["profileKeys"][UnitName("player") .. " - " .. GetRealmName()] = profileName
-    else
-        print("Addon not loaded: OmniCD")
     end
+
+    AddonProfileManager:ApplySettings("OmniCD", "OmniCDDB", omniCDSettings, omniCDCallback)
 end

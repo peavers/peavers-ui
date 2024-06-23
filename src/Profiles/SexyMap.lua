@@ -1,20 +1,6 @@
 function ApplySexyMapSettings()
-    if IsAddOnLoaded("SexyMap") then
-        if not SexyMap2DB then
-            print("SexyMap saved variables not found")
-            return
-        end
-
-        local profileName = "PeaversUI"
-
-        if not SexyMap2DB["profiles"] then
-            SexyMap2DB["profiles"] = {}
-        end
-
-        SexyMap2DB[profileName] = nil
-
-        local settings = {
-            ["core"] = {
+    local sexyMapSettings = {
+        ["core"] = {
                 ["clamp"] = true,
                 ["point"] = "TOPRIGHT",
                 ["relpoint"] = "TOPRIGHT",
@@ -162,8 +148,14 @@ function ApplySexyMapSettings()
             }
         }
 
-        SexyMap2DB[UnitName("player") .. "-" .. GetRealmName()] = settings
-    else
-        print("Addon not loaded: SexyMap")
+    local function sexyMapCallback(savedVariables, profileName, settings)
+        savedVariables[profileName] = nil
+        savedVariables[profileName] = settings
+
+        local characterKey = UnitName("player") .. "-" .. GetRealmName()
+        savedVariables[characterKey] = settings
     end
+
+    AddonProfileManager:ApplySettings("SexyMap", "SexyMap2DB", sexyMapSettings, sexyMapCallback)
+
 end

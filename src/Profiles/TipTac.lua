@@ -1,12 +1,5 @@
 function ApplyTipTacSettings()
-    if IsAddOnLoaded("TipTac") then
-
-        if not TipTac_Config then
-            print("TipTac saved variables not found")
-            return
-        end
-
-        local settings = {
+    local tipTacSettings = {
             ["gttScale"] = 0.8500000238418579,
             ["showCurrentUnitSpeed"] = false,
             ["colorGuildByReaction"] = false,
@@ -42,11 +35,5 @@ function ApplyTipTacSettings()
             ["showGuild"] = false,
         }
 
-        for k, v in pairs(settings) do
-            TipTac_Config[k] = v
-        end
-
-    else
-        print("Addon not loaded: TipTac")
-    end
+    AddonProfileManager:ApplySettings("TipTac", "TipTac_Config", tipTacSettings)
 end
