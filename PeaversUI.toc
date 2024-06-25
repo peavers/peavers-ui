@@ -7,8 +7,10 @@
 ## X-Curse-Project-ID: 1046194
 
 src/PeaversUI.lua
-src/UI.lua
 
+src/Options/Main.lua
+src/Options/Profiles.lua
+src/Options/WeakAuras.lua
 
 src/Misc/Utils.lua
 src/Misc/AddonProfileManager.lua

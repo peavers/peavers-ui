@@ -1,7 +1,21 @@
 local addonName, addonTable = ...
 
-addonTable.Profiles = {}
-addonTable.UI = {}
+-- Initialize any tables or variables needed for the addon
+addonTable.selectedAddons = addonTable.selectedAddons or {}
+addonTable.defaultSelectedAddons = addonTable.defaultSelectedAddons or {}
+addonTable.supportedAddons = addonTable.supportedAddons or {}
+
+-- Initialize Profiles module
+addonTable.Profiles = addonTable.Profiles or {}
+
+-- Utility functions
+addonTable.Utils = addonTable.Utils or {}
+
+-- Load the UI functions (make sure these are defined in their respective files)
+addonTable.UI = addonTable.UI or {}
+
+-- Initialize checkboxes table
+addonTable.checkboxes = {}
 
 -- Initialize default values and state
 addonTable.defaultSelectedAddons = {
@@ -58,4 +72,35 @@ function addonTable.Profiles.ApplySelectedProfiles()
     addonTable.UI.ReloadUIAfterApplying()
 end
 
-addonTable.Profiles.InitializeSelectedAddons()
+-- Create the main panel (parent frame)
+local mainPanel = CreateFrame("Frame")
+mainPanel.name = "PeaversUI"
+InterfaceOptions_AddCategory(mainPanel)
+addonTable.mainPanel = mainPanel
+
+-- Load Panels
+function addonTable.LoadPanels()
+    addonTable.UI.LoadProfilesPanel()
+    addonTable.UI.LoadWeakAurasPanel()
+end
+
+-- Event handling
+mainPanel:RegisterEvent("ADDON_LOADED")
+mainPanel:SetScript("OnEvent", function(self, event, arg1)
+    if event == "ADDON_LOADED" and arg1 == addonName then
+        addonTable.Profiles.InitializeSelectedAddons()
+        addonTable.LoadPanels()  -- Load panels after addon is loaded
+        -- Update the checkboxes with the correct state
+        for addonName, checkbox in pairs(addonTable.checkboxes) do
+            checkbox:SetChecked(addonTable.selectedAddons[addonName])
+        end
+        self:UnregisterEvent("ADDON_LOADED")
+    end
+end)
+
+-- Slash command to open the options panel
+SLASH_PEAVERSUI1 = "/peaversui"
+SlashCmdList["PEAVERSUI"] = function()
+    InterfaceOptionsFrame_OpenToCategory(mainPanel)
+    InterfaceOptionsFrame_OpenToCategory(mainPanel)  -- Calling twice due to Blizzard bug
+end
