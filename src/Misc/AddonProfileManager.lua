@@ -32,6 +32,4 @@ function AddonProfileManager:ApplySettings(addonName, savedVariablesName, settin
     if callback and type(callback) == "function" then
         callback(savedVariables, profileName, settings)
     end
-
-    print(addonName .. " settings applied successfully")
 end
