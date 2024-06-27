@@ -31,7 +31,7 @@ jobs:
           git config user.name "Chris Turner"
           git config user.email "peavers@gmail.com"
           git add PeaversUI.toc
-          git commit -m "Update TOC version to ${{ steps.update_toc.outputs.new_version }}"
+          git commit -m "chore: Update TOC version to ${{ steps.update_toc.outputs.new_version }}"
           git push
 
       - name: Create and push tag
