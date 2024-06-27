@@ -1,12 +1,11 @@
-name: Create Tag
-
+name: Update Version and Create Tag
 on:
   push:
     branches:
       - master
 
 jobs:
-  create-tag:
+  update-version-and-tag:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,11 +13,39 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Create and push tag
+      - name: Get current version from TOC
+        id: get_current_version
         run: |
-          TAG_NAME="PeaversUI-1.0.${{ github.run_number }}"
+          CURRENT_VERSION=$(grep -oP '(?<=## Version: ).*' PeaversUI.toc)
+          echo "::set-output name=version::$CURRENT_VERSION"
+
+      - name: Update TOC version
+        id: update_toc
+        run: |
+          NEW_VERSION="1.0.${{ github.run_number }}"
+          sed -i "s/^## Version: .*$/## Version: $NEW_VERSION/" PeaversUI.toc
+          echo "::set-output name=new_version::$NEW_VERSION"
+
+      - name: Commit TOC changes
+        run: |
           git config user.name "Chris Turner"
           git config user.email "peavers@gmail.com"
+          git add PeaversUI.toc
+          git commit -m "Update TOC version to ${{ steps.update_toc.outputs.new_version }}"
+          git push
+
+      - name: Create and push tag
+        run: |
+          TAG_NAME="PeaversUI-${{ steps.update_toc.outputs.new_version }}"
           git tag $TAG_NAME
-          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin $TAG_NAME
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          tag_name: ${{ steps.update_toc.outputs.new_version }}
+          release_name: Release ${{ steps.update_toc.outputs.new_version }}
+          draft: false
+          prerelease: false
