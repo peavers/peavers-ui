@@ -8,6 +8,7 @@
 
 src/PeaversUI.lua
 
+src/Options/About.lua
 src/Options/Main.lua
 src/Options/Profiles.lua
 src/Options/WeakAuras.lua
@@ -15,11 +16,12 @@ src/Options/WeakAuras.lua
 src/Misc/Utils.lua
 src/Misc/AddonProfileManager.lua
 
-src/Profiles/Cell.lua
 src/Profiles/Bartender.lua
+src/Profiles/Cell.lua
 src/Profiles/Details.lua
 src/Profiles/LsGlass.lua
 src/Profiles/OmniCD.lua
+src/Profiles/Plater.lua
 src/Profiles/SexyMap.lua
 src/Profiles/TipTac.lua
-src/Profiles/Plater.lua
+src/Profiles/TitanPanel.lua

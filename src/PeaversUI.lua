@@ -27,6 +27,7 @@ addonTable.defaultSelectedAddons = {
     ["Plater"] = true,
     ["SexyMap"] = true,
     ["TipTac"] = true,
+	["Titan"] = true,
 }
 
 addonTable.selectedAddons = addonTable.selectedAddons or {}
@@ -40,6 +41,7 @@ addonTable.supportedAddons = {
     { name = "Plater", func = "ApplyPlaterSettings" },
     { name = "SexyMap", func = "ApplySexyMapSettings" },
     { name = "TipTac", func = "ApplyTipTacSettings" },
+    { name = "Titan Panel", func = "ApplyTitanSettings" },
 }
 
 function addonTable.Profiles.InitializeSelectedAddons()
@@ -82,6 +84,7 @@ addonTable.mainPanel = mainPanel
 function addonTable.LoadPanels()
     addonTable.UI.LoadProfilesPanel()
     addonTable.UI.LoadWeakAurasPanel()
+    addonTable.UI.LoadAboutPanel()
 end
 
 -- Event handling

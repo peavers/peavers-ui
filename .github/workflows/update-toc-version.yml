@@ -1,0 +1,34 @@
+name: Update TOC Version
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-toc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get latest tag
+        id: get_tag
+        run: echo "::set-output name=TAG::$(git describe --tags --abbrev=0)"
+
+      - name: Update TOC file
+        run: |
+          sed -i 's/^## Version: .*$/## Version: ${{ steps.get_tag.outputs.TAG }}/' PeaversUI.toc
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add PeaversUI.toc
+          git commit -m "Update TOC version to ${{ steps.get_tag.outputs.TAG }}"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
