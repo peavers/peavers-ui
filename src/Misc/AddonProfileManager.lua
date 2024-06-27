@@ -2,19 +2,24 @@ AddonProfileManager = {
     DEFAULT_PROFILE_NAME = "PeaversUI"
 }
 
-function AddonProfileManager:ApplySettings(addonName, savedVariablesName, settings, callback)
-    local profileName = profileName or self.DEFAULT_PROFILE_NAME
+function AddonProfileManager:CheckAddonAndVariables(addonName, savedVariablesName)
+	if not IsAddOnLoaded(addonName) then
+		print("Addon not loaded: " .. addonName)
+		return nil
+	end
+	local savedVariables = _G[savedVariablesName]
+	if not savedVariables then
+		print(addonName .. " saved variables not found")
+		return nil
+	end
+	return savedVariables
+end
 
-    if not IsAddOnLoaded(addonName) then
-        print("Addon not loaded: " .. addonName)
-        return
-    end
+function AddonProfileManager:ApplySettings(addonName, savedVariablesName, settings, postSaveCallback)
+	local savedVariables = self:CheckAddonAndVariables(addonName, savedVariablesName)
+	if not savedVariables then return end
 
-    local savedVariables = _G[savedVariablesName]
-    if not savedVariables then
-        print(addonName .. " saved variables not found")
-        return
-    end
+	local profileName = self.DEFAULT_PROFILE_NAME
 
     -- Standard profile handling
     if not savedVariables["profiles"] then
@@ -28,8 +33,8 @@ function AddonProfileManager:ApplySettings(addonName, savedVariablesName, settin
     local characterKey = UnitName("player") .. " - " .. GetRealmName()
     savedVariables["profileKeys"][characterKey] = profileName
 
-    -- Call the addon-specific callback if provided
-    if callback and type(callback) == "function" then
-        callback(savedVariables, profileName, settings)
+    -- Call the addon-specific post-save callback if provided
+    if postSaveCallback and type(postSaveCallback) == "function" then
+        postSaveCallback(savedVariables, profileName, settings)
     end
 end

@@ -35,7 +35,7 @@ addonTable.supportedAddons = {
     { name = "Bartender4", func = "ApplyBartender4Settings" },
     { name = "Cell", func = "ApplyCellSettings" },
     { name = "Details! Damage Meter", func = "ApplyDetailsSettings" },
-    { name = "LS Glass", func = "ApplyLSGlassSettings" },
+    { name = "LS Glass", func = "ApplyLsGlassSettings" },
     { name = "OmniCD", func = "ApplyOmniCDSettings" },
     { name = "Plater", func = "ApplyPlaterSettings" },
     { name = "SexyMap", func = "ApplySexyMapSettings" },
