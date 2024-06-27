@@ -38,7 +38,7 @@ function UI.LoadWeakAurasPanel()
     -- WeakAuras panel content
     local waTitle = weakaurasPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
     waTitle:SetPoint("TOPLEFT", 16, -16)
-    waTitle:SetText("WeakAuras Import")
+    waTitle:SetText("WeakAuras")
 
     local waSubtitle = weakaurasPanel:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     waSubtitle:SetPoint("TOPLEFT", 16, -36)
