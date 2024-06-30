@@ -80,6 +80,9 @@ jobs:
       - name: Checkout tag
         run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
 
+      - name: Set GITHUB_EVENT_NAME to push
+        run: echo "GITHUB_EVENT_NAME=push" >> $GITHUB_ENV
+
       - name: Package and release
         uses: BigWigsMods/packager@v2
         env:
