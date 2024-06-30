@@ -4,14 +4,11 @@ on:
     branches:
       - master
 jobs:
-  update-version-tag-and-release:
+  update-version-tag:
     runs-on: ubuntu-latest
     outputs:
       new_version: ${{ steps.get_version.outputs.new_version }}
       new_tag: ${{ steps.create_tag.outputs.new_tag }}
-    env:
-      CF_API_KEY: ${{ secrets.CF_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -52,18 +49,8 @@ jobs:
           git push origin $NEW_TAG
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.create_tag.outputs.new_tag }}
-          release_name: Release ${{ steps.get_version.outputs.new_version }}
-          draft: false
-          prerelease: false
-
   package-and-release:
-    needs: update-version-tag-and-release
+    needs: update-version-tag
     runs-on: ubuntu-latest
     env:
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
@@ -78,10 +65,7 @@ jobs:
         run: git fetch --tags
 
       - name: Checkout tag
-        run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
-
-      - name: Checkout tag again to ensure correct context
-        run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
+        run: git checkout ${{ needs.update-version-tag.outputs.new_tag }}
 
       - name: Package and release
         uses: BigWigsMods/packager@v2
