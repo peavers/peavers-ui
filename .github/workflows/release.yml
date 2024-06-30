@@ -19,6 +19,19 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get the latest release version
+        id: get_latest_release
+        run: |
+          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo "Latest tag: $latest_tag"
+          if [[ -z "$latest_tag" ]]; then
+            new_version="1.0.0"
+          else
+            new_version=$(echo $latest_tag | awk -F. -v OFS=. '{$NF++;print}')
+          fi
+          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "Latest version is $new_version"
+
       - name: Get current version from TOC
         id: get_current_version
         run: |
@@ -28,21 +41,20 @@ jobs:
       - name: Update TOC version
         id: update_toc
         run: |
-          NEW_VERSION="1.0.${{ github.run_number }}"
-          sed -i "s/^## Version: .*$/## Version: $NEW_VERSION/" PeaversUI.toc
-          echo "new_version=$NEW_VERSION" >> $GITHUB_ENV
+          sed -i "s/^## Version: .*$/## Version: ${{ env.new_version }}/" PeaversUI.toc
+          echo "new_version=${{ env.new_version }}" >> $GITHUB_ENV
 
       - name: Commit TOC changes
         run: |
           git config user.name "Chris Turner"
           git config user.email "peavers@gmail.com"
           git add PeaversUI.toc
-          git commit -m "chore: Update TOC version to $NEW_VERSION"
+          git commit -m "chore: Update TOC version to ${{ env.new_version }}"
           git push
 
       - name: Create and push tag
         run: |
-          TAG_NAME="PeaversUI-$NEW_VERSION"
+          TAG_NAME="PeaversUI-${{ env.new_version }}"
           git tag $TAG_NAME
           git push origin $TAG_NAME
 
