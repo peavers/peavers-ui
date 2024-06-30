@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       new_version: ${{ steps.get_version.outputs.new_version }}
+      new_tag: ${{ steps.create_tag.outputs.new_tag }}
     env:
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,16 +41,18 @@ jobs:
           git commit -m "chore: Update TOC version to ${{ steps.get_version.outputs.new_version }}"
           git push
       - name: Create and push tag
+        id: create_tag
         run: |
-          TAG_NAME="PeaversUI-${{ steps.get_version.outputs.new_version }}"
-          git tag $TAG_NAME
-          git push origin $TAG_NAME
+          NEW_TAG="PeaversUI-${{ steps.get_version.outputs.new_version }}"
+          git tag $NEW_TAG
+          git push origin $NEW_TAG
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: PeaversUI-${{ steps.get_version.outputs.new_version }}
+          tag_name: ${{ steps.create_tag.outputs.new_tag }}
           release_name: Release ${{ steps.get_version.outputs.new_version }}
           draft: false
           prerelease: false
@@ -66,6 +69,8 @@ jobs:
           fetch-depth: 0
       - name: Fetch all tags
         run: git fetch --tags
+      - name: Checkout tag
+        run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
       - name: Package and release
         uses: BigWigsMods/packager@v2
         with:
@@ -73,4 +78,3 @@ jobs:
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
-          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
