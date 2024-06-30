@@ -50,8 +50,9 @@ jobs:
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Trigger packaging workflow
-        uses: repo-sync/github-action@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: packaging.yml
-          ref: ${{ needs.update-version-and-tag.outputs.new_tag }}
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/<your-username>/<your-repository>/actions/workflows/packaging.yml/dispatches \
+          -d '{"ref":"master"}'
