@@ -68,7 +68,9 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Create Package
+      - name: Create Package and Release on CurseForge
         uses: BigWigsMods/packager@v2
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
+        with:
+          version: ${{ env.new_version }}
