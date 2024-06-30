@@ -4,573 +4,573 @@ addonTable.DB = addonTable.DB or {}
 local talentData = {
 	["warrior"] = {
 		["arms"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BcEAAAAAAAAAAAAAAAAAAAAAAAQplIRkQSiWpEJAAAAQQEiCJRUEBIikEaSECwBQkAAAAAAAAQiWiIgQ0QA",
-				popularity = "N/A",
+				popularity = "44.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "576.1k"
 			},
 			Raiding = {
 				talentString = "BcEAAAAAAAAAAAAAAAAAAAAAAAQRikEJkDko0KJBAAAAEEhoQAFRCECJhmEhAESIAAAAAAAAkEkkACRDB",
-				popularity = "N/A",
+				popularity = "41.9%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "41.9%"
 			},
 		},
 		["fury"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BgEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQggSCQEEiIJRBEiQEEJJplEJJhkQSIRKBIJSEAAAEQQA",
-				popularity = "N/A",
+				popularity = "83.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "510.2k"
 			},
 			Raiding = {
 				talentString = "BgEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQggSQQEEiIJRBSICEOQIJplEJJhkQSIRKBIJSEAAAEQQA",
-				popularity = "N/A",
+				popularity = "64.2%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "64.2%"
 			},
 		},
 		["protection"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BkEAAAAAAAAAAAAAAAAAAAAAAIQAAAAgkkQSik0SKJJpBRgQRiElkEACJBNkkgAEJAAAAAAAQSAAKtGAIA",
-				popularity = "N/A",
+				popularity = "20.5%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "295.5k"
 			},
 			Raiding = {
 				talentString = "BkEAAAAAAAAAAAAAAAAAAAAAAIQAAAAgkkQSCSLpkkkWDRgQRAlkEgISSCNkkAcAOQIAAAAAAAQSAAHo0aAgA",
-				popularity = "N/A",
+				popularity = "11.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "11.8%"
 			},
 		},
 	},
 	["paladin"] = {
 		["holy"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BEEAAAAAAAAAAAAAAAAAAAAAAAABAABAEBAAIAtIFkSJSSrISLJUSSo0aiGIJFBJJEpAiIAgAANgQigA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "5.8%",
+				hps = "129.2k",
+				dps = "83.9k"
 			},
 			Raiding = {
 				talentString = "BEEAAAAAAAAAAAAAAAAAAAAAAAAAAQAARAAACQLJFoUik0ahUSClkEKaiGQSJBJJEpgmkIAgAAFgQSCC",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "24.2%",
+				hps = "24.2%",
+				dps = "50.3k"
 			},
 		},
 		["protection"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BIEAAAAAAAAAAAAAAAAAAAAAA0SaJkiodAtIJKNJJSEJSAAACAAAAAAAoJkkUEIBJpIg0AgIQCAgAE",
-				popularity = "N/A",
+				popularity = "22.1%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "248.8k"
 			},
 			Raiding = {
 				talentString = "BIEAAAAAAAAAAAAAAAAAAAAAA0SaJkiodAtkko0kkIRkIBAAIAAAAAAAACJJEIJkkigIAgIQCAgAE",
-				popularity = "N/A",
+				popularity = "4.1%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "4.1%"
 			},
 		},
 		["retribution"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BYEAAAAAAAAAAAAAAAAAAAAAAAAAAQAgIUKtSSr0koIJpIJAAAAAAQaQSCBSCRKRICRKJahISgoUoBAA",
-				popularity = "N/A",
+				popularity = "62.2%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "576.1k"
 			},
 			Raiding = {
 				talentString = "BYEAAAAAAAAAAAAAAAAAAAAAAAAAAQAgIalSrk0KNiWkkWSAAAAAAABkkQgkQkSESCpkSChICJiShGAA",
-				popularity = "N/A",
+				popularity = "63.2%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "63.2%"
 			},
 		},
 	},
 	["hunter"] = {
 		["beast-mastery"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "B0PAAAAAAAAAAAAAAAAAAAAAA4AQaJBgCBAAAAAAAAAAgGRKSoFSCHISkEKQEtcgEJJRoFJJB",
-				popularity = "N/A",
+				popularity = "74.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "548.2k"
 			},
 			Raiding = {
 				talentString = "B0PAAAAAAAAAAAAAAAAAAAAAA4AgWSAoQAAAAAAAAAAAoBhEaikQCJJoJkWUSSkIEaRSSA",
-				popularity = "N/A",
+				popularity = "50.1%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "50.1%"
 			},
 		},
 		["marksmanship"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "B4PAAAAAAAAAAAAAAAAAAAAAA4ABaBgoggAAAAAEJJHQSCICJJtEp1ERUkimQiESIhGAAAAA",
-				popularity = "N/A",
+				popularity = "54.0%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "561.8k"
 			},
 			Raiding = {
 				talentString = "B4PAAAAAAAAAAAAAAAAAAAAAA4ABaBgoggAAAAAEJJHQSCICJJtEpVER0kimQiESIhGAAAAA",
-				popularity = "N/A",
+				popularity = "25.5%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "25.5%"
 			},
 		},
 		["survival"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "B8PAAAAAAAAAAAAAAAAAAAAAA4ABaBJEKBBJJJplkgDQkEkIAAAAAQEp0kiGkIhESoBAAAAA",
-				popularity = "N/A",
+				popularity = "11.1%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "322.6k"
 			},
 			Raiding = {
 				talentString = "B8PAAAAAAAAAAAAAAAAAAAAAAIhWaBJBKBBJkEJkIEJhkkAAAAAABRRoJkIBhgCAAAAA",
-				popularity = "N/A",
+				popularity = "29.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "29.8%"
 			},
 		},
 	},
 	["rogue"] = {
 		["assassination"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BMQAAAAAAAAAAAAAAAAAAAAAAEJJJJSAAAAAAASJJSLJAAAAAAQrEJIBSSKplEBJRSQSiWJJBA",
-				popularity = "N/A",
+				popularity = "38.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "495.6k"
 			},
 			Raiding = {
 				talentString = "BMQAAAAAAAAAAAAAAAAAAAAAAEJJhkEEAAAAAASJJSJJAAAAAAgWSCSgkkSaJREEJJJRSTJSAA",
-				popularity = "N/A",
+				popularity = "46.9%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "46.9%"
 			},
 		},
 		["outlaw"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BQQAAAAAAAAAAAAAAAAAAAAAAAAElEEJhkkESIRSSolkElkItkAAAAAAAtSkwBSSUgSaBAAAQSCA",
-				popularity = "N/A",
+				popularity = "59.3%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "558.1k"
 			},
 			Raiding = {
 				talentString = "BQQAAAAAAAAAAAAAAAAAAAAAAAAElEEJhkkESIRSSolkElkItkAAAAAAAtWSCHIJRBKpFAAAARCA",
-				popularity = "N/A",
+				popularity = "27.9%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "27.9%"
 			},
 		},
 		["subtlety"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BUQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAgUSSSJBkSRkkIJxBSSSkItIi0KJJSSCgSaBAAAQEEA",
-				popularity = "N/A",
+				popularity = "11.9%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "334.2k"
 			},
 			Raiding = {
 				talentString = "BUQAAAAAAAAAAAAAAAAAAAAAAAAEEAAAAAASJJJlERSKFRICxBSSSISLSS0aJJSSCgSaBAAAgEEA",
-				popularity = "N/A",
+				popularity = "74.1%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "74.1%"
 			},
 		},
 	},
 	["priest"] = {
 		["discipline"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BAQAAAAAAAAAAAAAAAAAAAAAAAAapEJBtISSk0kWSSSIAAAAAAAAAAAQRJN0SSQKEikIkCtEJBlAA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "28.1%",
+				hps = "135.6k",
+				dps = "147.4k"
 			},
 			Raiding = {
 				talentString = "BAQAAAAAAAAAAAAAAAAAAAAAAAAapFRQLikEJkSSSSIBAAAAAAAAAAAFl0Og0SCkChgIki0SEBlIA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "17.3%",
+				hps = "17.3%",
+				dps = "85.6k"
 			},
 		},
 		["holy"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BEQAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAHoJSJBJREIRCRJJpEAAAAAt0OAlkApQkIJioUIJJhUAA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "26.1%",
+				hps = "136.1k",
+				dps = "151.7k"
 			},
 			Raiding = {
 				talentString = "BEQAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgWAtkkkEJkWEJBlEKBAAAAUUSL0SSQKESSigSBSESBA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "51.6%",
+				hps = "51.6%",
+				dps = "44.9k"
 			},
 		},
 		["shadow"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BIQAAAAAAAAAAAAAAAAAAAAAAECCBAAAAAAAAAAAAISKSkk00IJJJBlQJNSSCpRIiIki0CJBFkA",
-				popularity = "N/A",
+				popularity = "77.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "798.1k"
 			},
 			Raiding = {
 				talentString = "BIQAAAAAAAAAAAAAAAAAAAAAAggkEAAAAAAAAAAAAgQKOAJJt0IJJJRigUIJJRaEIiQKSLkEUQC",
-				popularity = "N/A",
+				popularity = "33.6%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "33.6%"
 			},
 		},
 	},
 	["death-knight"] = {
 		["blood"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BoPAAAAAAAAAAAAAAAAAAAAAAAikkIRSiIiERkISIIJSkAAAAAAIJJBSLhkEAAQkkkEAAAA",
-				popularity = "N/A",
+				popularity = "19.6%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "290.6k"
 			},
 			Raiding = {
 				talentString = "BoPAAAAAAAAAAAAAAAAAAAAAAACJIkkIHIiERkISIIJJRCAAAAAkIJ5ARk0EiEAAQIJJJAAAA",
-				popularity = "N/A",
+				popularity = "29.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "29.8%"
 			},
 		},
 		["frost"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BsPAAAAAAAAAAAAAAAAAAAAAAICgIkkIHIiERkIJhgISkkEJwBIJRkkkkkSSAAAAAAAAAAAAA",
-				popularity = "N/A",
+				popularity = "77.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "642.5k"
 			},
 			Raiding = {
 				talentString = "BsPAAAAAAAAAAAAAAAAAAAAAAICASIJRiIREikECJSSEJIIhkERSSSSKJBAAAAAAAAAAAA",
-				popularity = "N/A",
+				popularity = "31.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "31.4%"
 			},
 		},
 		["unholy"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BwPAAAAAAAAAAAAAAAAAAAAAAAAiQSicgISERiEhgkIRCAAAAAAAAAKkEhIJpBAQiUEJJJSSA",
-				popularity = "N/A",
+				popularity = "72.0%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "603.0k"
 			},
 			Raiding = {
 				talentString = "BwPAAAAAAAAAAAAAAAAAAAAAAAAIikEJiERISECJJJRAAAAAAAAAgSSSICAAIJh0SkkkIJA",
-				popularity = "N/A",
+				popularity = "77.2%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "77.2%"
 			},
 		},
 	},
 	["shaman"] = {
 		["elemental"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAg0SrIJlkACSjSUSLJOQOAAAAAAgSAJlkQKog0SSaKBKBREIA",
-				popularity = "N/A",
+				popularity = "69.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "600.7k"
 			},
 			Raiding = {
 				talentString = "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgUSrUSCgDk0SShSgkkEBAAAAAoEQSJJoJg0SSahACJSgA",
-				popularity = "N/A",
+				popularity = "37.0%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "37.0%"
 			},
 		},
 		["enhancement"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BcQAAAAAAAAAAAAAAAAAAAAAAIRSKRCCJhkk0QJRAAAAAAAAAAAAAKRIJkokikCSRSKAKBxBEIB",
-				popularity = "N/A",
+				popularity = "81.5%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "507.5k"
 			},
 			Raiding = {
 				talentString = "BcQAAAAAAAAAAAAAAAAAAAAAAIJJpEJgkESSSDlEAAAAAAAAAAAAAKRIJkgiAJNJpEBQOQCBSA",
-				popularity = "N/A",
+				popularity = "81.0%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "81.0%"
 			},
 		},
 		["restoration"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpJJJJRSJpIRJBNIpEESJJKpgCSLBgUKJRkEIA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "9.8%",
+				hps = "140.7k",
+				dps = "156.0k"
 			},
 			Raiding = {
 				talentString = "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIRSiSCplk0kU0okkSQQJBAINJppkIIJRSQLA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "30.2%",
+				hps = "30.2%",
+				dps = "64.5k"
 			},
 		},
 	},
 	["mage"] = {
 		["arcane"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "B4DAAAAAAAAAAAAAAAAAAAAAAIJIl0QSkkiASCRkESEIJJk0SCAAAAAAAAAAAISSSCJJJCJA",
-				popularity = "N/A",
+				popularity = "69.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "473.4k"
 			},
 			Raiding = {
 				talentString = "B4DAAAAAAAAAAAAAAAAAAAAAAQEUSDJSkigIJERSIRCkEk0SCAAAAAAAAAAAISSSSkkkEIA",
-				popularity = "N/A",
+				popularity = "40.3%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "40.3%"
 			},
 		},
 		["fire"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "B8DAAAAAAAAAAAAAAAAAAAAAAIJIFNk4AJp5AgkQEJpIJAAAAAAAAAiISSClElkESSSSaAAAg0C",
-				popularity = "N/A",
+				popularity = "71.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "644.7k"
 			},
 			Raiding = {
 				talentString = "B8DAAAAAAAAAAAAAAAAAAAAAAQCSRDJRSKCcgkQEJhkAAAAAAAAAgIkIOQJ5AlkkkkkkkGAAAINA",
-				popularity = "N/A",
+				popularity = "51.5%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "51.5%"
 			},
 		},
 		["frost"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BAEAAAAAAAAAAAAAAAAAAAAAAIJIFNkQSKOAikQERKJJAAAJkIhkkkkIJJJRSAAAAAAAAAgIA",
-				popularity = "N/A",
+				popularity = "73.1%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "631.6k"
 			},
 			Raiding = {
 				talentString = "BAEAAAAAAAAAAAAAAAAAAAAAAQCUSzBkQkigIJERSkEAAASJRSIRSSIJJJJJBAAAAAAAAAiA",
-				popularity = "N/A",
+				popularity = "52.5%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "52.5%"
 			},
 		},
 	},
 	["warlock"] = {
 		["affliction"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BkQAAAAAAAAAAAAAAAAAAAAAAAHIJJRSCkmCRKHIJhUCAAAAUAAAAAAAIENSSkIJJaJJBAkA",
-				popularity = "N/A",
+				popularity = "66.9%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "502.7k"
 			},
 			Raiding = {
 				talentString = "BkQAAAAAAAAAAAAAAAAAAAAAAAHIJJRSCkmCkWSSIlAAAAANAAAAAAASEtQkkIJSaJRAAJA",
-				popularity = "N/A",
+				popularity = "56.6%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "56.6%"
 			},
 		},
 		["demonology"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BoQAAAAAAAAAAAAAAAAAAAAAAcACSSkkApooEpdgkESLAAAAAABikkWERSikSaJRCBAAAAAARC",
-				popularity = "N/A",
+				popularity = "52.0%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "553.6k"
 			},
 			Raiding = {
 				talentString = "BoQAAAAAAAAAAAAAAAAAAAAAAggkEJJQaKQaJJhUCAAAAAIBSikSEhkIpolkkQAAAAAAQiA",
-				popularity = "N/A",
+				popularity = "27.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "27.4%"
 			},
 		},
 		["destruction"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BsQAAAAAAAAAAAAAAAAAAAAAAAIJRSCRaKEpJJRSJkkQJSElgWpIJAAAAAAAAAAAACokkkA",
-				popularity = "N/A",
+				popularity = "57.1%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "711.0k"
 			},
 			Raiding = {
 				talentString = "BsQAAAAAAAAAAAAAAAAAAAAAAggkEJJQaKQaJJhUiWwBUSSkAalikAAAAAAAAAAAAIJokEJA",
-				popularity = "N/A",
+				popularity = "31.6%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "31.6%"
 			},
 		},
 	},
 	["monk"] = {
 		["brewmaster"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAAAgUiWLJJQSSpRAAAASJUSiEJ0KkkSOQSJBENJSLtSIA",
-				popularity = "N/A",
+				popularity = "38.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "313.7k"
 			},
 			Raiding = {
 				talentString = "BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAAAQShWJJJQSSrRAAAASLSRiEJUKSSaJJlEgWjIt0KhAA",
-				popularity = "N/A",
+				popularity = "39.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "39.4%"
 			},
 		},
 		["mistweaver"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "B4QAAAAAAAAAAAAAAAAAAAAAA0SKFJJHQUKtIkSEJNIlUEAAAAAAAAAAAAgASSIJRrIJRSSDOABAQkGA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "23.9%",
+				hps = "157.5k",
+				dps = "126.7k"
 			},
 			Raiding = {
 				talentString = "B4QAAAAAAAAAAAAAAAAAAAAAAUiCSkoUaNCpEJJlAt0aBAAAAAAAAAAAAk0SUQIJRpAQSLJJRAAEaE",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "54.2%",
+				hps = "54.2%",
+				dps = "19.7k"
 			},
 		},
 		["windwalker"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARSkkElISEAAAAQkkUIRgkkIkUSSIJRrIJRyBSDAAAQD",
-				popularity = "N/A",
+				popularity = "62.2%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "540.5k"
 			},
 			Raiding = {
 				talentString = "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhEJJRLiEBAAAASkkUAkkkkk0SCERCtikQSSLBBAAQD",
-				popularity = "N/A",
+				popularity = "65.6%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "65.6%"
 			},
 		},
 	},
 	["druid"] = {
 		["balance"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAJJigkAkESSSBaJOQkkUSCJJEaSLSkENAK0AE",
-				popularity = "N/A",
+				popularity = "51.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "610.1k"
 			},
 			Raiding = {
 				talentString = "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAJJigkQQSikIFolIJSSJRTcgQol0SSERDgCAE",
-				popularity = "N/A",
+				popularity = "55.5%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "55.5%"
 			},
 		},
 		["feral"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEJt0kQSSSSJtDgWSkIJAAAAAAKAkkAIJkkkESSUCa4AAAAAAAIBAA",
-				popularity = "N/A",
+				popularity = "36.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "480.0k"
 			},
 			Raiding = {
 				talentString = "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAACSLioIJJJl0IaJJxBSCAAAAAgGAJCAQSSSIJUSolkAAAAAAgEAAA",
-				popularity = "N/A",
+				popularity = "35.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "35.8%"
 			},
 		},
 		["guardian"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQikISJiEBJpIhkUAAJJASISSSikIFhGCAAAAAQEQChA",
-				popularity = "N/A",
+				popularity = "31.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "275.4k"
 			},
 			Raiding = {
 				talentString = "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQiIJJlElICiiESShCAJCCSgkkkkkIFoFOAAAAAAQEQQCA",
-				popularity = "N/A",
+				popularity = "16.6%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "16.6%"
 			},
 		},
 		["restoration"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BkGAAAAAAAAAAAAAAAAAAAAAA0IJRDJJpIlkIIFaaRSAAAAAAAAAAAAABIJJIIhAJRSSSBBAAAAAAiAAgkA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "24.5%",
+				hps = "152.0k",
+				dps = "142.8k"
 			},
 			Raiding = {
 				talentString = "BkGAAAAAAAAAAAAAAAAAAAAAA0ikElWkIhUQiIFhWkEAAAAAAAAAAAAoAIJCCSAkESiUIplIAAAAAgIAAIC",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "65.0%",
+				hps = "65.0%",
+				dps = "30.3k"
 			},
 		},
 	},
 	["demon-hunter"] = {
 		["havoc"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BEkAAAAAAAAAAAAAAAAAAAAAAIJJRSCSSiIhkkAAAAAAASLEJkk0kkWaREIho0ikEB",
-				popularity = "N/A",
+				popularity = "23.7%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "552.1k"
 			},
 			Raiding = {
 				talentString = "BEkAAAAAAAAAAAAAAAAAAAAAAIJRkkgkkISgkAAAAAAASLEJRSSLJplWEBSIKtIJRA",
-				popularity = "N/A",
+				popularity = "49.9%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "49.9%"
 			},
 		},
 		["vengeance"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BUkAAAAAAAAAAAAAAAAAAAAAAAASiIJCJhkESIRLJSiWSISQEplk0kEJBBAAAAkkA",
-				popularity = "N/A",
+				popularity = "29.3%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "319.0k"
 			},
 			Raiding = {
 				talentString = "BUkAAAAAAAAAAAAAAAAAAAAAAAAiIJJikgkERISJJEaJSSIhkEJRLSIBBAAAAkkEA",
-				popularity = "N/A",
+				popularity = "11.8%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "11.8%"
 			},
 		},
 	},
 	["evoker"] = {
 		["devastation"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiEIRSkEkkGCJSkESLKJJJhIpkAEJtIJiEIQA",
-				popularity = "N/A",
+				popularity = "74.2%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "561.7k"
 			},
 			Raiding = {
 				talentString = "BsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSCSaSQABikIRSItokkkEikWCIRSLSikEIQA",
-				popularity = "N/A",
+				popularity = "23.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "23.4%"
 			},
 		},
 		["preservation"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BwbBAAAAAAAAAAAAAAAAAAAAAAAAAAASSSkSgIJRKSSEQAAQSkkEiIJQEAAAgkkQSLJiQAA",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "31.1%",
+				hps = "156.7k",
+				dps = "146.6k"
 			},
 			Raiding = {
 				talentString = "BwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAIJplSOACJRKIpFJRAAQSkIIikASAAAASSCJSiIJBAB",
-				popularity = "N/A",
-				hps = "N/A",
-				dps = "N/A"
+				popularity = "12.7%",
+				hps = "12.7%",
+				dps = "54.7k"
 			},
 		},
 		["augmentation"] = {
-			Mythic-plus = {
+			MythicPlus = {
 				talentString = "BEcBAAAAAAAAAAAAAAAAAAAAAQSJpFJJKhkkSCSSSDAAAAAAAAJBJaiIhQkAAAAAJJtIJJSCENB",
-				popularity = "N/A",
+				popularity = "33.4%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "465.9k"
 			},
 			Raiding = {
 				talentString = "BEcBAAAAAAAAAAAAAAAAAAAAAQikWkkoESSkESSSDAAAAAEAAkEAISISSCAAAASk0ikkIJQ0SA",
-				popularity = "N/A",
+				popularity = "28.2%",
 				hps = "N/A",
-				dps = "N/A"
+				dps = "28.2%"
 			},
 		},
 	},
