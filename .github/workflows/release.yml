@@ -44,7 +44,17 @@ jobs:
           sed -i "s/^## Version: .*$/## Version: ${{ env.new_version }}/" PeaversUI.toc
           echo "new_version=${{ env.new_version }}" >> $GITHUB_ENV
 
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --exit-code PeaversUI.toc
+          if [ $? -ne 0 ]; then
+            echo "has_changes=true" >> $GITHUB_ENV
+          else
+            echo "has_changes=false" >> $GITHUB_ENV
+
       - name: Commit TOC changes
+        if: env.has_changes == 'true'
         run: |
           git config user.name "Chris Turner"
           git config user.email "peavers@gmail.com"
