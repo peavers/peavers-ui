@@ -18,13 +18,18 @@ jobs:
         id: get_latest_tag
         run: |
           git fetch --tags
-          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "PeaversUI-0.0.0")
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "PeaversUI-1.0.0")
           echo "Latest tag: $latest_tag"
           if [[ $latest_tag == PeaversUI-* ]]; then
             version_number=${latest_tag#PeaversUI-}
-            new_version=$(echo $version_number | awk -F. -v OFS=. '{$NF++;print}')
+            IFS='.' read -ra VERSION_PARTS <<< "$version_number"
+            MAJOR="${VERSION_PARTS[0]}"
+            MINOR="${VERSION_PARTS[1]}"
+            PATCH="${VERSION_PARTS[2]}"
+            PATCH=$((PATCH + 1))
+            new_version="${MAJOR}.${MINOR}.${PATCH}"
           else
-            new_version="1.0.0"
+            new_version="1.0.1"
           fi
           new_tag="PeaversUI-$new_version"
           echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
