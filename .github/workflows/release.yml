@@ -67,6 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -76,10 +77,12 @@ jobs:
         run: git fetch --tags
       - name: Checkout tag
         run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
+      - name: Set environment variables
+        run: |
+          echo "CF_API_KEY=${{ secrets.CF_API_KEY }}" >> $GITHUB_ENV
+          echo "GITHUB_OAUTH=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
       - name: Package and release
         uses: BigWigsMods/packager@v2
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: package
