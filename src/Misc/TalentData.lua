@@ -15,6 +15,7 @@ local talentData = {
 				talentString = "BcEAAAAAAAAAAAAAAAAAAAAAAAQRikEJkDko0KJBAAAAEEhoQAFRCECJhmEhAESIAAAAAAAAkEkkACRDB",
 				popularity = "41.9%",
 				dps = "41.9%",
+				hps = "N/A",
 			},
 		},
 		["fury"] = {
@@ -29,6 +30,7 @@ local talentData = {
 				talentString = "BgEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQggSQQEEiIJRBSICEOQIJplEJJhkQSIRKBIJSEAAAEQQA",
 				popularity = "64.2%",
 				dps = "64.2%",
+				hps = "N/A",
 			},
 		},
 		["protection"] = {
@@ -43,6 +45,7 @@ local talentData = {
 				talentString = "BkEAAAAAAAAAAAAAAAAAAAAAAIQAAAAgkkQSCSLpkkkWDRgQRAlkEgISSCNkkAcAOQIAAAAAAAQSAAHo0aAgA",
 				popularity = "11.8%",
 				dps = "11.8%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -59,6 +62,7 @@ local talentData = {
 				talentString = "BEEAAAAAAAAAAAAAAAAAAAAAAAAAAQAARAAACQLJFoUik0ahUSClkEKaiGQSJBJJEpgmkIAgAAFgQSCC",
 				popularity = "24.2%",
 				dps = "50.3k",
+				hps = "24.2%",
 			},
 		},
 		["protection"] = {
@@ -73,6 +77,7 @@ local talentData = {
 				talentString = "BIEAAAAAAAAAAAAAAAAAAAAAA0SaJkiodAtkko0kkIRkIBAAIAAAAAAAACJJEIJkkigIAgIQCAgAE",
 				popularity = "4.1%",
 				dps = "4.1%",
+				hps = "N/A",
 			},
 		},
 		["retribution"] = {
@@ -87,6 +92,7 @@ local talentData = {
 				talentString = "BYEAAAAAAAAAAAAAAAAAAAAAAAAAAQAgIalSrk0KNiWkkWSAAAAAAABkkQgkQkSESCpkSChICJiShGAA",
 				popularity = "63.2%",
 				dps = "63.2%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -103,6 +109,7 @@ local talentData = {
 				talentString = "B0PAAAAAAAAAAAAAAAAAAAAAA4AgWSAoQAAAAAAAAAAAoBhEaikQCJJoJkWUSSkIEaRSSA",
 				popularity = "50.1%",
 				dps = "50.1%",
+				hps = "N/A",
 			},
 		},
 		["marksmanship"] = {
@@ -117,6 +124,7 @@ local talentData = {
 				talentString = "B4PAAAAAAAAAAAAAAAAAAAAAA4ABaBgoggAAAAAEJJHQSCICJJtEpVER0kimQiESIhGAAAAA",
 				popularity = "25.5%",
 				dps = "25.5%",
+				hps = "N/A",
 			},
 		},
 		["survival"] = {
@@ -131,6 +139,7 @@ local talentData = {
 				talentString = "B8PAAAAAAAAAAAAAAAAAAAAAAIhWaBJBKBBJkEJkIEJhkkAAAAAABRRoJkIBhgCAAAAA",
 				popularity = "29.8%",
 				dps = "29.8%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -147,6 +156,7 @@ local talentData = {
 				talentString = "BMQAAAAAAAAAAAAAAAAAAAAAAEJJhkEEAAAAAASJJSJJAAAAAAgWSCSgkkSaJREEJJJRSTJSAA",
 				popularity = "46.9%",
 				dps = "46.9%",
+				hps = "N/A",
 			},
 		},
 		["outlaw"] = {
@@ -161,6 +171,7 @@ local talentData = {
 				talentString = "BQQAAAAAAAAAAAAAAAAAAAAAAAAElEEJhkkESIRSSolkElkItkAAAAAAAtWSCHIJRBKpFAAAARCA",
 				popularity = "27.9%",
 				dps = "27.9%",
+				hps = "N/A",
 			},
 		},
 		["subtlety"] = {
@@ -175,6 +186,7 @@ local talentData = {
 				talentString = "BUQAAAAAAAAAAAAAAAAAAAAAAAAEEAAAAAASJJJlERSKFRICxBSSSISLSS0aJJSSCgSaBAAAgEEA",
 				popularity = "74.1%",
 				dps = "74.1%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -191,6 +203,7 @@ local talentData = {
 				talentString = "BAQAAAAAAAAAAAAAAAAAAAAAAAAapFRQLikEJkSSSSIBAAAAAAAAAAAFl0Og0SCkChgIki0SEBlIA",
 				popularity = "17.3%",
 				dps = "85.6k",
+				hps = "17.3%",
 			},
 		},
 		["holy"] = {
@@ -205,6 +218,7 @@ local talentData = {
 				talentString = "BEQAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgWAtkkkEJkWEJBlEKBAAAAUUSL0SSQKESSigSBSESBA",
 				popularity = "51.6%",
 				dps = "44.9k",
+				hps = "51.6%",
 			},
 		},
 		["shadow"] = {
@@ -219,6 +233,7 @@ local talentData = {
 				talentString = "BIQAAAAAAAAAAAAAAAAAAAAAAggkEAAAAAAAAAAAAgQKOAJJt0IJJJRigUIJJRaEIiQKSLkEUQC",
 				popularity = "33.6%",
 				dps = "33.6%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -235,6 +250,7 @@ local talentData = {
 				talentString = "BoPAAAAAAAAAAAAAAAAAAAAAAACJIkkIHIiERkISIIJJRCAAAAAkIJ5ARk0EiEAAQIJJJAAAA",
 				popularity = "29.8%",
 				dps = "29.8%",
+				hps = "N/A",
 			},
 		},
 		["frost"] = {
@@ -249,6 +265,7 @@ local talentData = {
 				talentString = "BsPAAAAAAAAAAAAAAAAAAAAAAICASIJRiIREikECJSSEJIIhkERSSSSKJBAAAAAAAAAAAA",
 				popularity = "31.4%",
 				dps = "31.4%",
+				hps = "N/A",
 			},
 		},
 		["unholy"] = {
@@ -263,6 +280,7 @@ local talentData = {
 				talentString = "BwPAAAAAAAAAAAAAAAAAAAAAAAAIikEJiERISECJJJRAAAAAAAAAgSSSICAAIJh0SkkkIJA",
 				popularity = "77.2%",
 				dps = "77.2%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -279,6 +297,7 @@ local talentData = {
 				talentString = "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgUSrUSCgDk0SShSgkkEBAAAAAoEQSJJoJg0SSahACJSgA",
 				popularity = "37.0%",
 				dps = "37.0%",
+				hps = "N/A",
 			},
 		},
 		["enhancement"] = {
@@ -293,6 +312,7 @@ local talentData = {
 				talentString = "BcQAAAAAAAAAAAAAAAAAAAAAAIJJpEJgkESSSDlEAAAAAAAAAAAAAKRIJkgiAJNJpEBQOQCBSA",
 				popularity = "81.0%",
 				dps = "81.0%",
+				hps = "N/A",
 			},
 		},
 		["restoration"] = {
@@ -307,6 +327,7 @@ local talentData = {
 				talentString = "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIRSiSCplk0kU0okkSQQJBAINJppkIIJRSQLA",
 				popularity = "30.2%",
 				dps = "64.5k",
+				hps = "30.2%",
 			},
 		},
 	},
@@ -323,6 +344,7 @@ local talentData = {
 				talentString = "B4DAAAAAAAAAAAAAAAAAAAAAAQEUSDJSkigIJERSIRCkEk0SCAAAAAAAAAAAISSSSkkkEIA",
 				popularity = "40.3%",
 				dps = "40.3%",
+				hps = "N/A",
 			},
 		},
 		["fire"] = {
@@ -337,6 +359,7 @@ local talentData = {
 				talentString = "B8DAAAAAAAAAAAAAAAAAAAAAAQCSRDJRSKCcgkQEJhkAAAAAAAAAgIkIOQJ5AlkkkkkkkGAAAINA",
 				popularity = "51.5%",
 				dps = "51.5%",
+				hps = "N/A",
 			},
 		},
 		["frost"] = {
@@ -351,6 +374,7 @@ local talentData = {
 				talentString = "BAEAAAAAAAAAAAAAAAAAAAAAAQCUSzBkQkigIJERSkEAAASJRSIRSSIJJJJJBAAAAAAAAAiA",
 				popularity = "52.5%",
 				dps = "52.5%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -367,6 +391,7 @@ local talentData = {
 				talentString = "BkQAAAAAAAAAAAAAAAAAAAAAAAHIJJRSCkmCkWSSIlAAAAANAAAAAAASEtQkkIJSaJRAAJA",
 				popularity = "56.6%",
 				dps = "56.6%",
+				hps = "N/A",
 			},
 		},
 		["demonology"] = {
@@ -381,6 +406,7 @@ local talentData = {
 				talentString = "BoQAAAAAAAAAAAAAAAAAAAAAAggkEJJQaKQaJJhUCAAAAAIBSikSEhkIpolkkQAAAAAAQiA",
 				popularity = "27.4%",
 				dps = "27.4%",
+				hps = "N/A",
 			},
 		},
 		["destruction"] = {
@@ -395,6 +421,7 @@ local talentData = {
 				talentString = "BsQAAAAAAAAAAAAAAAAAAAAAAggkEJJQaKQaJJhUiWwBUSSkAalikAAAAAAAAAAAAIJokEJA",
 				popularity = "31.6%",
 				dps = "31.6%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -411,6 +438,7 @@ local talentData = {
 				talentString = "BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAAAQShWJJJQSSrRAAAASLSRiEJUKSSaJJlEgWjIt0KhAA",
 				popularity = "39.4%",
 				dps = "39.4%",
+				hps = "N/A",
 			},
 		},
 		["mistweaver"] = {
@@ -425,6 +453,7 @@ local talentData = {
 				talentString = "B4QAAAAAAAAAAAAAAAAAAAAAAUiCSkoUaNCpEJJlAt0aBAAAAAAAAAAAAk0SUQIJRpAQSLJJRAAEaE",
 				popularity = "54.2%",
 				dps = "19.7k",
+				hps = "54.2%",
 			},
 		},
 		["windwalker"] = {
@@ -439,6 +468,7 @@ local talentData = {
 				talentString = "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhEJJRLiEBAAAASkkUAkkkkk0SCERCtikQSSLBBAAQD",
 				popularity = "65.6%",
 				dps = "65.6%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -455,6 +485,7 @@ local talentData = {
 				talentString = "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAJJigkQQSikIFolIJSSJRTcgQol0SSERDgCAE",
 				popularity = "55.5%",
 				dps = "55.5%",
+				hps = "N/A",
 			},
 		},
 		["feral"] = {
@@ -469,6 +500,7 @@ local talentData = {
 				talentString = "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAACSLioIJJJl0IaJJxBSCAAAAAgGAJCAQSSSIJUSolkAAAAAAgEAAA",
 				popularity = "35.8%",
 				dps = "35.8%",
+				hps = "N/A",
 			},
 		},
 		["guardian"] = {
@@ -483,6 +515,7 @@ local talentData = {
 				talentString = "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQiIJJlElICiiESShCAJCCSgkkkkkIFoFOAAAAAAQEQQCA",
 				popularity = "16.6%",
 				dps = "16.6%",
+				hps = "N/A",
 			},
 		},
 		["restoration"] = {
@@ -497,6 +530,7 @@ local talentData = {
 				talentString = "BkGAAAAAAAAAAAAAAAAAAAAAA0ikElWkIhUQiIFhWkEAAAAAAAAAAAAoAIJCCSAkESiUIplIAAAAAgIAAIC",
 				popularity = "65.0%",
 				dps = "30.3k",
+				hps = "65.0%",
 			},
 		},
 	},
@@ -513,6 +547,7 @@ local talentData = {
 				talentString = "BEkAAAAAAAAAAAAAAAAAAAAAAIJRkkgkkISgkAAAAAAASLEJRSSLJplWEBSIKtIJRA",
 				popularity = "49.9%",
 				dps = "49.9%",
+				hps = "N/A",
 			},
 		},
 		["vengeance"] = {
@@ -527,6 +562,7 @@ local talentData = {
 				talentString = "BUkAAAAAAAAAAAAAAAAAAAAAAAAiIJJikgkERISJJEaJSSIhkEJRLSIBBAAAAkkEA",
 				popularity = "11.8%",
 				dps = "11.8%",
+				hps = "N/A",
 			},
 		},
 	},
@@ -543,6 +579,7 @@ local talentData = {
 				talentString = "BsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSCSaSQABikIRSItokkkEikWCIRSLSikEIQA",
 				popularity = "23.4%",
 				dps = "23.4%",
+				hps = "N/A",
 			},
 		},
 		["preservation"] = {
@@ -557,6 +594,7 @@ local talentData = {
 				talentString = "BwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAIJplSOACJRKIpFJRAAQSkIIikASAAAASSCJSiIJBAB",
 				popularity = "12.7%",
 				dps = "54.7k",
+				hps = "12.7%",
 			},
 		},
 		["augmentation"] = {
@@ -571,6 +609,7 @@ local talentData = {
 				talentString = "BEcBAAAAAAAAAAAAAAAAAAAAAQikWkkoESSkESSSDAAAAAEAAkEAISISSCAAAASk0ikkIJQ0SA",
 				popularity = "28.2%",
 				dps = "28.2%",
+				hps = "N/A",
 			},
 		},
 	},
