@@ -80,8 +80,8 @@ jobs:
       - name: Checkout tag
         run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
 
-      - name: Ensure correct GITHUB_REF
-        run: echo "GITHUB_REF=refs/tags/${{ needs.update-version-tag-and-release.outputs.new_tag }}" >> $GITHUB_ENV
+      - name: Checkout tag again to ensure correct context
+        run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
 
       - name: Package and release
         uses: BigWigsMods/packager@v2
