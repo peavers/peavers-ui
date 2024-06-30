@@ -6,6 +6,8 @@ on:
 jobs:
   update-version-tag-and-release:
     runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.get_version.outputs.new_version }}
     env:
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,12 +57,20 @@ jobs:
   package-and-release:
     needs: update-version-tag-and-release
     runs-on: ubuntu-latest
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Fetch all tags
+        run: git fetch --tags
       - name: Package and release
         uses: BigWigsMods/packager@v2
+        with:
+          args: -p 1046194 -w 0 -g mainline
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
