@@ -1,10 +1,10 @@
-name: Update Version, Tag, and Release
+name: Update Version and Tag
 on:
   push:
     branches:
       - master
 jobs:
-  update-version-tag:
+  update-version-and-tag:
     runs-on: ubuntu-latest
     outputs:
       new_version: ${{ steps.get_version.outputs.new_version }}
@@ -49,26 +49,9 @@ jobs:
           git push origin $NEW_TAG
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
-  package-and-release:
-    needs: update-version-tag
-    runs-on: ubuntu-latest
-    env:
-      CF_API_KEY: ${{ secrets.CF_API_KEY }}
-      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Trigger packaging workflow
+        uses: repo-sync/github-action@v2
         with:
-          fetch-depth: 0
-
-      - name: Fetch all tags
-        run: git fetch --tags
-
-      - name: Checkout tag
-        run: git checkout ${{ needs.update-version-tag.outputs.new_tag }}
-
-      - name: Package and release
-        uses: BigWigsMods/packager@v2
-        env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow_file_name: packaging.yml
+          ref: ${{ needs.update-version-and-tag.outputs.new_tag }}
