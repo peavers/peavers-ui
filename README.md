@@ -6,14 +6,13 @@
 
 [![Curseforge](https://img.shields.io/curseforge/dt/1046194?label=CurseForge&color=F16436)](https://www.curseforge.com/wow/addons/peaversui)
 
+PeaversUI is a comprehensive World of Warcraft addon designed to streamline your UI by automatically applying
+pre-configured settings to a variety of popular addons. This ensures a consistent and optimized UI across all your
+characters. PeaversUI is perfect for players who want to avoid the hassle of manually configuring their UI every time
+they create a new character or reinstall their game.
 
-PeaversUI is a comprehensive World of Warcraft addon designed to streamline your UI by automatically applying pre-configured settings to a variety of popular addons. This ensures a consistent and optimized UI across all your characters. PeaversUI is perfect for players who want to avoid the hassle of manually configuring their UI every time they create a new character or reinstall their game.
+## Addon Profiles
 
-## Key Features
-- **Automatic Profile Application:** Automatically applies pre-configured settings to supported addons.
-- **Consistent UI:** Ensures your UI looks and feels the same across all characters and game sessions.
-
-## Supported Addons
 - Bartender4
 - Cell
 - Details! Damage Meter
@@ -24,6 +23,13 @@ PeaversUI is a comprehensive World of Warcraft addon designed to streamline your
 - TipTac
 - Titan Panel
 
+## Preset Talents
+
+- Best talent choices for Mythic+ and Raiding based on popular websites recommendations.
+- Includes specific information about how popular a talent choice, as well as the maximum DPS/HPS output.
+- All classes and spec talent combinations.
+- Database of best specs is updated daily.
+
 ## Preset WeakAuras
 
 - Easy install of all the awesome WeakAuras from [luxthos](https://www.luxthos.com/)
@@ -32,6 +38,7 @@ PeaversUI is a comprehensive World of Warcraft addon designed to streamline your
 Recommended to install each of the addons above, then run PeaversUI to set profiles for each one.
 
 ## How to Use
+
 1. **Install the Addon**
 2. **Load the Addon:** Ensure PeaversUI is enabled in your addons list.
-3. **Apply Profile:** Use the slash command `/peaversui` to open the settings.
+3. **Apply:** Use the slash command `/peaversui` to open the settings.
