@@ -1,20 +1,62 @@
-name: Package and Release
+name: Update Version, Tag, and Release
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
-  release:
+  update-version-tag-and-release:
     runs-on: ubuntu-latest
 
     env:
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
-      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
+      - name: Get current version from TOC
+        id: get_current_version
+        run: |
+          CURRENT_VERSION=$(grep -oP '(?<=## Version: ).*' PeaversUI.toc)
+          echo "version=$CURRENT_VERSION" >> $GITHUB_ENV
+
+      - name: Update TOC version
+        id: update_toc
+        run: |
+          NEW_VERSION="1.0.${{ github.run_number }}"
+          sed -i "s/^## Version: .*$/## Version: $NEW_VERSION/" PeaversUI.toc
+          echo "new_version=$NEW_VERSION" >> $GITHUB_ENV
+
+      - name: Commit TOC changes
+        run: |
+          git config user.name "Chris Turner"
+          git config user.email "peavers@gmail.com"
+          git add PeaversUI.toc
+          git commit -m "chore: Update TOC version to $NEW_VERSION"
+          git push
+
+      - name: Create and push tag
+        run: |
+          TAG_NAME="PeaversUI-$NEW_VERSION"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.new_version }}
+          release_name: Release ${{ env.new_version }}
+          draft: false
+          prerelease: false
+
       - name: Create Package
         uses: BigWigsMods/packager@v2
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
