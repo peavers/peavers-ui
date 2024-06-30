@@ -47,11 +47,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.get_version.outputs.new_version }}
+          tag_name: PeaversUI-${{ steps.get_version.outputs.new_version }}
           release_name: Release ${{ steps.get_version.outputs.new_version }}
           draft: false
           prerelease: false
-      - name: Create Package and Release on CurseForge
+
+  package-and-release:
+    needs: update-version-tag-and-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Package and release
         uses: BigWigsMods/packager@v2
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
