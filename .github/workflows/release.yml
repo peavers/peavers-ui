@@ -73,8 +73,8 @@ jobs:
         run: git checkout ${{ needs.update-version-tag-and-release.outputs.new_tag }}
       - name: Package and release
         uses: BigWigsMods/packager@v2
-        with:
-          args: -p 1046194 -w 0 -g mainline
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: -v ${{ needs.update-version-tag-and-release.outputs.new_version }}
