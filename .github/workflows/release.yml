@@ -55,5 +55,3 @@ jobs:
         uses: BigWigsMods/packager@v2
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
-        with:
-          version: ${{ steps.get_version.outputs.new_version }}
