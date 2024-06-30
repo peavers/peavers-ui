@@ -4,18 +4,38 @@ local addonName, addonTable = ...
 addonTable.selectedAddons = addonTable.selectedAddons or {}
 addonTable.defaultSelectedAddons = addonTable.defaultSelectedAddons or {}
 addonTable.supportedAddons = addonTable.supportedAddons or {}
-
--- Initialize Profiles module
 addonTable.Profiles = addonTable.Profiles or {}
-
--- Utility functions
 addonTable.Utils = addonTable.Utils or {}
-
--- Load the UI functions (make sure these are defined in their respective files)
 addonTable.UI = addonTable.UI or {}
-
--- Initialize checkboxes table
 addonTable.checkboxes = {}
+
+-- Define LoadPanels early to ensure it's available
+function addonTable.LoadPanels()
+    print("LoadPanels function is being called.") -- Debug print
+    if addonTable.UI.LoadProfilesPanel then
+        addonTable.UI.LoadProfilesPanel()
+    else
+        print("Error: LoadProfilesPanel is not available.") -- Debug print
+    end
+
+    if addonTable.UI.LoadWeakAurasPanel then
+        addonTable.UI.LoadWeakAurasPanel()
+    else
+        print("Error: LoadWeakAurasPanel is not available.") -- Debug print
+    end
+
+    if addonTable.UI.LoadTalentsPanel then
+        addonTable.UI.LoadTalentsPanel()
+    else
+        print("Error: LoadTalentsPanel is not available.") -- Debug print
+    end
+
+    if addonTable.UI.LoadAboutPanel then
+        addonTable.UI.LoadAboutPanel()
+    else
+        print("Error: LoadAboutPanel is not available.") -- Debug print
+    end
+end
 
 -- Initialize default values and state
 addonTable.defaultSelectedAddons = {
@@ -27,11 +47,10 @@ addonTable.defaultSelectedAddons = {
     ["Plater"] = true,
     ["SexyMap"] = true,
     ["TipTac"] = true,
-	["Titan"] = true,
+    ["Titan"] = true,
 }
 
 addonTable.selectedAddons = addonTable.selectedAddons or {}
-
 addonTable.supportedAddons = {
     { name = "Bartender4", func = "ApplyBartender4Settings" },
     { name = "Cell", func = "ApplyCellSettings" },
@@ -80,26 +99,30 @@ mainPanel.name = "PeaversUI"
 InterfaceOptions_AddCategory(mainPanel)
 addonTable.mainPanel = mainPanel
 
--- Load Panels
-function addonTable.LoadPanels()
-    addonTable.UI.LoadProfilesPanel()
-    addonTable.UI.LoadWeakAurasPanel()
-    addonTable.UI.LoadAboutPanel()
-end
-
 -- Event handling
-mainPanel:RegisterEvent("ADDON_LOADED")
-mainPanel:SetScript("OnEvent", function(self, event, arg1)
+local function OnEvent(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == addonName then
+        print("ADDON_LOADED event for " .. addonName) -- Debug print
         addonTable.Profiles.InitializeSelectedAddons()
-        addonTable.LoadPanels()  -- Load panels after addon is loaded
+    elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
+        if addonTable.LoadPanels then
+            addonTable.LoadPanels() -- Load panels after player info is ready
+        else
+            print("Error: LoadPanels function is not available.") -- Debug print
+        end
         -- Update the checkboxes with the correct state
         for addonName, checkbox in pairs(addonTable.checkboxes) do
             checkbox:SetChecked(addonTable.selectedAddons[addonName])
         end
-        self:UnregisterEvent("ADDON_LOADED")
+        self:UnregisterEvent("PLAYER_LOGIN")
+        self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     end
-end)
+end
+
+mainPanel:RegisterEvent("ADDON_LOADED")
+mainPanel:RegisterEvent("PLAYER_LOGIN")
+mainPanel:RegisterEvent("PLAYER_ENTERING_WORLD")
+mainPanel:SetScript("OnEvent", OnEvent)
 
 -- Slash command to open the options panel
 SLASH_PEAVERSUI1 = "/peaversui"
@@ -107,3 +130,5 @@ SlashCmdList["PEAVERSUI"] = function()
     InterfaceOptionsFrame_OpenToCategory(mainPanel)
     InterfaceOptionsFrame_OpenToCategory(mainPanel)  -- Calling twice due to Blizzard bug
 end
+
+print("PeaversUI.lua loaded.") -- Debug print
