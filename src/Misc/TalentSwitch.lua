@@ -132,7 +132,6 @@ function Talents:ImportAndApplyTalents(importString)
 			end
 		end
 
-		-- Commit the changes
 		talentsFrame:CommitConfig()
 	end)
 end
