@@ -1,24 +1,19 @@
 name: Update Version, Tag, and Release
-
 on:
   push:
     branches:
       - master
-
 jobs:
   update-version-tag-and-release:
     runs-on: ubuntu-latest
-
     env:
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - name: Get the latest release version
         id: get_latest_release
         run: |
@@ -29,58 +24,46 @@ jobs:
           else
             new_version=$(echo $latest_tag | awk -F. -v OFS=. '{$NF++;print}')
           fi
-          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
           echo "Latest version is $new_version"
-
       - name: Get current version from TOC
         id: get_current_version
         run: |
           CURRENT_VERSION=$(grep -oP '(?<=## Version: ).*' PeaversUI.toc)
-          echo "version=$CURRENT_VERSION" >> $GITHUB_ENV
-
+          echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
       - name: Update TOC version
         id: update_toc
         run: |
-          sed -i "s/^## Version: .*$/## Version: ${{ env.new_version }}/" PeaversUI.toc
-          echo "new_version=${{ env.new_version }}" >> $GITHUB_ENV
-
+          sed -i "s/^## Version: .*$/## Version: ${{ steps.get_latest_release.outputs.new_version }}/" PeaversUI.toc
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --exit-code PeaversUI.toc
-          if [ $? -ne 0 ]; then
-            echo "has_changes=true" >> $GITHUB_ENV
-          else
-            echo "has_changes=false" >> $GITHUB_ENV
-
+          git diff --exit-code PeaversUI.toc || echo "has_changes=true" >> $GITHUB_OUTPUT
       - name: Commit TOC changes
-        if: env.has_changes == 'true'
+        if: steps.check_changes.outputs.has_changes == 'true'
         run: |
           git config user.name "Chris Turner"
           git config user.email "peavers@gmail.com"
           git add PeaversUI.toc
-          git commit -m "chore: Update TOC version to ${{ env.new_version }}"
+          git commit -m "chore: Update TOC version to ${{ steps.get_latest_release.outputs.new_version }}"
           git push
-
       - name: Create and push tag
         run: |
-          TAG_NAME="PeaversUI-${{ env.new_version }}"
+          TAG_NAME="PeaversUI-${{ steps.get_latest_release.outputs.new_version }}"
           git tag $TAG_NAME
           git push origin $TAG_NAME
-
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.new_version }}
-          release_name: Release ${{ env.new_version }}
+          tag_name: ${{ steps.get_latest_release.outputs.new_version }}
+          release_name: Release ${{ steps.get_latest_release.outputs.new_version }}
           draft: false
           prerelease: false
-
       - name: Create Package and Release on CurseForge
         uses: BigWigsMods/packager@v2
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
         with:
-          version: ${{ env.new_version }}
+          version: ${{ steps.get_latest_release.outputs.new_version }}
