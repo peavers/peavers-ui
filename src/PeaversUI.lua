@@ -8,6 +8,8 @@ addonTable.Profiles = addonTable.Profiles or {}
 addonTable.Utils = addonTable.Utils or {}
 addonTable.UI = addonTable.UI or {}
 addonTable.checkboxes = {}
+addonTable.WeakAuraDB = addonTable.WeakAuraDB or {}
+addonTable.TalentDB = addonTable.TalentDB or {}
 
 -- Define LoadPanels early to ensure it's available
 function addonTable.LoadPanels()

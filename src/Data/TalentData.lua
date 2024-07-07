@@ -1,7 +1,7 @@
 local addonName, addonTable = ...
-addonTable.DB = addonTable.DB or {}
+addonTable.TalentDB = addonTable.TalentDB or {}
 
-local talentData = {
+addonTable.TalentDB = {
 	["warrior"] = {
 		["fury"] = {
 			["MythicPlus"] = {
@@ -550,4 +550,3 @@ local talentData = {
 		},
 	},
 }
-addonTable.DB = talentData

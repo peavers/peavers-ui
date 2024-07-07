@@ -15,7 +15,6 @@ function addonTable.UI.CreateCheckbox(parent, label, addonName, x, y)
 	return checkbox
 end
 
--- Function to create the main panel (if any additional setup is needed)
 function UI.CreateMainPanel()
 
 end

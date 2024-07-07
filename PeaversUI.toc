@@ -7,9 +7,11 @@
 ## SavedVariables: PeaversUIExportDB
 ## X-Curse-Project-ID: 1046194
 
+src/Data/TalentData.lua
+src/Data/WeakAuraData.lua
+
 src/Misc/Utils.lua
 src/Misc/AddonProfileManager.lua
-src/Misc/TalentData.lua
 src/Misc/TalentSwitch.lua
 
 src/Options/About.lua
