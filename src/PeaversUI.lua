@@ -1,43 +1,21 @@
 local addonName, addonTable = ...
 
--- Initialize any tables or variables needed for the addon
-addonTable.selectedAddons = addonTable.selectedAddons or {}
-addonTable.defaultSelectedAddons = addonTable.defaultSelectedAddons or {}
-addonTable.supportedAddons = addonTable.supportedAddons or {}
-addonTable.Profiles = addonTable.Profiles or {}
-addonTable.Utils = addonTable.Utils or {}
+-- Initialize tables
 addonTable.UI = addonTable.UI or {}
-addonTable.checkboxes = {}
+addonTable.Profiles = addonTable.Profiles or {}
+addonTable.selectedAddons = addonTable.selectedAddons or {}
+addonTable.supportedAddons = addonTable.supportedAddons or {}
+addonTable.checkboxes = addonTable.checkboxes or {}
 addonTable.WeakAuraDB = addonTable.WeakAuraDB or {}
 addonTable.TalentDB = addonTable.TalentDB or {}
 
--- Define LoadPanels early to ensure it's available
-function addonTable.LoadPanels()
-    print("LoadPanels function is being called.") -- Debug print
-    if addonTable.UI.LoadProfilesPanel then
-        addonTable.UI.LoadProfilesPanel()
-    else
-        print("Error: LoadProfilesPanel is not available.") -- Debug print
-    end
+local Utils = addonTable.Utils
+local UI = addonTable.UI
 
-    if addonTable.UI.LoadWeakAurasPanel then
-        addonTable.UI.LoadWeakAurasPanel()
-    else
-        print("Error: LoadWeakAurasPanel is not available.") -- Debug print
-    end
-
-    if addonTable.UI.LoadTalentsPanel then
-        addonTable.UI.LoadTalentsPanel()
-    else
-        print("Error: LoadTalentsPanel is not available.") -- Debug print
-    end
-
-    if addonTable.UI.LoadAboutPanel then
-        addonTable.UI.LoadAboutPanel()
-    else
-        print("Error: LoadAboutPanel is not available.") -- Debug print
-    end
-end
+-- Create the main panel
+local mainPanel = CreateFrame("Frame")
+mainPanel.name = "PeaversUI"
+addonTable.mainPanel = mainPanel
 
 -- Initialize default values and state
 addonTable.defaultSelectedAddons = {
@@ -52,85 +30,73 @@ addonTable.defaultSelectedAddons = {
     ["Titan"] = true,
 }
 
-addonTable.selectedAddons = addonTable.selectedAddons or {}
 addonTable.supportedAddons = {
-    { name = "Bartender4", func = "ApplyBartender4Settings" },
-    { name = "Cell", func = "ApplyCellSettings" },
+    { name = "Bartender4",            func = "ApplyBartender4Settings" },
+    { name = "Cell",                  func = "ApplyCellSettings" },
     { name = "Details! Damage Meter", func = "ApplyDetailsSettings" },
-    { name = "LS Glass", func = "ApplyLsGlassSettings" },
-    { name = "OmniCD", func = "ApplyOmniCDSettings" },
-    { name = "Plater", func = "ApplyPlaterSettings" },
-    { name = "SexyMap", func = "ApplySexyMapSettings" },
-    { name = "TipTac", func = "ApplyTipTacSettings" },
-    { name = "Titan Panel", func = "ApplyTitanSettings" },
+    { name = "LS Glass",              func = "ApplyLsGlassSettings" },
+    { name = "OmniCD",                func = "ApplyOmniCDSettings" },
+    { name = "Plater",                func = "ApplyPlaterSettings" },
+    { name = "SexyMap",               func = "ApplySexyMapSettings" },
+    { name = "TipTac",                func = "ApplyTipTacSettings" },
+    { name = "Titan Panel",           func = "ApplyTitanSettings" },
 }
 
-function addonTable.Profiles.InitializeSelectedAddons()
-    if not PeaversUIExportDB then
-        PeaversUIExportDB = {}
+-- Register the addon with the Settings API
+local mainCategory
+if Settings and Settings.RegisterCanvasLayoutCategory then
+    mainCategory = Settings.RegisterCanvasLayoutCategory(mainPanel, mainPanel.name)
+    mainCategory.ID = mainPanel.name
+    Settings.RegisterAddOnCategory(mainCategory)
+
+    if UI.LoadProfilesPanel then
+        local profilesPanel = UI.LoadProfilesPanel(mainCategory)
+        local profilesCategory = Settings.RegisterCanvasLayoutSubcategory(mainCategory, profilesPanel, profilesPanel.name)
+        profilesCategory.ID = profilesPanel.name
+    else
+        print("Warning: UI.LoadProfilesPanel is not available")
     end
 
-    if not PeaversUIExportDB.selectedAddons then
-        PeaversUIExportDB.selectedAddons = addonTable.defaultSelectedAddons
+    if UI.LoadWeakAurasPanel then
+        local weakAurasPanel = UI.LoadWeakAurasPanel(mainCategory)
+        local weakAurasCategory = Settings.RegisterCanvasLayoutSubcategory(mainCategory, weakAurasPanel, weakAurasPanel.name)
+        weakAurasCategory.ID = weakAurasPanel.name
+    else
+        print("Warning: UI.LoadWeakAurasPanel is not available")
     end
 
-    addonTable.selectedAddons = PeaversUIExportDB.selectedAddons
+    if UI.LoadTalentsPanel then
+        local talentsPanel = UI.LoadTalentsPanel(mainCategory)
+        local talentsCategory = Settings.RegisterCanvasLayoutSubcategory(mainCategory, talentsPanel, talentsPanel.name)
+        talentsCategory.ID = talentsPanel.name
+    else
+        print("Warning: UI.LoadTalentsPanel is not available")
+    end
+
+    if UI.LoadAboutPanel then
+        local aboutPanel = UI.LoadAboutPanel(mainCategory)
+        local aboutCategory = Settings.RegisterCanvasLayoutSubcategory(mainCategory, aboutPanel, aboutPanel.name)
+        aboutCategory.ID = aboutPanel.name
+    else
+        print("Warning: UI.LoadAboutPanel is not available")
+    end
 end
 
-function addonTable.Profiles.ApplySelectedProfiles()
-    for addon, isSelected in pairs(addonTable.selectedAddons) do
-        if isSelected then
-            for _, addonInfo in ipairs(addonTable.supportedAddons) do
-                if addonInfo.name == addon then
-                    local funcName = addonInfo.func
-                    if funcName and _G[funcName] then
-                        _G[funcName]()
-                    else
-                        print("Function " .. funcName .. " not found for " .. addon)
-                    end
-                end
-            end
-        end
-    end
-    addonTable.UI.ReloadUIAfterApplying()
+-- Initialize the addon
+local function InitializeAddon()
+    Utils.GetPlayerInfoWithRetry(5, function(fullPlayerName, playerClass, playerClassID, specName) end)
 end
-
--- Create the main panel (parent frame)
-local mainPanel = CreateFrame("Frame")
-mainPanel.name = "PeaversUI"
-InterfaceOptions_AddCategory(mainPanel)
-addonTable.mainPanel = mainPanel
 
 -- Event handling
-local function OnEvent(self, event, arg1)
-    if event == "ADDON_LOADED" and arg1 == addonName then
-        print("ADDON_LOADED event for " .. addonName) -- Debug print
-        addonTable.Profiles.InitializeSelectedAddons()
-    elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
-        if addonTable.LoadPanels then
-            addonTable.LoadPanels() -- Load panels after player info is ready
-        else
-            print("Error: LoadPanels function is not available.") -- Debug print
-        end
-        -- Update the checkboxes with the correct state
-        for addonName, checkbox in pairs(addonTable.checkboxes) do
-            checkbox:SetChecked(addonTable.selectedAddons[addonName])
-        end
-        self:UnregisterEvent("PLAYER_LOGIN")
-        self:UnregisterEvent("PLAYER_ENTERING_WORLD")
-    end
-end
-
-mainPanel:RegisterEvent("ADDON_LOADED")
-mainPanel:RegisterEvent("PLAYER_LOGIN")
-mainPanel:RegisterEvent("PLAYER_ENTERING_WORLD")
-mainPanel:SetScript("OnEvent", OnEvent)
+local eventFrame = CreateFrame("Frame")
+eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
+eventFrame:SetScript("OnEvent", function(self, event)
+    self:UnregisterEvent("PLAYER_ENTERING_WORLD")
+    InitializeAddon()
+end)
 
 -- Slash command to open the options panel
 SLASH_PEAVERSUI1 = "/peaversui"
 SlashCmdList["PEAVERSUI"] = function()
-    InterfaceOptionsFrame_OpenToCategory(mainPanel)
-    InterfaceOptionsFrame_OpenToCategory(mainPanel)  -- Calling twice due to Blizzard bug
+    Settings.OpenToCategory(mainCategory.ID)
 end
-
-print("PeaversUI.lua loaded.") -- Debug print

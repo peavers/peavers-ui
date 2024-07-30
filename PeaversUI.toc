@@ -1,4 +1,4 @@
-## Interface: 100207
+## Interface: 110000,110002
 ## Title: PeaversUI
 ## Notes: A central addon to set profiles for other addons.
 ## Author: Peavers
@@ -7,19 +7,22 @@
 ## SavedVariables: PeaversUIExportDB
 ## X-Curse-Project-ID: 1046194
 
+# Databases
 src/Data/TalentData.lua
 src/Data/WeakAuraData.lua
 
+# Helpers
 src/Misc/Utils.lua
 src/Misc/AddonProfileManager.lua
 src/Misc/TalentSwitch.lua
 
+# UI
 src/Options/About.lua
-src/Options/Main.lua
 src/Options/Profiles.lua
 src/Options/WeakAuras.lua
 src/Options/Talents.lua
 
+# Profiles
 src/Profiles/Bartender.lua
 src/Profiles/Cell.lua
 src/Profiles/Details.lua
@@ -30,4 +33,5 @@ src/Profiles/SexyMap.lua
 src/Profiles/TipTac.lua
 src/Profiles/TitanPanel.lua
 
+# Entrypoint
 src/PeaversUI.lua
