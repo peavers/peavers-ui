@@ -3,549 +3,425 @@ addonTable.DB = addonTable.DB or {}
 
 local talentData = {
 	["paladin"] = {
-		["holy"] = {
-			["MythicPlus"] = {
-				talentString = "BEEAAAAAAAAAAAAAAAAAAAAAAAADAAGAwYAAAGgtxsgZZZMzstZMbzMsMzMsstZShZmFDmZGGzCYMGAwMAYBYYGDG",
-				popularity = "5.4%",
-				dps = "92.0k",
-				hps = "113.2k",
-				keystone = "+15"
-			},
-			["Raiding"] = {
-				talentString = "CEEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAGDAAwAsMzMzYbMzssZMLMsMjxsttZargZWmBzMDjZBMzYAADAsBMMzMeADAAAAAAA",
-				popularity = "12.2%",
-				dps = "67.9k",
-				hps = "455.2k",
-			},
-		},
 		["protection"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CIEAAAAAAAAAAAAAAAAAAAAAAsMmZMzixyDYmZmhNzMjZeQYYGAAgBAAAAAAg0wMzsYgZGmZWMMzMbAwYAAMgBYAAAAAAYA",
-				popularity = "12.8%",
-				dps = "227.0k",
+				popularity = "12.1%",
+				dps = "228.5k",
+			},
+		},
+		["holy"] = {
+			["Raiding"] = {
+				talentString = "CEEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAGDAAwAsMzMzYbMzssZMLMsMjxsttZargZWmBzMDjZBMzYAADAsBMMzMeADAAAAAAA",
+				popularity = "10.1%",
+				dps = "67.3k",
+				hps = "454.0k",
 			},
 			["MythicPlus"] = {
-				talentString = "CIEAAAAAAAAAAAAAAAAAAAAAAsNjZYWM2eAGzMW2MzMmxYGzAAAMAAAAAAA0WzYmZWMwMYmZxAmNAYMAAGwAMAAAAAAMD",
-				popularity = "21.3%",
-				dps = "227.1k",
-				keystone = "+19"
+				talentString = "Link not found",
 			},
 		},
 		["retribution"] = {
-			["MythicPlus"] = {
-				talentString = "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAjJLLbzMbLbmxiZmlFzyAAAAAAwsNlZmhBmZYMLjhxwYWmx2wYMgxyCbAAAAAAAAA",
-				popularity = "47.1%",
-				dps = "513.9k",
-				keystone = "+20"
-			},
 			["Raiding"] = {
 				talentString = "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAMttssNzstsNGbjZ22mZDAAAAAAjpMzMbGYGMmlxwMDzysMDDDGMGLLsNAAAAAAAAA",
-				popularity = "35.6%",
-				dps = "620.6k",
+				popularity = "37.2%",
+				dps = "614.8k",
+			},
+			["MythicPlus"] = {
+				talentString = "Link not found",
 			},
 		},
 	},
 	["warrior"] = {
-		["fury"] = {
-			["Raiding"] = {
-				talentString = "CgEAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAagZAjhZYWGmZ2ghZMGmhZmttZGzMzGzMmZGmhNbzwMjBAAACDAAAAAYDA",
-				popularity = "19.5%",
-				dps = "622.0k",
-			},
-			["MythicPlus"] = {
-				talentString = "BgEAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAQDMYZGgxghxYmZsAGGDjBjZmZ2mZMzMDzMMzwMmlBYmxMGAAAMgBD",
-				popularity = "80.5%",
-				dps = "493.2k",
-				keystone = "+19"
-			},
-		},
-		["arms"] = {
-			["Raiding"] = {
-				talentString = "CcEAAAAAAAAAAAAAAAAAAAAAAAgtZMjxMzMzmlllZGAAAAMYaYGsYMDMjxMzgZGGGDzwAAAAAAAgZMbzMDABAAAAAAGA",
-				popularity = "31.1%",
-				dps = "644.0k",
-			},
-			["MythicPlus"] = {
-				talentString = "BcEAAAAAAAAAAAAAAAAAAAAAAAwy2MmxYGmZGbLLjZAAAAgBTDzswMwixAMGzMDbmxwA8A8AjZAAAAAAAAYGbzYMghxWMA",
-				popularity = "43.2%",
-				dps = "535.7k",
-				keystone = "+20"
-			},
-		},
 		["protection"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CkEAAAAAAAAAAAAAAAAAAAAAAYEDAAAAzMzwMzgZbmlZmZ22YMMNDMzMAMmZGwMzADzwAAAAAAAmZAAziNADAAAAAYzA",
 				popularity = "34.3%",
-				dps = "249.9k",
+				dps = "256.7k",
 			},
+		},
+		["arms"] = {
 			["MythicPlus"] = {
-				talentString = "BkEAAAAAAAAAAAAAAAAAAAAAAYEDAAAAMzMDzMjZmtZWmZmZDGDTDMjZsMzMAMMzgNMzMYAGzAAAAAAAAzMAALbbAgB",
-				popularity = "20.8%",
-				dps = "259.7k",
-				keystone = "+19"
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "CcEAAAAAAAAAAAAAAAAAAAAAAAgtZMjxMzMzmlllZGAAAAMYaYGsYMDMjxMzgZGGGDzwAAAAAAAgZMbzMDABAAAAAAGA",
+				popularity = "28.5%",
+				dps = "645.4k",
+			},
+		},
+		["fury"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "CgEAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAagZAjhZYWGmZ2ghZMGmhZmttZGzMzGzMmZGmhNbzwMjBAAACDAAAAAYDA",
+				popularity = "18.8%",
+				dps = "607.5k",
 			},
 		},
 	},
 	["hunter"] = {
 		["beast-mastery"] = {
 			["MythicPlus"] = {
-				talentString = "B0PAAAAAAAAAAAAAAAAAAAAAA4BAbzMAswAAAAAAAAAAAwGjZxMsNPwYGmxwMT2gxYbegZMzMjhtxMzMA",
-				popularity = "72.6%",
-				dps = "499.0k",
-				keystone = "+18"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "C0PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAzYYMzMDzMMDzwsMzYmZmZyMMmZMzMmZMDjxMzwYGGzgN",
-				popularity = "50.3%",
-				dps = "724.2k",
-			},
-		},
-		["marksmanship"] = {
-			["MythicPlus"] = {
-				talentString = "B4PAAAAAAAAAAAAAAAAAAAAAA4BGYbAYsIDGAAAAgxMz8AmZGwYYmZ2mxstZMGLmFbGmxMMDzwGAAAAA",
-				popularity = "47.8%",
-				dps = "528.6k",
-				keystone = "+19"
-			},
-			["Raiding"] = {
-				talentString = "C4PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmxMzMYmZGmZmxMzMjxMjZAAAAAAAAmhxMzMzMmRzMGDzMwMmxMjB",
-				popularity = "36.5%",
-				dps = "503.0k",
+				popularity = "53.5%",
+				dps = "722.8k",
 			},
 		},
 		["survival"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "C8PAAAAAAAAAAAAAAAAAAAAAAMAAAAAAmZmtZMzMMzYmhZGmZGzMGAAAAAAAAAAAAAA0MMjZmZmxMYYMMzwYYGzMmF",
-				popularity = "50.3%",
-				dps = "454.6k",
+				popularity = "50.4%",
+				dps = "453.4k",
+			},
+		},
+		["marksmanship"] = {
+			["Raiding"] = {
+				talentString = "C4PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmxMzMYmZGmZmxMzMjxMjZAAAAAAAAmhxMzMzMmRzMGDzMwMmxMjB",
+				popularity = "34.3%",
+				dps = "502.1k",
 			},
 			["MythicPlus"] = {
-				talentString = "B8PAAAAAAAAAAAAAAAAAAAAAA4BGYbYmhhlBjMzMzMbzYAGzMLjhBAAAAAGjZZzsYDmxMMDzwCAAAAA",
-				popularity = "13.3%",
-				dps = "310.2k",
-				keystone = "+15"
+				talentString = "Link not found",
 			},
 		},
 	},
 	["rogue"] = {
 		["assassination"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CMQAAAAAAAAAAAAAAAAAAAAAAMjZmhZmxyMAAAAAAMbwyMAAAAAA022MzwDMzYMzMLz2YMGMzMzMzYmNLjZAAAAAAAA",
-				popularity = "54.1%",
-				dps = "552.7k",
-			},
-			["MythicPlus"] = {
-				talentString = "BMQAAAAAAAAAAAAAAAAAAAAAAMmZmZmxMAAAAAAAzyMjZbmBAAAAAAttMzMYGYmZWmtZGDmZMzgZmx2yYGA",
-				popularity = "43.0%",
-				dps = "451.5k",
-				keystone = "+16"
+				popularity = "55.2%",
+				dps = "556.3k",
 			},
 		},
 		["outlaw"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CQQAAAAAAAAAAAAAAAAAAAAAAAAMwMzYGDmZGmhBzYmZMzMtMjZZGAAAAAAstNzMYmZsMmZZ2GAAAAmZGAAAAAAwMA",
-				popularity = "53.0%",
-				dps = "438.3k",
-			},
-			["MythicPlus"] = {
-				talentString = "BQQAAAAAAAAAAAAAAAAAAAAAAAAMWmBjZGmZmZYGmxMzMsNzMTLzMmtZGAAAAAAYbZMDPwMzYBWmtBAAAwMzAA",
-				popularity = "48.7%",
-				dps = "549.7k",
-				keystone = "+19"
+				popularity = "49.8%",
+				dps = "437.3k",
 			},
 		},
 		["subtlety"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CUQAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAzyYmlJDLbYGjhZmZmZmZGz2YMzstNzMmZmBjZWmtBAAAgZwAAAAAAAG",
-				popularity = "54.6%",
-				dps = "495.8k",
-			},
-			["MythicPlus"] = {
-				talentString = "BUQAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAzyMzMLzEMLLGzMjZmxDMzMzYGz2YMmttZmxMzMAWmlBAAAgZwA",
-				popularity = "9.5%",
-				dps = "297.9k",
-				keystone = "+12"
+				popularity = "55.2%",
+				dps = "497.3k",
 			},
 		},
 	},
 	["priest"] = {
 		["discipline"] = {
-			["Raiding"] = {
-				talentString = "CAQAAAAAAAAAAAAAAAAAAAAAAAA2mtxYw2YMzMmhZZmZmZYGAAAAAAAAAAAsYZ2Y2mZgZhhxYMMLmtZaMxyYAAAAAAA",
-				popularity = "8.9%",
-				dps = "95.8k",
-				hps = "373.9k",
-			},
 			["MythicPlus"] = {
-				talentString = "CAQAAAAAAAAAAAAAAAAAAAAAAAA2mlxMD2GjZmxMbmtZmZmhBAAAAAAAAAAAWsMbYbmZwsYGGzMGmF2mpZELDAAAAAAA",
-				popularity = "26.6%",
-				dps = "133.4k",
-				hps = "152.9k",
-				keystone = "+18"
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "CAQAAAAAAAAAAAAAAAAAAAAAAAA2mtxYw2YMzMmhZZmZmZYGAAAAAAAAAAAsYZ2eAz2MDMLMMYMMLmtZaMxyYAAAAAAA",
+				popularity = "10.0%",
+				dps = "98.2k",
+				hps = "373.9k",
 			},
 		},
 		["holy"] = {
 			["Raiding"] = {
 				talentString = "CEQAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAbDYbmZmZGzwsNGzMYZGWGAAAAwilZbYbmZwswwMzMGssAzYqZBAAAAAAA",
-				popularity = "57.9%",
-				dps = "46.2k",
-				hps = "460.2k",
+				popularity = "57.3%",
+				dps = "46.9k",
+				hps = "459.5k",
 			},
 			["MythicPlus"] = {
-				talentString = "CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAAwDsZMLzgZGjBmxMMWmZmlBAAAAsYZ2eAWmZGYxMLGmxwswGzMqZBAAAAAAA",
-				popularity = "26.7%",
-				dps = "159.6k",
-				hps = "136.1k",
-				keystone = "+16"
+				talentString = "Link not found",
 			},
 		},
 		["shadow"] = {
 			["MythicPlus"] = {
-				talentString = "CIQAAAAAAAAAAAAAAAAAAAAAAMMYYAAAAAAAAAAAAAGzsYGzMzmNmZmZWGsMsMLMzMDzmZYMGDziZbqZgFMDAAAAAA",
-				popularity = "75.1%",
-				dps = "712.2k",
-				keystone = "+21"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "CIQAAAAAAAAAAAAAAAAAAAAAAgBmZAAAAAAAAAAAAAGmFPAzMz2sNmZmZMmxgZhZmZGzGDMGDziZbqZGsgZAAAAAAA",
-				popularity = "23.4%",
-				dps = "468.5k",
+				popularity = "22.4%",
+				dps = "487.4k",
 			},
 		},
 	},
 	["death-knight"] = {
 		["blood"] = {
 			["MythicPlus"] = {
-				talentString = "BoPAAAAAAAAAAAAAAAAAAAAAAAGmZGDzMjxsNjxgZMNDDmZmZMDAAAAAMjZm5BGjZ2MMmBAAMMzMzAAAAA",
-				popularity = "22.1%",
-				dps = "291.6k",
-				keystone = "+15"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "CoPAAAAAAAAAAAAAAAAAAAAAAghBzMjZmxYsMjZmZaGGmZMjZAAAAAYmZmZmZmZ2MzMGAAAMzMzMAAAAAAAAAAAYwC",
-				popularity = "22.3%",
-				dps = "309.6k",
+				popularity = "19.6%",
+				dps = "294.5k",
 			},
 		},
 		["frost"] = {
 			["Raiding"] = {
 				talentString = "CsPAAAAAAAAAAAAAAAAAAAAAA8AAMzYmZMGDzYmZmZmxwMZGDDwMzYmhZmZmZmZZmBAAAAAAAAAAAAAAAAAAzMzYGA",
-				popularity = "46.1%",
-				dps = "617.9k",
+				popularity = "43.5%",
+				dps = "616.9k",
 			},
 			["MythicPlus"] = {
-				talentString = "BsPAAAAAAAAAAAAAAAAAAAAAAYMAGDzMj5BGzYMGzYmZYw0YGzMzYG4BYmZMmZmZmZWmZAAAAAAAAAAAAA",
-				popularity = "78.8%",
-				dps = "457.7k",
-				keystone = "+17"
+				talentString = "Link not found",
 			},
 		},
 		["unholy"] = {
 			["MythicPlus"] = {
-				talentString = "BwPAAAAAAAAAAAAAAAAAAAAAAAAGDzMj5BGjZMGzYmGGMzYGzAAAAAAAAAgFmZMMmZmNAAmxsYMzMzYmZA",
-				popularity = "74.7%",
-				dps = "488.6k",
-				keystone = "+17"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
-				talentString = "CwPAAAAAAAAAAAAAAAAAAAAAAAAzMzMjHYYYGzMzMNMmZGzYAAAAAAAAAMMzYGjxMAgZzMMLGzMzMmZGAAAAAADgZA",
-				popularity = "46.3%",
-				dps = "541.9k",
+				talentString = "CwPAAAAAAAAAAAAAAAAAAAAAAAAzMjZ8ADDzYmZmphZmZGzYAAAAAAAAAMMzYGjxMAgZzMMLGzMzMmZGAAAAAADgZA",
+				popularity = "49.0%",
+				dps = "544.4k",
 			},
 		},
 	},
 	["shaman"] = {
 		["elemental"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAMLz2yYwYmZZbmZmZmxYAAAAAAAAAAAAAw0MzwstYmZiZMzsglZMDGDzyMzMGYGjB",
-				popularity = "41.3%",
-				dps = "613.5k",
-			},
-			["MythicPlus"] = {
-				talentString = "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgZb2WMzsMzAGMbsMWmtZGPw8AAAAAAAWGUzsMzYbWAjHYZmZ2sMwygxYgB",
-				popularity = "65.2%",
-				dps = "506.3k",
-				keystone = "+19"
-			},
-		},
-		["enhancement"] = {
-			["Raiding"] = {
-				talentString = "CcQAAAAAAAAAAAAAAAAAAAAAAMzMzyMDYmZYmZmNsMDAAAAAAAAAAAAAAAAAAwsMZGMLLmZmZMMzshlZmJwYZMzAAMD",
-				popularity = "84.7%",
-				dps = "467.6k",
-			},
-			["MythicPlus"] = {
-				talentString = "BcQAAAAAAAAAAAAAAAAAAAAAAYGzMLjZwwMDzMzshlZMAAAAAAAAAAAAALjpGDzwsYgZ2MzsMgllBjBYG",
-				popularity = "77.5%",
-				dps = "449.6k",
-				keystone = "+18"
+				popularity = "36.8%",
+				dps = "609.0k",
 			},
 		},
 		["restoration"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAjZmZWmx2YmZGLzGbGWAAAAAAgZMLjx2MzMTmtFmZaMDzshFzMDGDzyYAAM",
-				popularity = "22.9%",
-				dps = "42.4k",
-				hps = "453.4k",
+				popularity = "21.6%",
+				dps = "46.4k",
+				hps = "431.7k",
 			},
+		},
+		["enhancement"] = {
 			["MythicPlus"] = {
-				talentString = "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGmZmZmZZmlZWMzsZwGMjBTZZM2GDMmlZeAwYsMzMjZGA",
-				popularity = "9.1%",
-				dps = "118.4k",
-				hps = "131.3k",
-				keystone = "+16"
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "CcQAAAAAAAAAAAAAAAAAAAAAAMzMzyMDYmZYmZmNsMDAAAAAAAAAAAAAAAAAAwsMZGMLLmZmZMMzshlZmJwYZMzAAMD",
+				popularity = "84.5%",
+				dps = "465.8k",
 			},
 		},
 	},
 	["mage"] = {
-		["arcane"] = {
+		["frost"] = {
 			["Raiding"] = {
-				talentString = "C4DAAAAAAAAAAAAAAAAAAAAAAYMbmtZBzwYW8A8AmZYMNzsMDAAAAAADAAAAAAAAAAAAbAsMjhZGzMMmZGjZmxMzMzwYA",
-				popularity = "33.4%",
-				dps = "474.0k",
+				talentString = "CAEAAAAAAAAAAAAAAAAAAAAAAMzYzsZBzwMziBzYmGjxYmxwMzMMzMzMzYmZmZGzMYGAAAAAAAAAAAAzCAAAAAAAAA",
+				popularity = "65.2%",
+				dps = "513.4k",
 			},
 			["MythicPlus"] = {
-				talentString = "B4DAAAAAAAAAAAAAAAAAAAAAAYmBzyshZGzMLGw8AzYMNzwMGYmZGmZbmBAAAAAAAAAAAMmZmZGmZmZMMDA",
-				popularity = "61.5%",
-				dps = "457.1k",
-				keystone = "+16"
+				talentString = "Link not found",
+			},
+		},
+		["arcane"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "C4DAAAAAAAAAAAAAAAAAAAAAAYMbmtZBzwYW8A8AmZYMNzsMDAAAAAADAAAAAAAAAAAAbAsMjhZGzMMmZGjZmxMzMzwYA",
+				popularity = "32.6%",
+				dps = "478.1k",
 			},
 		},
 		["fire"] = {
 			["MythicPlus"] = {
-				talentString = "B8DAAAAAAAAAAAAAAAAAAAAAAYmBziNMDzMLeAMmZYaMzwMDAAAAAAAAgxYMzMDLzYZmZYmZmZmNAAAwsNA",
-				popularity = "70.8%",
-				dps = "612.3k",
-				keystone = "+20"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "C8DAAAAAAAAAAAAAAAAAAAAAAYMMbzCmZmxsYgZGmGzMmBAAAAAgBAAAAAYMzMzMmxMzYxYmh5BwMLzgZhBAAAAAAA",
-				popularity = "47.1%",
-				dps = "455.5k",
-			},
-		},
-		["frost"] = {
-			["MythicPlus"] = {
-				talentString = "BAEAAAAAAAAAAAAAAAAAAAAAAwMYWshZGzMLeAMmZ0YMmlZmBAAYGmxMMzMzMzYmZmZGzMAAAAAAAAAwYA",
-				popularity = "70.0%",
-				dps = "562.9k",
-				keystone = "+21"
-			},
-			["Raiding"] = {
-				talentString = "CAEAAAAAAAAAAAAAAAAAAAAAAMzYzsZBzwMziBzYmGjxYmxwMzMMzMzMzYmZmZGzMYGAAAAAAAAAAAAzCAAAAAAAAA",
-				popularity = "66.5%",
-				dps = "511.2k",
+				popularity = "44.9%",
+				dps = "451.9k",
 			},
 		},
 	},
 	["warlock"] = {
 		["affliction"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CkQAAAAAAAAAAAAAAAAAAAAAAAzMzMzMjY2MMmNzMDz2AAAAzMjZWMzMWMzMLMzMDAYGAAAAAAzAAAAAAAAAmZ2A",
-				popularity = "46.3%",
-				dps = "449.7k",
-			},
-			["MythicPlus"] = {
-				talentString = "BkQAAAAAAAAAAAAAAAAAAAAAAAPwMzMjZmRjZzCjZxMzwsMAAAAwCAAAAAAADjNmZGzYmZGbzMzAAmB",
-				popularity = "59.3%",
-				dps = "450.8k",
-				keystone = "+16"
-			},
-		},
-		["demonology"] = {
-			["MythicPlus"] = {
-				talentString = "BoQAAAAAAAAAAAAAAAAAAAAAAAYmZMzMiZzCzMbPwMzwsMAAAAAADMmZmtxYMzMmZZ2mZMDDAAAAAAmZG",
-				popularity = "46.0%",
-				dps = "502.1k",
-				keystone = "+16"
-			},
-			["Raiding"] = {
-				talentString = "CoQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZYWGAAAAAAAAAAzAAAAAAwMzMmtxMLmZmZGjZMMjZmBjZAAA",
-				popularity = "29.5%",
-				dps = "434.5k",
+				popularity = "47.6%",
+				dps = "447.3k",
 			},
 		},
 		["destruction"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CsQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzihxsZmZY2mFzYGzsY2MWMzAAAAAjZmZZmZmBAAAAAgBAAAAAAwMGzAA",
-				popularity = "13.1%",
+				popularity = "12.6%",
 				dps = "466.7k",
 			},
+		},
+		["demonology"] = {
+			["Raiding"] = {
+				talentString = "CoQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZYWGAAAAAAAAAAzAAAAAAwMzMmtxMLmZmZGjZMMjZmBjZAAA",
+				popularity = "28.1%",
+				dps = "435.1k",
+			},
 			["MythicPlus"] = {
-				talentString = "BsQAAAAAAAAAAAAAAAAAAAAAAAYmZMzMaMbWYMbmZGzsMMzMsMmxYZw2yiZGAAAAAAAAAAAADYZmZmB",
-				popularity = "53.9%",
-				dps = "655.1k",
-				keystone = "+19"
+				talentString = "Link not found",
 			},
 		},
 	},
 	["monk"] = {
 		["brewmaster"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CwQAAAAAAAAAAAAAAAAAAAAAAAAAAAMGjZYGLzYbmZmBAAAAAAALLgwMwMMzCjx2MzMMLDzYbWmptNL2mZGzsBAAAAAAAAMD2A",
-				popularity = "22.1%",
-				dps = "287.6k",
-			},
-			["MythicPlus"] = {
-				talentString = "BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmBAAAAmlx22MzMwMzssxAAAAMLDLzMNjZYbhZmlZmZZGAbmxsNbLzYA",
-				popularity = "32.7%",
-				dps = "301.6k",
-				keystone = "+17"
+				popularity = "21.2%",
+				dps = "283.6k",
 			},
 		},
 		["mistweaver"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "C4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMsYbsMAmZmx2DwitZbmZxysstMzssAamZmZhZYmFDzsYmZY2YMYhAAAAAAAAAAAA2A",
-				popularity = "28.5%",
-				dps = "32.5k",
-				hps = "457.1k",
-			},
-			["MythicPlus"] = {
-				talentString = "B4QAAAAAAAAAAAAAAAAAAAAAAsNzyiZm5BMWW2GDzyYMzGMLziBAAAAAAAAAAAAY2mxyMzUzMjtFgZmZDGGAAjZD",
-				popularity = "23.4%",
-				dps = "118.2k",
-				hps = "169.5k",
-				keystone = "+19"
+				popularity = "27.0%",
+				dps = "31.9k",
+				hps = "438.2k",
 			},
 		},
 		["windwalker"] = {
 			["Raiding"] = {
 				talentString = "C0QAAAAAAAAAAAAAAAAAAAAAAYmZZmBDDzyMMMDAAAAAAAAAAAYbZGjghxMMsNmx2MmhZbYmhlZCAgtZmxMzYmtZAAAAAAAA",
-				popularity = "45.7%",
-				dps = "517.3k",
+				popularity = "47.1%",
+				dps = "510.3k",
 			},
 			["MythicPlus"] = {
-				talentString = "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZGzMzYZMmxAAAAAGzMzCzYgZmZMMzyMzkZmxyCzMmZmNAAAAbA",
-				popularity = "50.4%",
-				dps = "493.8k",
-				keystone = "+19"
+				talentString = "Link not found",
 			},
 		},
 	},
 	["druid"] = {
 		["balance"] = {
-			["MythicPlus"] = {
-				talentString = "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgFKYmZmxgZGgZGmZmZB2mxDMmZmlZGmZGG2MbjZMzYDgFAYA",
-				popularity = "32.1%",
-				dps = "481.3k",
-				keystone = "+19"
-			},
 			["Raiding"] = {
 				talentString = "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWogZmhhZGwMDzMzsAbjxYmZbGbGzMmHw2MbzMmxYDsAgBAAAAAAAgZmxA",
-				popularity = "39.4%",
-				dps = "464.4k",
+				popularity = "38.9%",
+				dps = "463.1k",
+			},
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+		},
+		["guardian"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmxYmZmlZsMzYwYxDMMzsYZAMgZmZimZmZmZGDDbMAAAAAAghZAAAAAAAAAMzMA",
+				popularity = "14.0%",
+				dps = "273.6k",
 			},
 		},
 		["feral"] = {
 			["MythicPlus"] = {
-				talentString = "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmxMbzmZwMzMzsMbPA2mZMjZGAAAAAALBDzMzAzANzMzMYGWGsNjHAAAAAAAzAAA",
-				popularity = "21.6%",
-				dps = "383.9k",
-				keystone = "+15"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "CcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMz2YMLmZMzsMbM2mZmxMzAAAAAAsEwMgxANzYGmZmxMmtZGAAAAAAADAAAAAAAAAmZA",
-				popularity = "49.8%",
-				dps = "539.0k",
-			},
-		},
-		["guardian"] = {
-			["Raiding"] = {
-				talentString = "CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmxYmZmlZsMzYwYxDMMzsYZAMgZmZimZmZmZGDDbMAAAAAAghZAAAAAAAAAMzMA",
-				popularity = "16.4%",
-				dps = "274.5k",
-			},
-			["MythicPlus"] = {
-				talentString = "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMmZMmlxYGDmZWMDzMLAgZmZAmJTzMzMjZGzihN8AAAAAAAjBMDDDA",
-				popularity = "23.5%",
-				dps = "249.1k",
-				keystone = "+19"
+				popularity = "50.7%",
+				dps = "535.5k",
 			},
 		},
 		["restoration"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CkGAAAAAAAAAAAAAAAAAAAAAAsNmZGLbDzMDzCmxYbzYbMzAAAAAAAAAAAAYZAmhxMamBMjZmZMMTbzAAAAAAAAwYAAAAAAAAMzwA",
-				popularity = "29.9%",
-				dps = "42.2k",
-				hps = "530.9k",
-			},
-			["MythicPlus"] = {
-				talentString = "BkGAAAAAAAAAAAAAAAAAAAAAAsxMzYDzMzsYWmZMYWYz2YmBAAAAAAAAAAAAMAPwMzgRNDDMzYmZegZBzCeAAAAAAwYAAwMD",
-				popularity = "23.7%",
-				dps = "128.3k",
-				hps = "165.2k",
-				keystone = "+20"
+				popularity = "29.7%",
+				dps = "42.9k",
+				hps = "528.1k",
 			},
 		},
 	},
 	["demon-hunter"] = {
 		["havoc"] = {
 			["MythicPlus"] = {
-				talentString = "CEkAAAAAAAAAAAAAAAAAAAAAAYmZmxMzgZmZMMZMzAAAAAAAmlhxMjZmZzMz2sNGDMDjlNAAAwYmZMA",
-				popularity = "31.5%",
-				dps = "502.3k",
-				keystone = "+19"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "CEkAAAAAAAAAAAAAAAAAAAAAAYmZMmZGMzMjxMhZGAAAAAAwsNMmZMzMbzMz2sNGDMDjlNAAAwYmZMA",
-				popularity = "59.3%",
-				dps = "490.9k",
+				popularity = "59.6%",
+				dps = "494.8k",
 			},
 		},
 		["vengeance"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CUkAAAAAAAAAAAAAAAAAAAAAAAAGjZmZMmZkZmxYYMLzMMjtZMjZMDzMjZGbjZYGMAAAAAAAAwMzMA",
-				popularity = "14.5%",
-				dps = "276.7k",
-			},
-			["MythicPlus"] = {
-				talentString = "CUkAAAAAAAAAAAAAAAAAAAAAAAAmZMMjhZkZmhZYGbzMmZsNzwYGMGz2MzsZmxMjZGAAAAAAAAYmZA",
-				popularity = "18.9%",
-				dps = "283.9k",
-				keystone = "+21"
+				popularity = "14.9%",
+				dps = "276.9k",
 			},
 		},
 	},
 	["evoker"] = {
 		["devastation"] = {
 			["MythicPlus"] = {
-				talentString = "BsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGzAzYmxMDmxmxYmphZmMbjlZmZmhxMLzAmxMLjZGzYgBA",
-				popularity = "39.4%",
-				dps = "498.3k",
-				keystone = "+18"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzYmBzsZGMgBGzMNjZmMbjlZmZmhxMbzAmxMbjZmtxMwADAAAAAAA",
-				popularity = "31.2%",
-				dps = "500.1k",
+				popularity = "32.1%",
+				dps = "509.5k",
 			},
 		},
 		["preservation"] = {
 			["MythicPlus"] = {
-				talentString = "BwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZMLDMmZGziZmxAGAAMzYmZGGjZGxYAAAAmZmJzsNzYMMAA",
-				popularity = "16.6%",
-				dps = "131.8k",
-				hps = "162.7k",
-				keystone = "+19"
+				talentString = "Link not found",
 			},
 			["Raiding"] = {
 				talentString = "CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAYmZ2mtZwMzMjZBzsxMAAAzMmxgxYmRYGAAAgZmZyMmZMLzMDAGAAAAAAA",
-				popularity = "9.8%",
-				dps = "33.9k",
-				hps = "373.9k",
+				popularity = "9.4%",
+				dps = "41.3k",
+				hps = "394.1k",
 			},
 		},
 		["augmentation"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 			["Raiding"] = {
 				talentString = "CEcBAAAAAAAAAAAAAAAAAAAAAwMGbzMzMWGMzsMzwMmZDAAAAAMAAYmBAGzUzYmZAAAAwMmZbMzsNmZgx2MAAAAAAwM",
-				popularity = "28.1%",
-				dps = "528.1k",
-			},
-			["MythicPlus"] = {
-				talentString = "BEcBAAAAAAAAAAAAAAAAAAAAAwMLzsNmZGLDzMzyMYmZmNAAAAAAAAMzgZsZMmpGmHYGAAAAYmZ2GzMGzMwYzA",
-				popularity = "33.3%",
-				dps = "431.4k",
-				keystone = "+20"
+				popularity = "27.7%",
+				dps = "537.2k",
 			},
 		},
 	},
