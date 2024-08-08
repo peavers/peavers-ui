@@ -122,7 +122,7 @@ addonTable.Utils.CreateStyledSection = function(parent, sectionTitle, hps, dps, 
 	button:SetPoint("BOTTOMRIGHT", 0, 5)
 	button:SetText("Apply")
 	button:SetScript("OnClick", applyFunc)
-	button:SetEnabled(hasData)  -- Disable the button if there's no data
+	button:SetEnabled(hasData) -- Disable the button if there's no data
 
 	-- Create horizontal line
 	local line = frame:CreateLine()
@@ -132,4 +132,47 @@ addonTable.Utils.CreateStyledSection = function(parent, sectionTitle, hps, dps, 
 	line:SetThickness(0.5)
 
 	return frame
+end
+
+addonTable.Utils.CreateProfileSection = function(parent, addonName, description, isSelected, applyFunc, x, y)
+	local frame = CreateFrame("Frame", nil, parent)
+	frame:SetSize(parent:GetWidth(), 90)  -- Set width to parent's width
+	frame:SetPoint("TOPLEFT", x, y)
+
+	local titleText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+	titleText:SetPoint("TOPLEFT", 10, -10)  -- Added padding
+	titleText:SetText(addonName)
+
+	local descriptionText = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+	descriptionText:SetPoint("TOPLEFT", titleText, "BOTTOMLEFT", 0, -5)
+	descriptionText:SetText(description)
+	descriptionText:SetWidth(frame:GetWidth() - 20)  -- Adjusted width
+	descriptionText:SetJustifyH("LEFT")
+
+	local statusText = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+	statusText:SetPoint("TOPLEFT", descriptionText, "BOTTOMLEFT", 0, -5)
+	statusText:SetText(isSelected and "Profile is applied" or "Profile is not applied")
+	statusText:SetWidth(frame:GetWidth() - 20)  -- Adjusted width
+	statusText:SetJustifyH("LEFT")
+
+	local button = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+	button:SetSize(80, 22)
+	button:SetPoint("BOTTOMRIGHT", -10, 10)  -- Added padding
+	button:SetText("Apply")
+	button:SetScript("OnClick", applyFunc)
+
+	-- Create horizontal line
+	local line = frame:CreateLine()
+	line:SetColorTexture(0.5, 0.5, 0.5, 0.5)
+	line:SetStartPoint("BOTTOMLEFT", 0, 0)
+	line:SetEndPoint("BOTTOMRIGHT", 0, 0)
+	line:SetThickness(0.5)
+
+	frame.titleText = titleText
+	frame.descriptionText = descriptionText
+	frame.statusText = statusText
+	frame.button = button
+
+	return frame
+
 end
