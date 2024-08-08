@@ -1,40 +1,43 @@
 AddonProfileManager = {
-    DEFAULT_PROFILE_NAME = "PeaversUI"
+	DEFAULT_PROFILE_NAME = "PeaversUI"
 }
 
-function AddonProfileManager:CheckAddonAndVariables(addonName, savedVariablesName)
-	if not IsAddOnLoaded(addonName) then
-		print("Addon not loaded: " .. addonName)
-		return nil
-	end
-	local savedVariables = _G[savedVariablesName]
-	if not savedVariables then
-		print(addonName .. " saved variables not found")
-		return nil
-	end
-	return savedVariables
-end
-
-function AddonProfileManager:ApplySettings(addonName, savedVariablesName, settings, postSaveCallback)
-	local savedVariables = self:CheckAddonAndVariables(addonName, savedVariablesName)
-	if not savedVariables then return end
-
+function AddonProfileManager:ApplySettings(addonName, settings, postApplyCallback)
 	local profileName = self.DEFAULT_PROFILE_NAME
 
-    -- Standard profile handling
-    if not savedVariables["profiles"] then
-        savedVariables["profiles"] = {}
-    end
-    savedVariables["profiles"][profileName] = settings
+	-- Ensure the addon's saved variables exist
+	if not _G[addonName .. "DB"] then
+		_G[addonName .. "DB"] = {}
+	end
+	local savedVariables = _G[addonName .. "DB"]
 
-    if not savedVariables["profileKeys"] then
-        savedVariables["profileKeys"] = {}
-    end
-    local characterKey = UnitName("player") .. " - " .. GetRealmName()
-    savedVariables["profileKeys"][characterKey] = profileName
+	-- Standard profile handling
+	if not savedVariables.profiles then
+		savedVariables.profiles = {}
+	end
 
-    -- Call the addon-specific post-save callback if provided
-    if postSaveCallback and type(postSaveCallback) == "function" then
-        postSaveCallback(savedVariables, profileName, settings)
-    end
+	savedVariables.profiles[profileName] = settings
+
+	if not savedVariables.profileKeys then
+		savedVariables.profileKeys = {}
+	end
+
+	local characterKey = UnitName("player") .. " - " .. GetRealmName()
+	savedVariables.profileKeys[characterKey] = profileName
+
+	-- Call the addon-specific post-apply callback if provided
+	if postApplyCallback and type(postApplyCallback) == "function" then
+		postApplyCallback(savedVariables, profileName, settings)
+	end
+
+	print("Profile applied for " .. addonName)
+end
+
+function AddonProfileManager:GetSettings(addonName)
+	if self[addonName .. "Settings"] then
+		return self[addonName .. "Settings"]()
+	else
+		print("Settings for " .. addonName .. " not found")
+		return nil
+	end
 end
