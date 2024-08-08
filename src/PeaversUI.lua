@@ -21,23 +21,33 @@ addonTable.supportedAddons = {
 	{
 		name = "Bartender4",
 		description = "Sets primary action bars at the bottom of the screen, as well as a 'hidden' bar on the left for bindings and non-important buttons.",
-		settingsFunc = GetBartender4Settings,
-		postApplyCallback = ApplyBartender4Settings
+		apply = ApplyBartender4Settings
 	},
 	{
 		name = "Cell",
 		description = "Replacement for raid, party, and unitframes. Combine with Plater and no need for target frames either.",
-		settingsFunc = GetCellSettings,
-		postApplyCallback = ApplyCellSettings
+		apply = ApplyCellSettings
 	},
-	--{
-	--	name = "Details! Damage Meter",
-	--	description = "Damage meter addon",
-	--	settings = AddonProfileManager.GetDetailsSettings(),
-	--	postApplyCallback = function(settings)
-	--		AddonProfileManager.ApplyDetailsSettings(settings)
-	--	end
-	--},
+	{
+		name = "Details! Damage Meter",
+		description = "Damage meter addon",
+		apply = ApplyDetailsSettings
+	},
+	{
+		name = "Plater",
+		description = "Replacement for ",
+		apply = ApplyPlaterSettings
+	},
+	{
+		name = "SexyMap",
+		description = "Clean up the minimap with a 'ElvUI' style.",
+		apply = ApplySexyMapSettings
+	},
+	{
+		name = "LS Glass",
+		description = "Minimal and beautiful chat frame replacement",
+		apply = ApplyLsGlassSettings
+	},
 	--{
 	--	name = "LS Glass",
 	--	description = "Chat frame addon",
@@ -54,18 +64,7 @@ addonTable.supportedAddons = {
 	--		AddonProfileManager.ApplyOmniCDSettings(settings)
 	--	end
 	--},
-	{
-		name = "Plater",
-		description = "Replacement for ",
-		settings = GetPlaterSettings,
-		postApplyCallback = AddonProfileManager
-	},
-	{
-		name = "SexyMap",
-		description = "Clean up the minimap with a 'ElvUI' style.",
-		settingsFunc = GetSexyMapSettings,
-		postApplyCallback = ApplySexyMapSettings
-	},
+
 	--{
 	--	name = "TipTac",
 	--	description = "Tooltip addon",
@@ -128,7 +127,8 @@ end
 
 -- Initialize the addon
 local function InitializeAddon()
-	Utils.GetPlayerInfoWithRetry(5, function(fullPlayerName, playerClass, playerClassID, specName) end)
+	Utils.GetPlayerInfoWithRetry(5, function(fullPlayerName, playerClass, playerClassID, specName)
+	end)
 end
 
 -- Event handling

@@ -2,8 +2,11 @@ AddonProfileManager = {
 	DEFAULT_PROFILE_NAME = "PeaversUI"
 }
 
-function AddonProfileManager:ApplySettings(addonName, settings, postApplyCallback)
-	local profileName = self.DEFAULT_PROFILE_NAME
+function ApplyDetailsSettings()
+	local settings = GetDetailsSettings()
+
+	local addonName = "Details"
+	local profileName = "PeaversUI"
 
 	-- Ensure the addon's saved variables exist
 	if not _G[addonName .. "DB"] then
@@ -25,19 +28,16 @@ function AddonProfileManager:ApplySettings(addonName, settings, postApplyCallbac
 	local characterKey = UnitName("player") .. " - " .. GetRealmName()
 	savedVariables.profileKeys[characterKey] = profileName
 
-	-- Call the addon-specific post-apply callback if provided
-	if postApplyCallback and type(postApplyCallback) == "function" then
-		postApplyCallback(savedVariables, profileName, settings)
+	-- Additional Details-specific settings
+	if _G["_detalhes"] then
+		_G["_detalhes"].always_use_profile = true
+		_G["_detalhes"].always_use_profile_name = profileName
+	end
+
+	-- If there's a need to refresh or update the UI, do it here
+	if _G["_detalhes"] and _G["_detalhes"].RefreshMainWindow then
+		_G["_detalhes"]:RefreshMainWindow()
 	end
 
 	print("Profile applied for " .. addonName)
-end
-
-function AddonProfileManager:GetSettings(addonName)
-	if self[addonName .. "Settings"] then
-		return self[addonName .. "Settings"]()
-	else
-		print("Settings for " .. addonName .. " not found")
-		return nil
-	end
 end

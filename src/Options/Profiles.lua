@@ -71,9 +71,12 @@ function UI.LoadProfilesPanel(parentCategory)
 
 	contentFrame:SetSize(scrollFrame:GetWidth() - 30, math.abs(yOffset) + 20)
 
-	panel.OnRefresh = function() end
-	panel.OnCommit = function() end
-	panel.OnDefault = function() end
+	panel.OnRefresh = function()
+	end
+	panel.OnCommit = function()
+	end
+	panel.OnDefault = function()
+	end
 
 	return panel
 end
@@ -94,12 +97,7 @@ function Profiles.ApplyProfile(addonName)
 		return
 	end
 
-	local settings = addonInfo.settingsFunc()
+	print("Applying profile for: " .. addonName)
 
-	if not settings then
-		print("Failed to get settings for: " .. addonName)
-		return
-	end
-
-	addonInfo.postApplyCallback(settings)
+	addonInfo.apply()
 end
