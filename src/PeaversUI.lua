@@ -20,13 +20,13 @@ addonTable.mainPanel = mainPanel
 addonTable.supportedAddons = {
 	{
 		name = "Bartender4",
-		description = "Action bar addon",
+		description = "Sets primary action bars at the bottom of the screen, as well as a 'hidden' bar on the left for bindings and non-important buttons.",
 		settingsFunc = GetBartender4Settings,
 		postApplyCallback = ApplyBartender4Settings
 	},
 	{
 		name = "Cell",
-		description = "Unit frame addon",
+		description = "Replacement for raid, party, and unitframes. Combine with Plater and no need for target frames either.",
 		settingsFunc = GetCellSettings,
 		postApplyCallback = ApplyCellSettings
 	},
@@ -54,17 +54,15 @@ addonTable.supportedAddons = {
 	--		AddonProfileManager.ApplyOmniCDSettings(settings)
 	--	end
 	--},
-	--{
-	--	name = "Plater",
-	--	description = "Nameplate addon",
-	--	settings = AddonProfileManager.GetPlaterSettings(),
-	--	postApplyCallback = function(settings)
-	--		AddonProfileManager.ApplyPlaterSettings(settings)
-	--	end
-	--},
+	{
+		name = "Plater",
+		description = "Replacement for ",
+		settings = GetPlaterSettings,
+		postApplyCallback = AddonProfileManager
+	},
 	{
 		name = "SexyMap",
-		description = "Minimap addon",
+		description = "Clean up the minimap with a 'ElvUI' style.",
 		settingsFunc = GetSexyMapSettings,
 		postApplyCallback = ApplySexyMapSettings
 	},
