@@ -1,18 +1,6 @@
 local addonName, addonTable = ...
 addonTable.Utils = addonTable.Utils or {}
 
-addonTable.Utils.CreatePanelHeader = function(panel, titleText, subtitleText)
-	local title = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
-	title:SetPoint("TOPLEFT", 16, -16)
-	title:SetText(titleText)
-
-	local subtitle = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-	subtitle:SetPoint("TOPLEFT", 16, -36)
-	subtitle:SetText(subtitleText)
-
-	return -56
-end
-
 addonTable.Utils.GetPlayerInfo = function()
 	local playerName, playerRealm = UnitFullName("player")
 	playerRealm = playerRealm or GetRealmName()
@@ -122,7 +110,7 @@ addonTable.Utils.CreateStyledSection = function(parent, sectionTitle, hps, dps, 
 	button:SetPoint("BOTTOMRIGHT", 0, 5)
 	button:SetText("Apply")
 	button:SetScript("OnClick", applyFunc)
-	button:SetEnabled(hasData)  -- Disable the button if there's no data
+	button:SetEnabled(hasData) -- Disable the button if there's no data
 
 	-- Create horizontal line
 	local line = frame:CreateLine()

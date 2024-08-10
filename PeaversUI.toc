@@ -2,7 +2,7 @@
 ## Title: PeaversUI
 ## Notes: A central addon to set profiles for other addons.
 ## Author: Peavers
-## Version: 1.0.110
+## Version: 1.0.103
 ## IconTexture: Interface\AddOns\PeaversUI\src\Media\Icon.tga
 ## SavedVariables: PeaversUIExportDB
 ## X-Curse-Project-ID: 1046194
@@ -32,6 +32,7 @@ src/Profiles/Plater.lua
 src/Profiles/SexyMap.lua
 src/Profiles/TipTac.lua
 src/Profiles/TitanPanel.lua
+src/Profiles/Hekili.lua
 
 # Entrypoint
 src/PeaversUI.lua
