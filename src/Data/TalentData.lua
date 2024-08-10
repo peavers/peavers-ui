@@ -113,7 +113,7 @@ local talentData = {
 				dps = "512.9k",
 			},
 		},
-		["survival"] = {
+		["marksmanship"] = {
 			["Raiding"] = {
 				talentString = "C8PAAAAAAAAAAAAAAAAAAAAAAMAAAAAAzMz2MmZGmZMzwMDzMjZGDAAAAAAAAAAAAAAaGmxMzMzYGMMGmZYMMjZGzC",
 				popularity = "53.8%",
@@ -153,13 +153,13 @@ local talentData = {
 				popularity = "45.4%",
 				dps = "426.2k",
 			},
-		},
-		["subtlety"] = {
 			["Raiding"] = {
 				talentString = "CUQAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAzyYmlJDLbYGjhZmZmZmZGz2YMzstNzMmZmBjZWmtBAAAgZwAAAAAAAD",
 				popularity = "51.5%",
 				dps = "518.2k",
 			},
+		},
+		["subtlety"] = {
 			["MythicPlus"] = {
 				talentString = "CUQAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAzyYmlJDLwMGzMzMzMzMzMmlxwMbbzMjZmZwYmlZZAAAAYGMAAAAAAwA",
 				popularity = "42.1%",
@@ -184,7 +184,7 @@ local talentData = {
 				hps = "395.4k",
 			},
 		},
-		["holy"] = {
+		["shadow"] = {
 			["MythicPlus"] = {
 				talentString = "CEQAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAegNjZZGMzYMwMmhxyMzsMAAAAgFbPw2wyMzALmZZGjxglNYmRNLDAAAAAAA",
 				popularity = "28.1%",
@@ -199,7 +199,7 @@ local talentData = {
 				hps = "457.0k",
 			},
 		},
-		["shadow"] = {
+		["holy"] = {
 			["Raiding"] = {
 				talentString = "CIQAAAAAAAAAAAAAAAAAAAAAAgBzMDAAAAAAAAAAAAwws4BYmZ2mNmZmZ2GzYwswMzMjZjBGjhZxsN1MDWwMAAAAAAA",
 				popularity = "24.8%",
@@ -240,7 +240,7 @@ local talentData = {
 				dps = "624.5k",
 			},
 		},
-		["unholy"] = {
+		["blood"] = {
 			["MythicPlus"] = {
 				talentString = "CwPAAAAAAAAAAAAAAAAAAAAAAAgZGjZmZYYGzMzMNMMzYGDAAAAAAAAghZGzYmZmZAAbgZxYmZmhZGAAAAAgZAmBA",
 				popularity = "53.3%",
@@ -337,9 +337,7 @@ local talentData = {
 				dps = "449.4k",
 			},
 		},
-	},
-	["warlock"] = {
-		["affliction"] = {
+		["frost"] = {
 			["MythicPlus"] = {
 				talentString = "CkQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZYWGAAAwMjZWmZG2mZmZxMmZAAzAAAAAAMDAAAAAAAAMDLA",
 				popularity = "23.5%",
@@ -520,7 +518,7 @@ local talentData = {
 				keystone = "+17"
 			},
 		},
-		["preservation"] = {
+		["augmentation"] = {
 			["MythicPlus"] = {
 				talentString = "CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2mtBGzMjZZGzYAAAwMjZMz2MGmZixMAAAgZmRzYbmxYMDAAAAAAADA",
 				popularity = "14.3%",

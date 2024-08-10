@@ -3,93 +3,101 @@ addonTable.UI = addonTable.UI or {}
 addonTable.Profiles = addonTable.Profiles or {}
 local UI = addonTable.UI
 local Profiles = addonTable.Profiles
-local Utils = addonTable.Utils
 
 function UI.LoadProfilesPanel(parentCategory)
-    local panel = CreateFrame("Frame")
-    panel.name = "Profiles"
-    panel.parent = parentCategory.name
+	local panel = CreateFrame("Frame")
+	panel.name = "Profiles"
+	panel.parent = parentCategory.name
 
-    local titleText = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
-    titleText:SetPoint("TOPLEFT", 16, -16)
-    titleText:SetText("Profiles")
+	local titleText = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
+	titleText:SetPoint("TOPLEFT", 16, -16)
+	titleText:SetText("Profiles")
 
-    local subtitleText = panel:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-    subtitleText:SetPoint("TOPLEFT", titleText, "BOTTOMLEFT", 0, -8)
-    subtitleText:SetText("Select the addons you want to apply profiles to")
+	local subtitleText = panel:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+	subtitleText:SetPoint("TOPLEFT", titleText, "BOTTOMLEFT", 0, -8)
+	subtitleText:SetText("Select the addons you want to apply profiles to")
 
-    local contentFrame = CreateFrame("Frame", nil, panel)
-    contentFrame:SetPoint("TOPLEFT", subtitleText, "BOTTOMLEFT", 0, -16)
-    contentFrame:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -16, 16)
+	-- Create a scroll frame
+	local scrollFrame = CreateFrame("ScrollFrame", nil, panel, "UIPanelScrollFrameTemplate")
+	scrollFrame:SetPoint("TOPLEFT", subtitleText, "BOTTOMLEFT", 0, -16)
+	scrollFrame:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -26, 16)
 
-    local yOffset = 0
-    local checkboxes = {}
+	local contentFrame = CreateFrame("Frame", nil, scrollFrame)
+	scrollFrame:SetScrollChild(contentFrame)
 
-    for _, addonInfo in ipairs(addonTable.supportedAddons) do
-        local checkbox = CreateFrame("CheckButton", nil, contentFrame, "UICheckButtonTemplate")
-        checkbox:SetPoint("TOPLEFT", 0, yOffset)
-        checkbox.text:SetText(addonInfo.name)
-        checkbox:SetChecked(addonTable.selectedAddons[addonInfo.name])
-        checkbox:SetScript("OnClick", function(self)
-            local checked = self:GetChecked()
-            addonTable.selectedAddons[addonInfo.name] = checked
-        end)
-        table.insert(checkboxes, checkbox)
-        yOffset = yOffset - 24
-    end
+	-- Function to create a Profile section
+	local function CreateProfileSection(parent, addonInfo, x, y)
+		local frame = CreateFrame("Frame", nil, parent)
+		frame:SetSize(550, 70)
+		frame:SetPoint("TOPLEFT", x, y)
 
-    local applyButton = CreateFrame("Button", nil, contentFrame, "UIPanelButtonTemplate")
-    applyButton:SetSize(100, 22)
-    applyButton:SetPoint("TOPLEFT", 0, yOffset - 16)
-    applyButton:SetText("Apply")
-    applyButton:SetScript("OnClick", Profiles.ApplySelectedProfiles)
+		local titleText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+		titleText:SetPoint("TOPLEFT", 0, 0)
+		titleText:SetText(addonInfo.name)
 
-    panel.OnRefresh = function()
-        for _, checkbox in ipairs(checkboxes) do
-            checkbox:SetChecked(addonTable.selectedAddons[checkbox.text:GetText()])
-        end
-    end
-    panel.OnCommit = function() end
-    panel.OnDefault = function()
-        for addonName, defaultValue in pairs(addonTable.defaultSelectedAddons) do
-            addonTable.selectedAddons[addonName] = defaultValue
-        end
-        panel.OnRefresh()
-    end
+		local descriptionText = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+		descriptionText:SetPoint("TOPLEFT", 0, -20)
+		descriptionText:SetText(addonInfo.description)
+		descriptionText:SetWidth(450)
+		descriptionText:SetJustifyH("LEFT")
 
-    return panel
+		local button = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+		button:SetSize(80, 22)
+		button:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 0, 5)
+		button:SetText("Apply")
+		button:SetScript("OnClick", function()
+			Profiles.ApplyProfile(addonInfo.name)
+		end)
+
+		local line = frame:CreateLine()
+		line:SetColorTexture(0.5, 0.5, 0.5, 0.5)
+		line:SetStartPoint("BOTTOMLEFT", 0, 0)
+		line:SetEndPoint("BOTTOMRIGHT", 0, 0)
+		line:SetThickness(0.5)
+
+		return frame
+	end
+
+	local yOffset = 0
+	for _, addonInfo in ipairs(addonTable.supportedAddons) do
+		CreateProfileSection(
+			contentFrame,
+			addonInfo,
+			32,
+			yOffset
+		)
+		yOffset = yOffset - 90
+	end
+
+	contentFrame:SetSize(scrollFrame:GetWidth() - 30, math.abs(yOffset) + 20)
+
+	panel.OnRefresh = function()
+	end
+	panel.OnCommit = function()
+	end
+	panel.OnDefault = function()
+	end
+
+	return panel
 end
 
-function Profiles.ApplySelectedProfiles()
-    for addon, isSelected in pairs(addonTable.selectedAddons) do
-        if isSelected then
-            for _, addonInfo in ipairs(addonTable.supportedAddons) do
-                if addonInfo.name == addon then
-                    local funcName = addonInfo.func
-                    if funcName and _G[funcName] then
-                        _G[funcName]()
-                    else
-                        print("Function " .. funcName .. " not found for " .. addon)
-                    end
-                end
-            end
-        end
-    end
-    print("Profiles applied. You may need to reload your UI for changes to take effect.")
+local function FindAddonInfo(addonName)
+	for _, addonInfo in ipairs(addonTable.supportedAddons) do
+		if addonInfo.name == addonName then
+			return addonInfo
+		end
+	end
+	return nil
 end
 
--- Initialize selected addons
-function Profiles.InitializeSelectedAddons()
-    if not PeaversUIExportDB then
-        PeaversUIExportDB = {}
-    end
+function Profiles.ApplyProfile(addonName)
+	local addonInfo = FindAddonInfo(addonName)
+	if not addonInfo then
+		print("Addon information not found for: " .. addonName)
+		return
+	end
 
-    if not PeaversUIExportDB.selectedAddons then
-        PeaversUIExportDB.selectedAddons = addonTable.defaultSelectedAddons
-    end
+	print("Applying profile for: " .. addonName)
 
-    addonTable.selectedAddons = PeaversUIExportDB.selectedAddons
+	addonInfo.apply()
 end
-
--- Call this function when the addon is loaded
-Profiles.InitializeSelectedAddons()
