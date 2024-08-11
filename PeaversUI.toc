@@ -13,7 +13,6 @@ src/Data/WeakAuraData.lua
 
 # Helpers
 src/Misc/Utils.lua
-src/Misc/AddonProfileManager.lua
 src/Misc/TalentSwitch.lua
 
 # UI
