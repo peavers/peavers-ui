@@ -17,7 +17,7 @@ function UI.LoadAboutPanel(parentCategory)
     titleText:SetPoint("TOPLEFT", 16, -16)
     titleText:SetText("About PeaversUI")
 
-    local version = GetAddOnMetadata("PeaversUI", "Version") or "Unknown"
+    local version = C_AddOns.GetAddOnMetadata("PeaversUI", "Version") or "Unknown"
     local versionText = panel:CreateFontString(nil, "ARTWORK", "GameFontNormal")
     versionText:SetPoint("TOPLEFT", titleText, "BOTTOMLEFT", 0, -8)
     versionText:SetText("Version: " .. version)
