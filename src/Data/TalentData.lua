@@ -3,7 +3,7 @@ addonTable.DB = addonTable.DB or {}
 
 local talentData = {
 	["warrior"] = {
-		["protection"] = {
+		["fury"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -19,7 +19,7 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-		["fury"] = {
+		["protection"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -29,19 +29,19 @@ local talentData = {
 		},
 	},
 	["paladin"] = {
-		["protection"] = {
-			["MythicPlus"] = {
+		["holy"] = {
+			["Raiding"] = {
 				talentString = "Link not found",
 			},
-			["Raiding"] = {
+			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
 		},
-		["holy"] = {
-			["MythicPlus"] = {
+		["protection"] = {
+			["Raiding"] = {
 				talentString = "Link not found",
 			},
-			["Raiding"] = {
+			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
 		},
@@ -55,14 +55,6 @@ local talentData = {
 		},
 	},
 	["hunter"] = {
-		["marksmanship"] = {
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
-		},
 		["beast-mastery"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
@@ -71,11 +63,19 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-		["survival"] = {
+		["marksmanship"] = {
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
 			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
+		},
+		["survival"] = {
 			["Raiding"] = {
+				talentString = "Link not found",
+			},
+			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
 		},
@@ -89,25 +89,7 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-		["subtlety"] = {
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
-		},
 		["outlaw"] = {
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
-		},
-	},
-	["priest"] = {
-		["holy"] = {
 			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
@@ -115,15 +97,7 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-		["discipline"] = {
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
-		},
-		["shadow"] = {
+		["subtlety"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -133,15 +107,15 @@ local talentData = {
 		},
 	},
 	["death-knight"] = {
-		["blood"] = {
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
+		["frost"] = {
 			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
 		},
-		["frost"] = {
+		["blood"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -158,12 +132,38 @@ local talentData = {
 			},
 		},
 	},
-	["shaman"] = {
-		["restoration"] = {
+	["priest"] = {
+		["discipline"] = {
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+		},
+		["holy"] = {
 			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
 			["Raiding"] = {
+				talentString = "Link not found",
+			},
+		},
+		["shadow"] = {
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+		},
+	},
+	["shaman"] = {
+		["elemental"] = {
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
+			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
 		},
@@ -175,7 +175,7 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-		["elemental"] = {
+		["restoration"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -185,19 +185,11 @@ local talentData = {
 		},
 	},
 	["mage"] = {
-		["fire"] = {
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
-		},
 		["arcane"] = {
-			["Raiding"] = {
+			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
-			["MythicPlus"] = {
+			["Raiding"] = {
 				talentString = "Link not found",
 			},
 		},
@@ -209,17 +201,17 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-	},
-	["warlock"] = {
-		["affliction"] = {
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
+		["fire"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
 		},
-		["demonology"] = {
+	},
+	["warlock"] = {
+		["affliction"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -228,6 +220,14 @@ local talentData = {
 			},
 		},
 		["destruction"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
+		},
+		["demonology"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -271,14 +271,6 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-		["guardian"] = {
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
-		},
 		["feral"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
@@ -288,6 +280,14 @@ local talentData = {
 			},
 		},
 		["restoration"] = {
+			["MythicPlus"] = {
+				talentString = "Link not found",
+			},
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
+		},
+		["guardian"] = {
 			["Raiding"] = {
 				talentString = "Link not found",
 			},
@@ -315,14 +315,6 @@ local talentData = {
 		},
 	},
 	["evoker"] = {
-		["devastation"] = {
-			["MythicPlus"] = {
-				talentString = "Link not found",
-			},
-			["Raiding"] = {
-				talentString = "Link not found",
-			},
-		},
 		["preservation"] = {
 			["MythicPlus"] = {
 				talentString = "Link not found",
@@ -331,11 +323,19 @@ local talentData = {
 				talentString = "Link not found",
 			},
 		},
-		["augmentation"] = {
+		["devastation"] = {
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
 			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
+		},
+		["augmentation"] = {
 			["Raiding"] = {
+				talentString = "Link not found",
+			},
+			["MythicPlus"] = {
 				talentString = "Link not found",
 			},
 		},
