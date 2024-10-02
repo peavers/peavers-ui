@@ -269,6 +269,4 @@ function ApplyBartender4Settings()
 			end
 		end
 	end
-
-	print("Bartender4 settings have been applied successfully.")
 end

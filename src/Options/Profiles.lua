@@ -25,58 +25,26 @@ function UI.LoadProfilesPanel(parentCategory)
 	local contentFrame = CreateFrame("Frame", nil, scrollFrame)
 	scrollFrame:SetScrollChild(contentFrame)
 
-	-- Function to create a Profile section
-	local function CreateProfileSection(parent, addonInfo, x, y)
-		local frame = CreateFrame("Frame", nil, parent)
-		frame:SetSize(550, 70)
-		frame:SetPoint("TOPLEFT", x, y)
-
-		local titleText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-		titleText:SetPoint("TOPLEFT", 0, 0)
-		titleText:SetText(addonInfo.name)
-
-		local descriptionText = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-		descriptionText:SetPoint("TOPLEFT", 0, -20)
-		descriptionText:SetText(addonInfo.description)
-		descriptionText:SetWidth(450)
-		descriptionText:SetJustifyH("LEFT")
-
-		local button = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-		button:SetSize(80, 22)
-		button:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 0, 5)
-		button:SetText("Apply")
-		button:SetScript("OnClick", function()
-			Profiles.ApplyProfile(addonInfo.name)
-		end)
-
-		local line = frame:CreateLine()
-		line:SetColorTexture(0.5, 0.5, 0.5, 0.5)
-		line:SetStartPoint("BOTTOMLEFT", 0, 0)
-		line:SetEndPoint("BOTTOMRIGHT", 0, 0)
-		line:SetThickness(0.5)
-
-		return frame
-	end
-
-	local yOffset = 0
-	for _, addonInfo in ipairs(addonTable.supportedAddons) do
-		CreateProfileSection(
+	local yOffset = -16  -- Start below the subtitle
+	for index, addonInfo in ipairs(addonTable.supportedAddons) do
+		local frame, frameHeight = UI.CreateSectionFrame(
 			contentFrame,
 			addonInfo,
 			32,
-			yOffset
+			yOffset,
+			function(info)
+				Profiles.ApplyProfile(info.name)
+			end
 		)
-		yOffset = yOffset - 90
+		yOffset = yOffset - frameHeight
 	end
 
+	-- Adjust the content frame size to fit all profile sections
 	contentFrame:SetSize(scrollFrame:GetWidth() - 30, math.abs(yOffset) + 20)
 
-	panel.OnRefresh = function()
-	end
-	panel.OnCommit = function()
-	end
-	panel.OnDefault = function()
-	end
+	panel.OnRefresh = function() end
+	panel.OnCommit = function() end
+	panel.OnDefault = function() end
 
 	return panel
 end

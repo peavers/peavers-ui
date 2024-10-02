@@ -150,28 +150,35 @@ function GetSexyMapSettings()
 end
 
 function ApplySexyMapSettings()
-    local settings = GetSexyMapSettings()
+	local settings = GetSexyMapSettings()
 
-    local profileName = "PeaversUI"
-    local savedVariables = _G["SexyMap2DB"]
+	if not SexyMap2DB then
+		print("SexyMap2DB is not available.")
+		return
+	end
 
-    if not savedVariables["profiles"] then
-        savedVariables["profiles"] = {}
-    end
+	-- Ensure the profile exists
+	SexyMap2DB.profiles = SexyMap2DB.profiles or {}
+	SexyMap2DB.profiles["PeaversUI"] = settings
 
-    savedVariables["profiles"][profileName] = settings
+	-- Set the profile for the current character
+	local characterKey = UnitName("player") .. " - " .. GetRealmName()
+	SexyMap2DB.profileKeys = SexyMap2DB.profileKeys or {}
+	SexyMap2DB.profileKeys[characterKey] = "PeaversUI"
 
-    if not savedVariables["profileKeys"] then
-        savedVariables["profileKeys"] = {}
-    end
+	-- If SexyMap is loaded, try to apply the settings immediately
+	if SexyMap and SexyMap.db then
+		SexyMap.db:SetProfile("PeaversUI")
 
-    local characterKey = UnitName("player") .. "-" .. GetRealmName()
-    savedVariables["profileKeys"][characterKey] = profileName
-
-    savedVariables[profileName] = nil
-    savedVariables[profileName] = settings
-
-    savedVariables[characterKey] = settings
-
-    print("SexyMap settings applied successfully. UI Reload required.")
+		-- Force updates
+		if SexyMap.UpdateLayout then
+			SexyMap:UpdateLayout()
+		end
+		if SexyMap.UpdateShape then
+			SexyMap:UpdateShape()
+		end
+		if SexyMap.RefreshModules then
+			SexyMap:RefreshModules()
+		end
+	end
 end

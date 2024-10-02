@@ -54,7 +54,7 @@ function UI.LoadTalentsPanel(parentCategory)
 				mythicPlusData.popularity,
 				mythicPlusData.keystone,
 				function()
-					Talents:ImportAndApplyTalents(mythicPlusData.talentString)
+					Talents:ShowImportDialog(mythicPlusData.talentString)
 				end, 0, currentYPosition)
 			currentYPosition = currentYPosition - (mythicPlusSection:GetHeight() + 10)
 
@@ -68,7 +68,7 @@ function UI.LoadTalentsPanel(parentCategory)
 				raidingData.popularity,
 				nil,
 				function()
-					Talents:ImportAndApplyTalents(raidingData.talentString)
+					Talents:ShowImportDialog(raidingData.talentString)
 				end, 0, currentYPosition)
 			currentYPosition = currentYPosition - (raidingSection:GetHeight() + 10)
 
