@@ -14,6 +14,7 @@ src/Data/WeakAuraData.lua
 # Helpers
 src/Misc/Utils.lua
 src/Misc/TalentSwitch.lua
+src/Misc/UI.lua
 
 # UI
 src/Options/About.lua
