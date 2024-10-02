@@ -3,31 +3,27 @@ function GetDetailsSettings()
 end
 
 function ApplyDetailsSettings()
-	local exportString = GetDetailsSettings()
+	print("ApplyDetailsSettings function called")
+	local importString = GetDetailsSettings()
 	local profileName = "PeaversUI"
 
-	if IsAddOnLoaded("Details") then
-		if not Details then
+	-- Use C_AddOns.IsAddOnLoaded instead of IsAddOnLoaded
+	if C_AddOns.IsAddOnLoaded("Details") then
+		if not _G.Details then
 			print("Details object not found")
 			return
 		end
 
-		-- Use Details' import function with explicit profile name
-		local success, errorMessage = Details:ImportProfile(exportString, profileName)
+		local Details = _G.Details
+
+		-- Proceed with importing and applying the profile
+		local success, errorMessage = Details:ImportProfile(importString, profileName)
 
 		if success then
-			-- Set the imported profile as the current profile
 			Details:ApplyProfile(profileName)
-
-			-- Refresh Details
-			if Details.RefreshConfig then
-				Details:RefreshConfig()
-			end
-
-			-- Update all windows
-			if Details.UpdateAllInstances then
-				Details:UpdateAllInstances()
-			end
+			Details:ReinstallInstances()
+			Details:LoadFramesForFrontEnd()
+			print("Details profile applied successfully!")
 		else
 			print("Failed to import Details profile: " .. (errorMessage or "Unknown error"))
 		end

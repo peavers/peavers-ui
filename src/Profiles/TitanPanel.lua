@@ -1,5 +1,5 @@
-function GetTitanPanelSettings()
-	return {
+function ApplyTitanSettings()
+	local titanSettings = {
 		["Panel"] = {
 			["FontSize"] = 10,
 			["HideBarsInCombat"] = false,
@@ -3853,60 +3853,9 @@ function GetTitanPanelSettings()
 			},
 		},
 	}
-end
 
-function ApplyTitanPanelSettings()
-    local settings = GetTitanPanelSettings()
+	local savedVariables = _G["TitanSettings"]
 
-    if not settings then
-        print("Error: Unable to retrieve Titan Panel settings.")
-        return
-    end
-
-    -- Apply general panel settings
-    if settings.Panel then
-        for key, value in pairs(settings.Panel) do
-            if TitanSetVar then
-                TitanSetVar(nil, key, value)
-            end
-        end
-    end
-
-    -- Apply plugin-specific settings
-    if settings.Plugins then
-        for pluginName, pluginSettings in pairs(settings.Plugins) do
-            for key, value in pairs(pluginSettings) do
-                if TitanVariables_SetPluginSaved then
-                    TitanVariables_SetPluginSaved(nil, pluginName, key, value)
-                end
-            end
-        end
-    end
-
-    -- Apply bar settings
-    if settings.BarVars then
-        for barName, barSettings in pairs(settings.BarVars) do
-            for key, value in pairs(barSettings) do
-                if TitanVariables_SetBarVar then
-                    TitanVariables_SetBarVar(nil, barName, key, value)
-                end
-            end
-        end
-    end
-
-    -- Apply button order and visibility
-    if settings.Panel and settings.Panel.Buttons then
-        for index, buttonName in ipairs(settings.Panel.Buttons) do
-            if TitanPanel_SetButtonToBar then
-                TitanPanel_SetButtonToBar(nil, buttonName, index)
-            end
-        end
-    end
-
-    -- Refresh Titan Panel
-    if TitanPanel_InitPanelButtons then
-        TitanPanel_InitPanelButtons()
-    end
-
-    print("Titan Panel settings have been applied successfully. UI Reload required.")
+	local characterKey = UnitName("player") .. "@" .. GetRealmName()
+	savedVariables["Players"][characterKey] = titanSettings
 end

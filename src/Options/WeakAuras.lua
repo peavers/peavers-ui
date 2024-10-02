@@ -40,7 +40,7 @@ function UI.LoadWeakAurasPanel(parentCategory)
         button:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 0, 5)
         button:SetText("Apply")
         button:SetScript("OnClick", function()
-            if IsAddOnLoaded("WeakAuras") then
+            if C_AddOns.IsAddOnLoaded("WeakAuras") then
                 if WeakAuras and WeakAuras.Import then
                     local success, msg = WeakAuras.Import(importString)
                     if success then
@@ -56,12 +56,12 @@ function UI.LoadWeakAurasPanel(parentCategory)
             end
         end)
 
-        -- Create horizontal line
-        local line = frame:CreateLine()
-        line:SetColorTexture(0.5, 0.5, 0.5, 0.5)
-        line:SetStartPoint("BOTTOMLEFT", 0, 0)
-        line:SetEndPoint("BOTTOMRIGHT", 0, 0)
-        line:SetThickness(0.5)
+		-- Create a line at the bottom of the frame
+		local line = frame:CreateLine()
+		line:SetColorTexture(0.5, 0.5, 0.5, 0.5)
+		line:SetStartPoint("BOTTOMLEFT", 0, 0)
+		line:SetEndPoint("BOTTOMRIGHT", 0, 0)
+		line:SetThickness(1)
 
         return frame
     end

@@ -20,14 +20,12 @@ addonTable.mainPanel = mainPanel
 addonTable.supportedAddons = {
 	{
 		name = "Bartender4",
-		description =
-		"Sets primary action bars at the bottom of the screen, as well as a 'hidden' bar on the left for bindings and non-important buttons.",
+		description = "Sets primary action bars at the bottom of the screen, as well as a 'hidden' bar on the left for bindings and non-important buttons.",
 		apply = ApplyBartender4Settings
 	},
 	{
 		name = "Cell",
-		description =
-		"Replacement for raid, party, and unitframes. Combine with Plater and no need for target frames either.",
+		description = "Replacement for raid, party, and unit frames. Combine with Plater and no need for target frames either.",
 		apply = ApplyCellSettings
 	},
 	{
@@ -35,31 +33,54 @@ addonTable.supportedAddons = {
 		description = "Damage meter addon",
 		apply = ApplyDetailsSettings
 	},
-	{
-		name = "Plater",
-		description = "Replacement for ",
-		apply = ApplyPlaterSettings
-	},
-	{
-		name = "SexyMap",
-		description = "Clean up the minimap with a 'ElvUI' style.",
-		apply = ApplySexyMapSettings
-	},
-	{
-		name = "LS Glass",
-		description = "Minimal and beautiful chat frame replacement",
-		apply = ApplyLsGlassSettings
-	},
-	{
-		name = "Hekili",
-		description = "Cheat your way to the top of the DPS meter",
-		apply = ApplyHekiliSettings
-	},
-	{
-		name = "Titan Panel",
-		description = "Minimal bar in the top left with information such as gold, gear durability, experience.",
-		apply = ApplyTitanPanelSettings
-	},
+	--{
+	--	name = "Plater",
+	--	description = "Replacement for ",
+	--	apply = ApplyPlaterSettings
+	--},
+	--{
+	--	name = "SexyMap",
+	--	description = "Clean up the minimap with a 'ElvUI' style.",
+	--	apply = ApplySexyMapSettings
+	--},
+	--{
+	--	name = "LS Glass",
+	--	description = "Minimal and beautiful chat frame replacement",
+	--	apply = ApplyLsGlassSettings
+	--},
+	--{
+	--	name = "LS Glass",
+	--	description = "Chat frame addon",
+	--	settings = AddonProfileManager.GetLsGlassSettings(),
+	--	postApplyCallback = function(settings)
+	--		AddonProfileManager.ApplyLsGlassSettings(settings)
+	--	end
+	--},
+	--{
+	--	name = "OmniCD",
+	--	description = "Cooldown tracker addon",
+	--	settings = AddonProfileManager.GetOmniCDSettings(),
+	--	postApplyCallback = function(settings)
+	--		AddonProfileManager.ApplyOmniCDSettings(settings)
+	--	end
+	--},
+
+	--{
+	--	name = "TipTac",
+	--	description = "Tooltip addon",
+	--	settings = AddonProfileManager.GetTipTacSettings(),
+	--	postApplyCallback = function(settings)
+	--		AddonProfileManager.ApplyTipTacSettings(settings)
+	--	end
+	--},
+	--{
+	--	name = "Titan Panel",
+	--	description = "Information bar addon",
+	--	settings = AddonProfileManager.GetTitanSettings(),
+	--	postApplyCallback = function(settings)
+	--		AddonProfileManager.ApplyTitanSettings(settings)
+	--	end
+	--},
 }
 
 -- Register the addon with the Settings API

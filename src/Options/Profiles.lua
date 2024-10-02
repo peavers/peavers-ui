@@ -25,18 +25,23 @@ function UI.LoadProfilesPanel(parentCategory)
 	local contentFrame = CreateFrame("Frame", nil, scrollFrame)
 	scrollFrame:SetScrollChild(contentFrame)
 
+	-- Constants for frame dimensions
+	local frameWidth = 550
+	local frameHeight = 80  -- Increased from 70 to 80
+	local frameSpacing = 0  -- No additional spacing needed
+
 	-- Function to create a Profile section
 	local function CreateProfileSection(parent, addonInfo, x, y)
 		local frame = CreateFrame("Frame", nil, parent)
-		frame:SetSize(550, 70)
+		frame:SetSize(frameWidth, frameHeight)
 		frame:SetPoint("TOPLEFT", x, y)
 
 		local titleText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-		titleText:SetPoint("TOPLEFT", 0, 0)
+		titleText:SetPoint("TOPLEFT", 0, -10)
 		titleText:SetText(addonInfo.name)
 
 		local descriptionText = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-		descriptionText:SetPoint("TOPLEFT", 0, -20)
+		descriptionText:SetPoint("TOPLEFT", 0, -30)
 		descriptionText:SetText(addonInfo.description)
 		descriptionText:SetWidth(450)
 		descriptionText:SetJustifyH("LEFT")
@@ -49,26 +54,28 @@ function UI.LoadProfilesPanel(parentCategory)
 			Profiles.ApplyProfile(addonInfo.name)
 		end)
 
+		-- Create a line at the bottom of the frame
 		local line = frame:CreateLine()
 		line:SetColorTexture(0.5, 0.5, 0.5, 0.5)
 		line:SetStartPoint("BOTTOMLEFT", 0, 0)
 		line:SetEndPoint("BOTTOMRIGHT", 0, 0)
-		line:SetThickness(0.5)
+		line:SetThickness(1)
 
 		return frame
 	end
 
-	local yOffset = 0
-	for _, addonInfo in ipairs(addonTable.supportedAddons) do
+	local yOffset = -16  -- Start below the subtitle
+	for index, addonInfo in ipairs(addonTable.supportedAddons) do
 		CreateProfileSection(
 			contentFrame,
 			addonInfo,
 			32,
 			yOffset
 		)
-		yOffset = yOffset - 90
+		yOffset = yOffset - frameHeight - frameSpacing
 	end
 
+	-- Adjust the content frame size to fit all profile sections
 	contentFrame:SetSize(scrollFrame:GetWidth() - 30, math.abs(yOffset) + 20)
 
 	panel.OnRefresh = function()

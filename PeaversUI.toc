@@ -31,7 +31,6 @@ src/Profiles/Plater.lua
 src/Profiles/SexyMap.lua
 src/Profiles/TipTac.lua
 src/Profiles/TitanPanel.lua
-src/Profiles/Hekili.lua
 
 # Entrypoint
 src/PeaversUI.lua
