@@ -30,14 +30,14 @@ addonTable.supportedAddons = {
 	},
 	{
 		name = "Details! Damage Meter",
-		description = "Damage meter addon",
+		description = "Setup Details! with a simple and clean layout. Nothing fancy.",
 		apply = ApplyDetailsSettings
 	},
-	--{
-	--	name = "Plater",
-	--	description = "Replacement for ",
-	--	apply = ApplyPlaterSettings
-	--},
+	{
+		name = "Plater",
+		description = "Replacement for for name plates. Installs the popular, and best VesperalTV Mythic+ Plater Profile.",
+		apply = ApplyPlaterSettings
+	},
 	--{
 	--	name = "SexyMap",
 	--	description = "Clean up the minimap with a 'ElvUI' style.",
