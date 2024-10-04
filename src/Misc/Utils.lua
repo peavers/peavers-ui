@@ -78,59 +78,25 @@ addonTable.Utils.ShowLinkCopyPopup = function(link)
 	StaticPopup_Show("PEAVERSUI_LINK_COPY")
 end
 
-addonTable.Utils.CreateStyledSection = function(parent, sectionTitle, hps, dps, popularity, keystone, applyFunc, x, y)
-	local frame = CreateFrame("Frame", nil, parent)
-	frame:SetSize(550, 70)
-	frame:SetPoint("TOPLEFT", x, y)
-
-	local titleText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-	titleText:SetPoint("TOPLEFT", 0, 0)
-	titleText:SetText(sectionTitle)
-
-	local descriptionText = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-	descriptionText:SetPoint("TOPLEFT", 0, -20)
-
-	local description = ""
-	local hasData = false
-	if popularity then
-		description = "Popularity: " .. popularity
-		hasData = true
+addonTable.Utils.GetProfileName = function()
+	local addonName = "PeaversUI"
+	local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
+	if version then
+		return addonName .. " - " .. version
+	else
+		return addonName
 	end
-	if hps then
-		description = description .. (description ~= "" and ", " or "") .. "HPS: " .. hps
-		hasData = true
-	end
-	if dps then
-		description = description .. (description ~= "" and ", " or "") .. "DPS: " .. dps
-		hasData = true
-	end
-	if keystone then
-		description = description .. (description ~= "" and ", " or "") .. "Keystone level: " .. keystone
-		hasData = true
-	end
-
-	if not hasData then
-		description = "No data available"
-	end
-
-	descriptionText:SetText(description)
-	descriptionText:SetWidth(450)
-	descriptionText:SetJustifyH("LEFT")
-
-	local button = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-	button:SetSize(80, 22)
-	button:SetPoint("BOTTOMRIGHT", 0, 5)
-	button:SetText("Apply")
-	button:SetScript("OnClick", applyFunc)
-	button:SetEnabled(hasData) -- Disable the button if there's no data
-
-	-- Create horizontal line
-	local line = frame:CreateLine()
-	line:SetColorTexture(0.5, 0.5, 0.5, 0.5)
-	line:SetStartPoint("BOTTOMLEFT", 0, 0)
-	line:SetEndPoint("BOTTOMRIGHT", 0, 0)
-	line:SetThickness(0.5)
-
-	return frame
 end
 
+addonTable.Utils.RequireAddon = function(addonNameToCheck)
+	if not C_AddOns.IsAddOnLoaded(addonNameToCheck) then
+		print(addonNameToCheck .. " not loaded or enabled.")
+		return false
+	end
+
+	return true
+end
+
+addonTable.Utils.LoadComplete = function(addonNameToLoad, profileName)
+	print(addonNameToLoad .. " profile '" .. profileName .. "' has been applied. Reload required.")
+end

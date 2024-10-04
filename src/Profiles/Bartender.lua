@@ -1,13 +1,17 @@
+local addonName, addonTable = ...
+local Utils = addonTable.Utils
+
 function GetBartender4Settings()
 	local playerName = UnitName("player")
 	local realmName = GetRealmName()
 	local fullName = playerName .. " - " .. realmName
+	local profileName = Utils.GetProfileName()
 
 	return {
 		["namespaces"] = {
 			["StatusTrackingBar"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["enabled"] = false,
 						["version"] = 3,
 						["position"] = {
@@ -20,7 +24,7 @@ function GetBartender4Settings()
 			},
 			["QueueStatus"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["version"] = 3,
 						["position"] = {
 							["y"] = -142.0228774595889,
@@ -33,7 +37,7 @@ function GetBartender4Settings()
 			},
 			["ActionBars"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["actionbars"] = {
 							{
 								["showgrid"] = true,
@@ -135,7 +139,7 @@ function GetBartender4Settings()
 			},
 			["ExtraActionBar"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["position"] = {
 							["y"] = -270.8555145263672,
 							["x"] = 472.0531616210938,
@@ -148,7 +152,7 @@ function GetBartender4Settings()
 			},
 			["MicroMenu"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["enabled"] = false,
 						["version"] = 3,
 						["position"] = {
@@ -161,7 +165,7 @@ function GetBartender4Settings()
 			},
 			["BagBar"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["enabled"] = false,
 						["version"] = 3,
 						["position"] = {
@@ -174,7 +178,7 @@ function GetBartender4Settings()
 			},
 			["BlizzardArt"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["artLayout"] = "MODERN",
 						["version"] = 3,
 						["position"] = {
@@ -187,7 +191,7 @@ function GetBartender4Settings()
 			},
 			["StanceBar"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["version"] = 3,
 						["position"] = {
 							["y"] = 90.20000968774184,
@@ -201,7 +205,7 @@ function GetBartender4Settings()
 			},
 			["PetBar"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["version"] = 3,
 						["position"] = {
 							["y"] = 102.9386444091797,
@@ -213,7 +217,7 @@ function GetBartender4Settings()
 			},
 			["Vehicle"] = {
 				["profiles"] = {
-					["PeaversUI"] = {
+					[profileName] = {
 						["version"] = 3,
 						["position"] = {
 							["y"] = 153,
@@ -225,10 +229,10 @@ function GetBartender4Settings()
 			},
 		},
 		["profileKeys"] = {
-			[fullName] = "PeaversUI",
+			[fullName] = profileName,
 		},
 		["profiles"] = {
-			["PeaversUI"] = {
+			[profileName] = {
 				["focuscastmodifier"] = false,
 				["blizzardVehicle"] = true,
 				["outofrange"] = "hotkey",
@@ -238,13 +242,21 @@ function GetBartender4Settings()
 end
 
 function ApplyBartender4Settings()
+	local addon = "Bartender4"
+
+	if not Utils.RequireAddon(addon) then
+		return
+	end
+
+	local profileName = Utils.GetProfileName()
+
 	local settings = GetBartender4Settings()
 
 	-- Merge our settings into the existing Bartender4DB
 	for namespace, data in pairs(settings.namespaces) do
 		Bartender4DB.namespaces[namespace] = Bartender4DB.namespaces[namespace] or {}
 		Bartender4DB.namespaces[namespace].profiles = Bartender4DB.namespaces[namespace].profiles or {}
-		Bartender4DB.namespaces[namespace].profiles.PeaversUI = data.profiles.PeaversUI
+		Bartender4DB.namespaces[namespace].profiles[profileName] = data.profiles[profileName]
 	end
 
 	-- Set the profile keys
@@ -254,11 +266,11 @@ function ApplyBartender4Settings()
 
 	-- Set the profiles
 	Bartender4DB.profiles = Bartender4DB.profiles or {}
-	Bartender4DB.profiles.PeaversUI = settings.profiles.PeaversUI
+	Bartender4DB.profiles[profileName] = settings.profiles[profileName]
 
 	-- Force Bartender4 to update
 	if Bartender4 and Bartender4.db then
-		Bartender4.db:SetProfile("PeaversUI")
+		Bartender4.db:SetProfile(profileName)
 	end
 
 	-- Refresh the Bartender4 UI
@@ -269,4 +281,6 @@ function ApplyBartender4Settings()
 			end
 		end
 	end
+
+	Utils.LoadComplete(addon, profileName)
 end
