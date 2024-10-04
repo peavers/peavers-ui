@@ -38,6 +38,11 @@ addonTable.supportedAddons = {
 		description = "Replacement for for name plates. Installs the popular, and best VesperalTV Mythic+ Plater Profile.",
 		apply = ApplyPlaterSettings
 	},
+	{
+		name = "OmniCD",
+		description = "Keep track of important party cooldowns.",
+		apply = ApplyOmniCDSettings
+	},
 	--{
 	--	name = "SexyMap",
 	--	description = "Clean up the minimap with a 'ElvUI' style.",

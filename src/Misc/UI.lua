@@ -3,7 +3,7 @@ addonTable.UI = addonTable.UI or {}
 local UI = addonTable.UI
 
 function UI.CreateSectionFrame(parent, info, x, y, onApplyClick)
-	local frameWidth = 550
+	local frameWidth = 600
 	local frameHeight = 80
 
 	local frame = CreateFrame("Frame", nil, parent)

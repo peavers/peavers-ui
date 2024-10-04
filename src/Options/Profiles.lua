@@ -65,7 +65,5 @@ function Profiles.ApplyProfile(addonName)
 		return
 	end
 
-	print("Applying profile for: " .. addonName)
-
 	addonInfo.apply()
 end

@@ -1,5 +1,8 @@
-function ApplyOmniCDSettings()
-	local omniCDSettings = {
+local addonName, addonTable = ...
+local Utils = addonTable.Utils
+
+function GetOmniCDSettings()
+	return {
 		["General"] = {
 			["textures"] = {
 				["statusBar"] = {
@@ -273,12 +276,39 @@ function ApplyOmniCDSettings()
 			},
 		},
 	}
+end
 
-	local function omniCDCallback(savedVariables, profileName, settings)
-		if savedVariables.profile then
-			savedVariables.profile.currentProfile = profileName
-		end
+function ApplyOmniCDSettings()
+	local addon = "OmniCD"
+
+	if not Utils.RequireAddon(addon) then
+		return
 	end
 
-	AddonProfileManager:ApplySettings("OmniCD", "OmniCDDB", omniCDSettings, omniCDCallback)
+	local profileName = Utils.GetProfileName()
+
+	local settings = GetOmniCDSettings()
+
+	-- Disable LibDualSpec for this character
+	OmniCDDB.namespaces = OmniCDDB.namespaces or {}
+	OmniCDDB.namespaces['LibDualSpec-1.0'] = OmniCDDB.namespaces['LibDualSpec-1.0'] or {}
+	OmniCDDB.namespaces['LibDualSpec-1.0'].char = OmniCDDB.namespaces['LibDualSpec-1.0'].char or {}
+	OmniCDDB.namespaces['LibDualSpec-1.0'].char[UnitName("player") .. " - " .. GetRealmName()] = {
+		enabled = false,
+	}
+
+	-- Set global settings
+	OmniCDDB.global = OmniCDDB.global or {}
+	OmniCDDB.global.disableElvMsg = true
+	OmniCDDB.version = 4
+
+	-- Create the profile
+	OmniCDDB.profiles = OmniCDDB.profiles or {}
+	OmniCDDB.profiles[profileName] = settings
+
+	-- Set the profile for the current character
+	OmniCDDB.profileKeys = OmniCDDB.profileKeys or {}
+	OmniCDDB.profileKeys[UnitName("player") .. " - " .. GetRealmName()] = profileName
+
+	Utils.LoadComplete(addon, profileName)
 end
