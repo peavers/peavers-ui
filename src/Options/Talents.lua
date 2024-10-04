@@ -14,106 +14,97 @@ function UI.LoadTalentsPanel(parentCategory)
 
 	local titleText = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
 	titleText:SetPoint("TOPLEFT", 16, -16)
-	titleText:SetText("Talents")
+	titleText:SetText("Profiles")
 
 	local subtitleText = panel:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	subtitleText:SetPoint("TOPLEFT", titleText, "BOTTOMLEFT", 0, -8)
-	subtitleText:SetText("Updated every day to be the best talent choices based on data from Archon")
+	subtitleText:SetText("Updated daily to be the best talent choices based on data from Archon")
 
-	local contentFrame = CreateFrame("Frame", nil, panel)
-	contentFrame:SetPoint("TOPLEFT", subtitleText, "BOTTOMLEFT", 0, -16)
-	contentFrame:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -16, 16)
+	-- Create a scroll frame
+	local scrollFrame = CreateFrame("ScrollFrame", nil, panel, "UIPanelScrollFrameTemplate")
+	scrollFrame:SetPoint("TOPLEFT", subtitleText, "BOTTOMLEFT", 0, -16)
+	scrollFrame:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -26, 16)
 
-	local loadingText = contentFrame:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
-	loadingText:SetPoint("CENTER")
-	loadingText:SetText("Loading...")
+	local contentFrame = CreateFrame("Frame", nil, scrollFrame)
+	scrollFrame:SetScrollChild(contentFrame)
 
-	local function LoadTalentInfo(fullPlayerName, playerClass, playerClassID, specName)
-		-- Clear previous content
-		contentFrame:SetHeight(1)
-		for _, child in pairs({ contentFrame:GetChildren() }) do
-			child:Hide()
-			child:SetParent(nil)
-		end
-
-		titleText:SetText(Utils.CapitalizeFirstLetter(playerClass) .. " - " .. specName .. " talents")
-
-		local classData = TalentDB[Utils.ToLowercaseAndReplaceWhitespace(playerClass)]
-		local specData = classData and classData[Utils.ToLowercaseAndReplaceWhitespace(specName)]
-
-		if specData then
-			local currentYPosition = 0
-
-			-- Mythic+ Section
-			local mythicPlusData = specData.MythicPlus
-			local mythicPlusSection = Utils.CreateStyledSection(
-				contentFrame,
-				"Mythic+",
-				mythicPlusData.hps,
-				mythicPlusData.dps,
-				mythicPlusData.popularity,
-				mythicPlusData.keystone,
-				function()
-					Talents:ShowImportDialog(mythicPlusData.talentString)
-				end, 0, currentYPosition)
-			currentYPosition = currentYPosition - (mythicPlusSection:GetHeight() + 10)
-
-			-- Raiding Section
-			local raidingData = specData.Raiding
-			local raidingSection = Utils.CreateStyledSection(
-				contentFrame,
-				"Raiding",
-				raidingData.hps,
-				raidingData.dps,
-				raidingData.popularity,
-				nil,
-				function()
-					Talents:ShowImportDialog(raidingData.talentString)
-				end, 0, currentYPosition)
-			currentYPosition = currentYPosition - (raidingSection:GetHeight() + 10)
-
-			contentFrame:SetHeight(-currentYPosition)
-		else
-			local errorText = contentFrame:CreateFontString(nil, "ARTWORK", "GameFontRed")
-			errorText:SetPoint("CENTER")
-			errorText:SetText("Error: Spec data not found in the database.")
-		end
+	local function BuildDescription(data)
+		local descParts = {}
+		if data.popularity then table.insert(descParts, "Popularity: " .. data.popularity) end
+		if data.hps then table.insert(descParts, "HPS: " .. data.hps) end
+		if data.dps then table.insert(descParts, "DPS: " .. data.dps) end
+		if data.keystone then table.insert(descParts, "Keystone Level: " .. data.keystone) end
+		return table.concat(descParts, ", ")
 	end
 
 	Utils.GetPlayerInfoWithRetry(5, function(fullPlayerName, playerClass, playerClassID, specName)
-		loadingText:Hide()
 		if specName and specName ~= "None" then
-			LoadTalentInfo(fullPlayerName, playerClass, playerClassID, specName)
-		else
-			local errorText = contentFrame:CreateFontString(nil, "ARTWORK", "GameFontRed")
-			errorText:SetPoint("CENTER")
-			errorText:SetText("Unable to retrieve specialization information. Please try reloading the UI.")
+
+			titleText:SetText(Utils.CapitalizeFirstLetter(playerClass) .. " - " .. specName .. " talents")
+
+			local classKey = Utils.ToLowercaseAndReplaceWhitespace(playerClass)
+			local specKey = Utils.ToLowercaseAndReplaceWhitespace(specName)
+			local classData = TalentDB[classKey]
+			local specData = classData and classData[specKey]
+
+			if specData then
+				local yOffset = -16
+
+				-- Mythic+ Section
+				local mythicPlusData = specData.MythicPlus
+				if mythicPlusData then
+					local description = BuildDescription(mythicPlusData)
+					local info = {
+						title = "Mythic+",
+						description = description
+					}
+
+					local frame, frameHeight = UI.CreateSectionFrame(
+						contentFrame,
+						info,
+						32,
+						yOffset,
+						function()
+							Talents:ShowImportDialog(mythicPlusData.talentString)
+						end
+					)
+
+					yOffset = yOffset - frameHeight
+				end
+
+				-- Raiding Section
+				local raidingData = specData.Raiding
+				if raidingData then
+					local description = BuildDescription(raidingData)
+					local info = {
+						title = "Raiding",
+						description = description
+					}
+
+					local frame, frameHeight = UI.CreateSectionFrame(
+						contentFrame,
+						info,
+						32,
+						yOffset,
+						function()
+							Talents:ShowImportDialog(raidingData.talentString)
+						end
+					)
+
+					yOffset = yOffset - frameHeight
+				end
+
+				contentFrame:SetSize(scrollFrame:GetWidth() - 30, math.abs(yOffset) + 20)
+			end
 		end
 	end)
 
 	panel.OnRefresh = function()
-		-- Clear content and show loading text
-		contentFrame:SetHeight(1)
-		for _, child in pairs({ contentFrame:GetChildren() }) do
-			child:Hide()
-			child:SetParent(nil)
-		end
-		loadingText:Show()
-
-		-- Retry getting player info
-		Utils.GetPlayerInfoWithRetry(5, function(fullPlayerName, playerClass, playerClassID, specName)
-			loadingText:Hide()
-			if specName and specName ~= "None" then
-				LoadTalentInfo(fullPlayerName, playerClass, playerClassID, specName)
-			else
-				local errorText = contentFrame:CreateFontString(nil, "ARTWORK", "GameFontRed")
-				errorText:SetPoint("CENTER")
-				errorText:SetText("Unable to retrieve specialization information. Please try reloading the UI.")
-			end
-		end)
 	end
-	panel.OnCommit = function() end
-	panel.OnDefault = function() end
+	panel.OnCommit = function()
+	end
+	panel.OnDefault = function()
+	end
 
 	return panel
 end
