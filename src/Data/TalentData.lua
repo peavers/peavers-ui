@@ -2,110 +2,110 @@ local addonName, addonTable = ...
 addonTable.DB = addonTable.DB or {}
 
 local talentData = {
-	["warrior"] = {
-		["fury"] = {
-			["Raiding"] = {
-				talentString = "CgEAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAagZAjhZYMMzsBDzYMMDzMbbzMmZmNmZMzMMDb2mhZGDAAAEmxy2ALgBMDTgx2wA",
-				dps = "1,380.7k",
-			},
+	["paladin"] = {
+		["holy"] = {
 			["MythicPlus"] = {
-				talentString = "CgEAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAagxghhZwyMmZ2ghZMGmhZmltZGzMzGzMmZGmhNbzwMjBAAACjB2glFjGzAYWgFMA",
-				dps = "1,394.9k",
-				keystone = "+14"
+				talentString = "CEEAAAAAAAAAAAAAAAAAAAAAAAADAAGAwYAAAAsNzMMzYmZxMmlZmxyAstNTblHwMDDmZGGzCYmxAAGAYDYYmZGmZZWmZmlGAAAgBA",
+				dps = "218.4k",
+				hps = "658.0k",
+				keystone = "+15"
+			},
+			["Raiding"] = {
+				talentString = "CEEAAAAAAAAAAAAAAAAAAAAAAAAAAYAAzAAAAYZmZwMmZWMjZZmZsNDMbbz0WYMjZmhBmtMAgBMYDYjZMzMAAAwMzy2SbzMMADgxwYGA",
+				dps = "274.2k",
+				hps = "1,816.7k",
 			},
 		},
 		["protection"] = {
+			["MythicPlus"] = {
+				talentString = "CIEAAAAAAAAAAAAAAAAAAAAAAsNjZYWM2egHwYmxymZmxMGzYGAAAAAAAAAA0WDzMziBmZYmZxAmNAYMwAwAGgBAAAMzsst02MjxMA",
+				dps = "702.8k",
+				keystone = "+12"
+			},
 			["Raiding"] = {
-				talentString = "CkEAAAAAAAAAAAAAAAAAAAAAAYEDAAAAzMzYmZGMbzsMzMz2mZMMNzgZmBwyADbMzMwDMzDMMAAAAAAgZGAgltNADDsBLLGNmBwshNMA",
-				dps = "724.9k",
+				talentString = "CIEAAAAAAAAAAAAAAAAAAAAAAsMmZYWGLjZmZmx2MzMzMGDDAAwAAAAAAAQyMzihZwYGzWbAwYADgBbDAAAAYmZZbptZGjBAMmZYYM",
+				dps = "631.9k",
+			},
+		},
+		["retribution"] = {
+			["Raiding"] = {
+				talentString = "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAYAAassNzstsNGbjZ22mZDAAAAAAjmmhhZGbzgZbYWmlZYYwMmhlF2AAAgZm2mlZbGAwAMAYMmhZA",
+				dps = "1,389.2k",
 			},
 			["MythicPlus"] = {
-				talentString = "CkEAAAAAAAAAAAAAAAAAAAAAAYEDAAAAzMzMmxMmZZmlZmZ2YGDTDGjZAmlBG2YGDDGjZAAAAAAAmZAALbbAGGYDWWMaMDgZDbmZA",
-				dps = "779.8k",
+				talentString = "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAjJ22mZ2W2mZsZGbLmtBAAAAAgZbimZWMwMjZMLjhxwYWmZZbYwgBLLsBAAAmZabWmtZAADA",
+				dps = "1,551.5k",
 				keystone = "+15"
+			},
+		},
+	},
+	["warrior"] = {
+		["protection"] = {
+			["MythicPlus"] = {
+				talentString = "CkEAAAAAAAAAAAAAAAAAAAAAAYEDAAAAzMzMmxMmZZmlZmZ2YGDTjxYMDglBG2YmZYwYMDAAAAAAwMDAYZbDwwAbwyiRjZAMbgZGA",
+				dps = "781.7k",
+				keystone = "+15"
+			},
+			["Raiding"] = {
+				talentString = "CkEAAAAAAAAAAAAAAAAAAAAAAYEDAAAAzMzYmZGMbzsMzMz2mZMMNzgZmBwyADbMzMwDMzDMMAAAAAAgZGAgltNADDsBLLGNmBwshNMA",
+				dps = "743.6k",
+			},
+		},
+		["fury"] = {
+			["Raiding"] = {
+				talentString = "CgEAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAagZAjhZYMMzsBDzYMMDzMbbzMmZmNmZMzMMDb2mhZGDAAAEmxy2ALgBMDTgx2wA",
+				dps = "1,512.3k",
+			},
+			["MythicPlus"] = {
+				talentString = "CgEAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAagxghhZwyMmZ2ghZMGmhZmltZGzMzGzMmZGmhNbzwMjBAAACjB2glFjGzAYWgFMA",
+				dps = "1,393.1k",
+				keystone = "+14"
 			},
 		},
 		["arms"] = {
 			["Raiding"] = {
 				talentString = "CcEAAAAAAAAAAAAAAAAAAAAAAAAzYmZMzMzsZZZZmBAAAADmGmZYbGzAzYMzMYmhBGmhBAAAAAAAPwYWmZmBQgxy2ALgBMDTgBYA",
-				dps = "1,289.8k",
+				dps = "1,311.5k",
 			},
 			["MythicPlus"] = {
 				talentString = "CcEAAAAAAAAAAAAAAAAAAAAAAAYYmZMjZmZmFLLLjZAAAAYw0wMDLDzAjlxMzgZGGz4BYGGAAAAAAAMjZZMGgtAjltBWADYGmADwA",
-				dps = "1,120.7k",
+				dps = "1,127.5k",
 				keystone = "+11"
 			},
 		},
 	},
-	["paladin"] = {
-		["protection"] = {
-			["MythicPlus"] = {
-				talentString = "CIEAAAAAAAAAAAAAAAAAAAAAAsNjZYWM2egHwYmxymZmxMGzYGAAAAAAAAAA0WDzMziBmZYmZxAmNAYMwAwAGgBAAAMzsst02MjxMA",
-				dps = "702.6k",
-				keystone = "+12"
-			},
-			["Raiding"] = {
-				talentString = "CIEAAAAAAAAAAAAAAAAAAAAAAsMmZMDjlHwMzMDbmZGzswwMAAADAAAAAAAphZmZxAzMMzsYYmZ2AgxAAYgZAGAAAwMzy2SbzMGDA",
-				dps = "754.3k",
-			},
-		},
-		["holy"] = {
-			["MythicPlus"] = {
-				talentString = "CEEAAAAAAAAAAAAAAAAAAAAAAAADAAGAwYAAAAsNzMMzYmZxMmlZmxyAstNTblHwMDDmZGGzCYmxAAGAYDYYmZGmZZWmZmlGAAAgBA",
-				dps = "218.8k",
-				hps = "655.5k",
-				keystone = "+14"
-			},
-			["Raiding"] = {
-				talentString = "CEEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAGDAAwAsNzMzYGzMLMmlZGWmBstNTbFMjZGmZGGzCYmxAAGAYDYYmZ8AmZZ2mZmtGAAAgBD",
-				dps = "142.4k",
-				hps = "1,575.4k",
-			},
-		},
-		["retribution"] = {
-			["Raiding"] = {
-				talentString = "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAjpNLbzMbLbjx2YmttZ2AAAAAAwYimZ2MwMMjZZMMzwsMLzwwghZwyCbAAAgZm2mlZbGAwAA",
-				dps = "1,303.1k",
-			},
-			["MythicPlus"] = {
-				talentString = "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAjJ22mZ2W2mZsZGbLmtBAAAAAgZbimZWMwMjZMLjhxwYWmZZbYwgBLLsBAAAmZabWmtZAADA",
-				dps = "1,550.3k",
-				keystone = "+15"
-			},
-		},
-	},
 	["hunter"] = {
+		["beast-mastery"] = {
+			["MythicPlus"] = {
+				talentString = "C0PAAAAAAAAAAAAAAAAAAAAAAYstMwAGwswSgxAAAAAAgBAAAAAAYGbzYMzYYmZMDjZGPwMGzMzkZYMzMzMjZGGGDzMMmhxMMb",
+				dps = "1,141.4k",
+				keystone = "+13"
+			},
+			["Raiding"] = {
+				talentString = "C0PAAAAAAAAAAAAAAAAAAAAAAAMmxGDsAbDDNMAAAAAAYAAAAAAAmZWGGzMzwMDzwwMmZMmZmJzwYGzMGzMmhxwMDzyMYZmhN",
+				dps = "1,523.6k",
+			},
+		},
 		["marksmanship"] = {
 			["Raiding"] = {
-				talentString = "C4PAAAAAAAAAAAAAAAAAAAAAAwADsMGN2GAzGGAAAAAAgZmZmBzMzMMzMmZmZMmZMDAAAAAAAwMMmZmZmxMamxYYmBmxMmZMA",
-				dps = "1,298.5k",
+				talentString = "C4PAAAAAAAAAAAAAAAAAAAAAAwADsMGN2GAzGGAAAAAAwMzMzMDjZGzMzYmZGGzsNGAAAAAAAgZYMzMzMjZ0MjxwMDMjZMzYA",
+				dps = "1,385.4k",
 			},
 			["MythicPlus"] = {
 				talentString = "C4PAAAAAAAAAAAAAAAAAAAAAAwADsMGNWGAzGGAAAAAAgZmZMjZMmxMzMzMzMMzYYMAAAAAAAwMMmxMzMzMTmxYYmhxwMLzgN",
-				dps = "1,424.9k",
+				dps = "1,429.6k",
 				keystone = "+15"
 			},
 		},
-		["beast-mastery"] = {
-			["Raiding"] = {
-				talentString = "C0PAAAAAAAAAAAAAAAAAAAAAAYsNDMgFwMsEYMAAAAAAYAAAAAAAMzYYMzMDzMMDDzYmxYmZmMDjZMzMjZGzwYYmhZZwsMD2A",
-				dps = "1,279.1k",
-			},
-			["MythicPlus"] = {
-				talentString = "C0PAAAAAAAAAAAAAAAAAAAAAAYsNDMgFwMsEYMAAAAAAYAAAAAAAMjtZMmZMMzMmhxMjHYGjZmZyMMmZmZmxMDDjhZGGzwYGmN",
-				dps = "1,137.5k",
-				keystone = "+13"
-			},
-		},
 		["survival"] = {
-			["MythicPlus"] = {
-				talentString = "C8PAAAAAAAAAAAAAAAAAAAAAAMGYglxoxyAY2AzMjlZMzMzYmZmxMzgxMzMDAAAAAAAAAAAAAA0MMmxMzMmZYYMMzMGDzsMD2A",
-				dps = "1,383.3k",
-				keystone = "+14"
-			},
 			["Raiding"] = {
-				talentString = "C8PAAAAAAAAAAAAAAAAAAAAAAMGYglxox2AY2AzMjlZMzMDzYmhZmxMzYmxAAAAAAAAAAAAAAgmhxMmZmZmZMDjhZGGDzYGsB",
-				dps = "1,241.9k",
+				talentString = "C8PAAAAAAAAAAAAAAAAAAAAAAMgxM2YgFYbYoBzMjtZMzMzYGjBzMmZmZMzAAAAAAAAAAAAAAQzwYGmZGzMMMzwMDjZMzyMYB",
+				dps = "1,414.8k",
+			},
+			["MythicPlus"] = {
+				talentString = "C8PAAAAAAAAAAAAAAAAAAAAAAMGYglxoxyAY2AzMjlZMzMzYmZmxMzgxMzMDAAAAAAAAAAAAAAaGGzYmZGzMMMGmZGjhZWmBb",
+				dps = "1,388.7k",
+				keystone = "+14"
 			},
 		},
 	},
@@ -113,73 +113,73 @@ local talentData = {
 		["outlaw"] = {
 			["MythicPlus"] = {
 				talentString = "CQQAAAAAAAAAAAAAAAAAAAAAAAAMwwYmZwMzwMMMzMzMjZmplZMLzAAAAAAgtlZmhHYmZswMLz2AAAAwMDwAbwMGNmNAbDMmB",
-				dps = "1,345.3k",
+				dps = "1,349.6k",
 				keystone = "+14"
 			},
 			["Raiding"] = {
-				talentString = "CQQAAAAAAAAAAAAAAAAAAAAAAAAMwMzYGDmZGmhxYGzMjZmplZMLzAAAAAAgttZmBzMjlxMLz2AAAAwMDwAbwMGNmNAbDMmB",
-				dps = "1,290.2k",
+				talentString = "CQQAAAAAAAAAAAAAAAAAAAAAAAAM2mxMjZMmZmZYGGjZMMzMz0yMmtZAAAAAAw22MzgZmxCsMbDAAAAzMADsBzY0Y2AsNwYG",
+				dps = "1,489.8k",
 			},
 		},
 		["assassination"] = {
-			["Raiding"] = {
-				talentString = "CMQAAAAAAAAAAAAAAAAAAAAAAMjZmhZmxyMAAAAAAMLwyMAAAAAA022MzwDMzYMzMLz2YMGMzMzMzYmNLjZA2MLDMgFwywEYYA",
-				dps = "1,338.1k",
-			},
 			["MythicPlus"] = {
-				talentString = "CMQAAAAAAAAAAAAAAAAAAAAAAMjZmZGmxyMAAAAAAMLw2MAAAAAA02yYGegZGjZmZZ2GjBzMzMDmZmttlZmBYzsMwAWALDTghB",
-				dps = "1,557.9k",
+				talentString = "CMQAAAAAAAAAAAAAAAAAAAAAAMjZmZGmxyDMAAAAAAMLw2MAAAAAA02yMzwDMzYMzMLz2YMYmZmZwMzsttMmBYzsMwAWALDTghB",
+				dps = "1,568.3k",
 				keystone = "+15"
+			},
+			["Raiding"] = {
+				talentString = "CMQAAAAAAAAAAAAAAAAAAAAAAMzMzMMmhHYAAAAAAYWglZAAAAAAottZmhZmxYmZWmtZmZMwYmZmxMbWGzAsZWGYALglhJwwA",
+				dps = "1,477.5k",
 			},
 		},
 		["subtlety"] = {
-			["Raiding"] = {
-				talentString = "CUQAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAzyMzsMNmZZZGDjhhZmZmxY2GjZstNzMmZmBMWmtBAAAgZwAYMbGGYgZhFaxwMD",
-				dps = "1,329.0k",
-			},
 			["MythicPlus"] = {
-				talentString = "CUQAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAzyMzsMBLLzYmZMmhZmxMzY2GjZmttZmxMzMgx2sNAAAAMDGAjZzwADMLsQLGGD",
-				dps = "1,278.2k",
+				talentString = "CUQAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAzyMzsMBLzMmZGjZYmZMzMmtxYmZbbmZMzMDYsNbDAAAAzgBwY2MMwAzCL0ihxA",
+				dps = "1,285.6k",
 				keystone = "+13"
+			},
+			["Raiding"] = {
+				talentString = "CUQAAAAAAAAAAAAAAAAAAAAAAAAM2mBAAAAAgZZMWmGzYmxwYMDzMzMjxsNMzYbbmZMzMjBjlZbAAAAYGMAGzmhBGYWYhWMwA",
+				dps = "1,482.9k",
 			},
 		},
 	},
 	["priest"] = {
 		["discipline"] = {
-			["Raiding"] = {
-				talentString = "CAQAAAAAAAAAAAAAAAAAAAAAAAA2mtZGD2GjZmxMbmlZmZmhBAAAAAAAAAAAzilZbYbmZwswwMjxgF2mpxELDYmBACwsNLLgxYD",
-				dps = "249.3k",
-				hps = "1,414.3k",
-			},
 			["MythicPlus"] = {
 				talentString = "CAQAAAAAAAAAAAAAAAAAAAAAAAA2mlZGDWGjZmxMbmtZmZmhBAAAAAAAAAAAWmlZbwMzYMLjhBjhZhtZaMxyAmZAgAMbz2GYM2A",
-				dps = "354.8k",
-				hps = "749.5k",
+				dps = "352.6k",
+				hps = "753.0k",
 				keystone = "+16"
 			},
-		},
-		["holy"] = {
 			["Raiding"] = {
-				talentString = "CEQAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAALDGbmxMzYmBmxMMzyMjlBAAAAmFLz2w2MzgZhxMmZMYZBmxUzCAwMLWGmFDAZMYA",
-				dps = "144.1k",
-				hps = "1,523.7k",
-			},
-			["MythicPlus"] = {
-				talentString = "CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAAYZYGLPwgZmZMwMmhxyMzsMAAAAAWmthlZGYWYWmxMjxYhNmZmaWAwMLYhwYWGgxCMA",
-				dps = "186.8k",
-				hps = "657.6k",
-				keystone = "+12"
+				talentString = "CAQAAAAAAAAAAAAAAAAAAAAAAAA2mtZGD2GjZmxMbmlZmZmhBAAAAAAAAAAAzilZbYbmZwswwMjxgF2mpxELDYmBACwsNLLgxYD",
+				dps = "252.5k",
+				hps = "1,376.6k",
 			},
 		},
 		["shadow"] = {
 			["Raiding"] = {
 				talentString = "CIQAAAAAAAAAAAAAAAAAAAAAAAYmHYAAAAAAAAAAAAAGmlBzMz2sNmZmZ2mZmlBzGzMzMmNGYMGmFz2UzMYBGAzsZZY2MAkxYA",
-				dps = "1,289.5k",
+				dps = "1,351.7k",
 			},
 			["MythicPlus"] = {
 				talentString = "CIQAAAAAAAAAAAAAAAAAAAAAAMMYAAAAAAAAAAAAAw4BmFzYmZ2mtxMzMz2YmlBzGzMzMmNGYMGmFz2UzMYBzAYmFLDzmBgMGDA",
-				dps = "1,335.5k",
+				dps = "1,339.3k",
 				keystone = "+14"
+			},
+		},
+		["holy"] = {
+			["Raiding"] = {
+				talentString = "CEQAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAALDGbmxMzYmBmxMMzyMjlBAAAAmFLz2w2MzgZhxMmZMYZBmxUzCAwMLWGmFDAZMYA",
+				dps = "177.1k",
+				hps = "1,517.4k",
+			},
+			["MythicPlus"] = {
+				talentString = "CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAAYZYGLPwgZmZMwMmhxyMzsMAAAAAWmthlZGYWYWmxMjxYhNmZmaWAwMLYhwYWGgxCMA",
+				dps = "184.8k",
+				hps = "659.4k",
+				keystone = "+12"
 			},
 		},
 	},
@@ -187,69 +187,68 @@ local talentData = {
 		["blood"] = {
 			["MythicPlus"] = {
 				talentString = "CoPAAAAAAAAAAAAAAAAAAAAAAghxMzYMjxMDzYmZmmhhZGzYGAAAAAmZmZmZmZmNzMjBAAAzMzMAAAAbmtBGwCYbYCMMAMD2A",
-				dps = "758.2k",
+				dps = "760.2k",
 				keystone = "+13"
 			},
 			["Raiding"] = {
-				talentString = "CoPAAAAAAAAAAAAAAAAAAAAAAghBzYMzMmZYGzMz0MjhZGzYAAAAAwMzMzMzMzsZmZMAAAYmZmZAAAAbmtBGwCYbYCMMAMD2A",
-				dps = "710.6k",
+				talentString = "CoPAAAAAAAAAAAAAAAAAAAAAAghBzYMzMmZYGzMz0MjhZGzYAAAAAwMzMzMzMzsZmZMAAAYmZmZAAAAjttBGwCYZYCMMAMD2A",
+				dps = "752.6k",
 			},
 		},
 		["frost"] = {
+			["Raiding"] = {
+				talentString = "CsPAAAAAAAAAAAAAAAAAAAAAAMGAzYMzMGDzYmZmZmxMmJzYMjBMzYMjZmZmZmZxMAAAAAAAAAAAAjltBGwCYZYCMGMDjZA",
+				dps = "1,504.4k",
+			},
 			["MythicPlus"] = {
 				talentString = "CsPAAAAAAAAAAAAAAAAAAAAAAMGgZmZMjZYYGjZmZGmxMNzYMjBMzYMjZmZmZmZxMAAAAAAAAAAAAbmtBGwCYbYCMGMDjZA",
-				dps = "1,598.4k",
+				dps = "1,602.1k",
 				keystone = "+16"
-			},
-			["Raiding"] = {
-				talentString = "CsPAAAAAAAAAAAAAAAAAAAAAAMGAzYMzMGDzYmZmZmxMmJzYMjBMzYMjZmZmZmZxMAAAAAAAAAAAAbmtBGwCYbYCMGMDjZA",
-				dps = "1,542.6k",
 			},
 		},
 		["unholy"] = {
-			["MythicPlus"] = {
-				talentString = "CwPAAAAAAAAAAAAAAAAAAAAAAAgZGjhxMDzMzMzMNMmZGzYAAAAAAAAAgZGjZMzMDAMbmhZBzMz8AzMzAWMLGGYgZjhGDAMDA",
-				dps = "1,587.8k",
-				keystone = "+15"
-			},
 			["Raiding"] = {
 				talentString = "CwPAAAAAAAAAAAAAAAAAAAAAAAAzMjZMGDzYmZmphZmZGzYAAAAAAAAAMMzYGjxMAgZzMMLGzMzMmZGwiZxwADMbM0YAgZA",
-				dps = "1,391.5k",
+				dps = "1,510.6k",
+			},
+			["MythicPlus"] = {
+				talentString = "CwPAAAAAAAAAAAAAAAAAAAAAAAgZGjhxMDzMzMzMNMmZGzYAAAAAAAAAgZGjZMzMDAMbmhZBzMz8AzMzAWMLGGYgZjhGDAMDA",
+				dps = "1,587.7k",
+				keystone = "+15"
 			},
 		},
 	},
 	["shaman"] = {
-		["enhancement"] = {
-			["Raiding"] = {
-				talentString = "CcQAAAAAAAAAAAAAAAAAAAAAAMzMzCmhZmZmZGmtZmlZAAAAAAAAAAgNAGzYYgFYZYoBDAmlJzgZZxMzMjhZmFsMzMBGLjZGAgZA",
-				dps = "1,404.4k",
-			},
-			["MythicPlus"] = {
-				talentString = "CcQAAAAAAAAAAAAAAAAAAAAAAMzMz2MzMGzMDzwshlZMAAAAAAAAAAsBwYGDDsAbDDNYAwsMZGYxMzMDmxMbGLzMTWYZGMzAAMD",
-				dps = "1,567.3k",
-				keystone = "+16"
-			},
-		},
 		["elemental"] = {
 			["MythicPlus"] = {
 				talentString = "CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAMbzyyMjxwMbMmZMmZGAAAAAAGzYYgFYbYoxAAsMNDYbhx0gZmZbGLzYmhZZYWmZmZGmxMM",
-				dps = "1,438.2k",
+				dps = "1,440.2k",
 				keystone = "+14"
 			},
 			["Raiding"] = {
-				talentString = "CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAMbzy2MjZGmZjxMDmZGAAAAAsYmNYADYWYCMDAY2mmxgNYmGmZmZbYZmZGMLDzyYmZmxwMM",
-				dps = "1,320.2k",
+				talentString = "CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAMbz2yMjZGzysMzMgZmZAAAAAAYzMG2gFYGGaMAgZbaGw2iZmphZmZMsNzMDmlBLjxgZMzGDA",
+				dps = "1,642.2k",
+			},
+		},
+		["enhancement"] = {
+			["Raiding"] = {
+				talentString = "Link not found",
+			},
+			["MythicPlus"] = {
+				talentString = "CcQAAAAAAAAAAAAAAAAAAAAAAMzMz2MzMGzMDzwshlZMAAAAAAAAAAsBwYGDDsAbDDNYAwsMZGYxMzMDmxMbGLzMTWYZGMzAAMD",
+				dps = "1,575.3k",
+				keystone = "+16"
 			},
 		},
 		["restoration"] = {
 			["Raiding"] = {
 				talentString = "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAjZmZWmx2YmZmZxyYzwCWgFYGbasMAmBGMmlxYbmZmJz2CzMNmhZ2wyMmBjhZZMAAG",
-				dps = "86.0k",
-				hps = "1,470.0k",
+				dps = "78.1k",
+				hps = "1,373.7k",
 			},
 			["MythicPlus"] = {
 				talentString = "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAzMzMzyMWmZmZGsMYGwCsAzYTjlBwMwwMzsMmZZmxMZ2gZaMzYGGLGzYxsMMLMAAG",
-				dps = "212.0k",
+				dps = "208.9k",
 				hps = "676.5k",
 				keystone = "+14"
 			},
@@ -257,156 +256,156 @@ local talentData = {
 	},
 	["mage"] = {
 		["arcane"] = {
+			["Raiding"] = {
+				talentString = "C4DAAAAAAAAAAAAAAAAAAAAAAYMMbzCmxMmFPAjZGGTzMmBAAAAAgBAAAmZ2WWWmZiBAAAAAAAsMjhZmZmxMMzMjxMmZmxwYA",
+				dps = "1,388.4k",
+			},
 			["MythicPlus"] = {
 				talentString = "C4DAAAAAAAAAAAAAAAAAAAAAAYMMbzCmhxsYYMzwYamZZGAAAAAAGAwMz0ystMDAgBAAAAAAAsMjhZmZMMMzMjZmxMzMzwYA",
-				dps = "1,359.0k",
+				dps = "1,361.6k",
+				keystone = "+15"
+			},
+		},
+		["frost"] = {
+			["MythicPlus"] = {
+				talentString = "CAEAAAAAAAAAAAAAAAAAAAAAAAMbzyMmxMmFYMzoxYmZZYwwMMzMzMzMzMzMzYmZGzAAAAzMLLLLzMNAAAAAAwGAAAAAAAAA",
+				dps = "1,288.5k",
 				keystone = "+15"
 			},
 			["Raiding"] = {
-				talentString = "C4DAAAAAAAAAAAAAAAAAAAAAAYMMbzCmhxsYYMzwYamZZGAAAAAAGAwMz0ystMDAgBAAAAAAAsMjBzMjZMMzMjZmxMzMGGD",
-				dps = "1,424.8k",
+				talentString = "CAEAAAAAAAAAAAAAAAAAAAAAAYGbmNLYGGzihZmZ0YMGzMGmZmBzMzMzYmZmZmZmBzAAAAzMbLLLzMNAAAAAAYAAAAAAAAA",
+				dps = "1,240.7k",
 			},
 		},
 		["fire"] = {
 			["MythicPlus"] = {
 				talentString = "C8DAAAAAAAAAAAAAAAAAAAAAAYGMbWwMMzs4B4BMzMmGzMmZAAAAAAMAgZmplZZZGAgxMzghZMzYWmZbMMzsZmtZsMDMAAAAAAAA",
-				dps = "1,328.4k",
+				dps = "1,334.0k",
 				keystone = "+14"
 			},
 			["Raiding"] = {
 				talentString = "C8DAAAAAAAAAAAAAAAAAAAAAAYMMbzCmZmxsYgZGmGzMmBAAAAAgBAMzMtMLLzAAMGzgxMjZGziZZMjZGmZbGmZBDAAAAAAA",
-				dps = "1,431.8k",
-			},
-		},
-		["frost"] = {
-			["MythicPlus"] = {
-				talentString = "CAEAAAAAAAAAAAAAAAAAAAAAAAMbzyMmxMmFYMzoxYmZZYwwMMzMzMzMzMzMzYmZGzAAAAzMzyyyMTDAAAAAAsBAAAAAAAA",
-				dps = "1,285.5k",
-				keystone = "+15"
-			},
-			["Raiding"] = {
-				talentString = "CAEAAAAAAAAAAAAAAAAAAAAAAMzYzsZBzwMziBmZmGjxYmZwwMMzMzMzMzMzMzYmZGzAAAAzMzyyyMTDAAAAAAsAAAAAAAAA",
-				dps = "1,257.6k",
+				dps = "1,397.3k",
 			},
 		},
 	},
 	["warlock"] = {
-		["demonology"] = {
-			["Raiding"] = {
-				talentString = "CoQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmBmtZmZYWGAAAAAAAAAAzAGzYYBGYZYhGGmZmZsNmZzMzMzYYMMzMzMwMDAAA",
-				dps = "1,464.9k",
-			},
-			["MythicPlus"] = {
-				talentString = "CoQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZYWGAAAAAAAAAAzAGzYYBGYZYhGGmZMjtxMbmZmZGDjhZmZmxwMDAAA",
-				dps = "1,485.3k",
-				keystone = "+13"
-			},
-		},
 		["affliction"] = {
 			["MythicPlus"] = {
-				talentString = "CkQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZYWGAAAwMzMzyMzDM2MzMLMzMDAYmxyyADYAzwWghZGAAAAAAAAYmxCA",
-				dps = "1,381.0k",
+				talentString = "CkQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZY2GAAAwMzMzyMzDM2MzMLMzMDAYmxyyADYAzwWghZGAAAAAAAAYmxCA",
+				dps = "1,385.8k",
 				keystone = "+14"
 			},
 			["Raiding"] = {
 				talentString = "CkQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmBmtZmZY2GAAAwMjZWmZM2MzMLMzMDAYmxyyADYAzwWghZGAAAAAAAAYmZ2MA",
-				dps = "1,262.9k",
+				dps = "1,298.2k",
+			},
+		},
+		["demonology"] = {
+			["MythicPlus"] = {
+				talentString = "CoQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZYWGAAAAAAAAAAzAGzYYBGYZYhGGmZMjtxMbmZmZGDjhZmZmxwMDAAA",
+				dps = "1,483.0k",
+				keystone = "+13"
+			},
+			["Raiding"] = {
+				talentString = "CoQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmBmtZmZYWGAAAAAAAAAAzAGzYYBGYZYhGGmZmZsNmZzMzMzYYMMzMzMwMDAAA",
+				dps = "1,505.3k",
 			},
 		},
 		["destruction"] = {
 			["Raiding"] = {
 				talentString = "CsQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmBmtZmZYWmNDzMzsY2MWMzAAAAAzMDLzMzMgxMGWgB2GWoxgBAAAAAAwYmZGAA",
-				dps = "1,268.0k",
+				dps = "1,317.9k",
 			},
 			["MythicPlus"] = {
 				talentString = "CsQAAAAAAAAAAAAAAAAAAAAAAAmZmZmZEzmhxsZmZYWmNDmZmFzmZZxMDAAAAMzMsMzMzAGzYYBGYbYhGDGAAAAAAAjZmZAA",
-				dps = "1,357.9k",
+				dps = "1,359.2k",
 				keystone = "+13"
 			},
 		},
 	},
 	["monk"] = {
-		["windwalker"] = {
-			["MythicPlus"] = {
-				talentString = "C0QAAAAAAAAAAAAAAAAAAAAAAMzYmBzYmZMzADAAAAAAAAAAAwyywMxMjtxMgFG2mxMMbjZGsMTAAsMzMMzMzsNDAgBAMbzSzMzsAA",
-				dps = "1,325.9k",
-				keystone = "+14"
-			},
-			["Raiding"] = {
-				talentString = "C0QAAAAAAAAAAAAAAAAAAAAAAMzYmBzYmZWmZgBAAAAAAAAAAAYZZYEzMwMMsYmx2MzMMbDzglZCAglZmhZmxsNDAgBAMbzSzMzsAA",
-				dps = "1,340.2k",
-			},
-		},
 		["brewmaster"] = {
-			["Raiding"] = {
-				talentString = "CwQAAAAAAAAAAAAAAAAAAAAAAAAAAAGjxMMjlZsZmZGDAAAAAAglFMiZGYGGMDWmZmhZZMzYbWMtt8Abz2MzwsAAADAAAwsNLNzMzCzgN",
-				dps = "722.9k",
-			},
 			["MythicPlus"] = {
-				talentString = "CwQAAAAAAAAAAAAAAAAAAAAAAAAAAAGzMmBmlZegtxMzYAAAAAAAssAiZGYGGbAbzMzYmNmZsNLz02yDsZbmZYWAAgBAAAY2mlmZmZhZwG",
-				dps = "812.1k",
+				talentString = "CwQAAAAAAAAAAAAAAAAAAAAAAAAAAAGzMmBmlZegtxMzYAAAAAAAWWAxMDMDjNgtZmZMzGzM2mlZab5B2sNzMMLAAwAAAAMbzSzMzswMYD",
+				dps = "810.6k",
 				keystone = "+12"
+			},
+			["Raiding"] = {
+				talentString = "CwQAAAAAAAAAAAAAAAAAAAAAAAAAAAGjxMMsMjtZmZGDAAAAAAwyCImZgZYsBsNzMjZ2Ymx2sMTbLPw2sNzMMLAAwAAAAMbzSzMzswMYD",
+				dps = "771.8k",
 			},
 		},
 		["mistweaver"] = {
-			["Raiding"] = {
-				talentString = "C4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGzCzYAMjZmlhNmtZmNbzy2yMzyCmJmZgZYmFDsMzMzY2YMMLmAAAAAAAGLzyysNzMBAAWA",
-				dps = "121.9k",
-				hps = "1,418.2k",
-			},
 			["MythicPlus"] = {
 				talentString = "C4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGzCzsMmxMmxM2w2sMbjHAz2yyMzyCMNzMDMDzwAbzMzwsxMDWegJAAAAAAgxystNbzMTAAgN",
-				dps = "195.6k",
-				hps = "662.4k",
+				dps = "191.6k",
+				hps = "664.2k",
 				keystone = "+13"
+			},
+			["Raiding"] = {
+				talentString = "C4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGWYmlBYGzMLDbMbzMb2mltlZmlFMTMzAzwMLGYZmZGmNLjhZxEAAAAAAwYZWWmtZmJAAwG",
+				dps = "120.6k",
+				hps = "1,499.2k",
+			},
+		},
+		["windwalker"] = {
+			["Raiding"] = {
+				talentString = "C0QAAAAAAAAAAAAAAAAAAAAAAMzYmBzYmZWmZgBAAAAAAAAAAAssMMiZGYGGWMzYbmZGmthZwyMBAwyMzwMzY2mBAwAAmtZpZmZWAA",
+				dps = "1,378.2k",
+			},
+			["MythicPlus"] = {
+				talentString = "C0QAAAAAAAAAAAAAAAAAAAAAAMzYmBzYmZMzADAAAAAAAAAAAYZZYEzM2GzwwCDbzYGmtxMDWmJAAWmZGmZmZ2mBAwAAmtZpZmZWAA",
+				dps = "1,328.1k",
+				keystone = "+15"
 			},
 		},
 	},
 	["druid"] = {
 		["balance"] = {
 			["MythicPlus"] = {
-				talentString = "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWoYMzMMmZGwMDzMjFYjhZmZbmZxYmZmx2MGDzM2ALAYA22GLYamZZAAAAwYmZM",
-				dps = "1,433.6k",
+				talentString = "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALUMmZGGzMDYmhZmxCsxwsMz2MzixMzMjtZMGmZsBWAwAstNWw0MzyAAAAgxMzMA",
+				dps = "1,440.5k",
 				keystone = "+15"
 			},
 			["Raiding"] = {
-				talentString = "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGFmZMMMzAmZGzMDG2GjZmZ2mxCmZmZsNjxYGjNwCAGgttxCmmZWGAAAAMmZYA",
-				dps = "1,329.2k",
+				talentString = "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALUYmZGGmZAzMMzYAbzMLsMz2MWwMzMzsY2mZMzM2AbAYA22GLYamZZAAAAwYmZGA",
+				dps = "1,299.5k",
 			},
 		},
 		["feral"] = {
 			["MythicPlus"] = {
-				talentString = "CcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZ2mNzsYmZmZ2s9AYbmZmxMDAAAAAwSwwYwYMjmZMjZmZsMDbMAAAAAAAGAAAAgmZZWmZ2GAwAjZA",
-				dps = "1,458.1k",
+				talentString = "CcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMbzmZWMzMzMb2eAsNzMzYmBAAAAAYJYYMYMmRzMmxMzMWmhNGAAAAAAADAAAAQzsMLzMbDAYgxMAA",
+				dps = "1,467.4k",
 				keystone = "+14"
 			},
 			["Raiding"] = {
-				talentString = "CcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMz2sZmFmxMz2sxYbmZGzMDAAAAAwWwYGwYMjmZMzYmxYG2GDAAAAAAAwAAAAAAMbzs0sNzyAzMA",
-				dps = "1,243.7k",
+				talentString = "CcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZb2MzCzYmZb2YsNzMjZmBAAAAAYLYYAjxMamxMjZGjZYbmBAAAAAAAYAAAAAAmtZWa2mZZgZGAA",
+				dps = "1,282.7k",
 			},
 		},
 		["guardian"] = {
 			["MythicPlus"] = {
-				talentString = "CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZYmlZGzYGzMWYmhZxCAjBzMzENzMzMzMmFYjBAAAAAAgxAW2mZDjZZAMBAAAMMzMA",
-				dps = "751.9k",
+				talentString = "CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMMzyMjZMjZGLMzwsYBgxgZmZimZmZmZGzCsxAAAAAAAwYALbzshxsMAmAAAAGmZGA",
+				dps = "753.6k",
 				keystone = "+15"
 			},
 			["Raiding"] = {
-				talentString = "CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmxMjZml5BGzYGmxiHYYmZxyAYAzMmMNzMjZmZYwGDAAAAAAYMzAAAAANz2sMzsMAAGmZGA",
-				dps = "746.1k",
+				talentString = "CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzYmxMzy8AjZMDzYxDMMzsYZAMgZGTmmZmxMzMMYjBAAAAAAMmZAAAAgmZbWmZWGAADzMDA",
+				dps = "773.7k",
 			},
 		},
 		["restoration"] = {
-			["Raiding"] = {
-				talentString = "CkGAAAAAAAAAAAAAAAAAAAAAAsNmZGLbjZmxiZBzYsthtxMDAAAAAAAAAAAglZAzwYGNzAmxMzMzwMtNDAAAAAwAAYMgllxCmmZWGAAAADjBA",
-				dps = "133.1k",
-				hps = "1,509.9k",
-			},
 			["MythicPlus"] = {
 				talentString = "CkGAAAAAAAAAAAAAAAAAAAAAAsxMzYjZmZmFzyghZZbstYbmBAAAAAAAAAAAwygBzAjgxMmxMzYWGajBAAAAAMAGgZALLjFMNzsNAAAAGMzA",
-				dps = "144.7k",
-				hps = "621.8k",
+				dps = "141.3k",
+				hps = "624.0k",
 				keystone = "+11"
+			},
+			["Raiding"] = {
+				talentString = "CkGAAAAAAAAAAAAAAAAAAAAAAsNmZGLbjZmxiZBzYstNsYbGAAAAAAAAAAAALzAmhxMamBMjZmZmhZabGAAAAAgBAADYZZsgpZmlBAAAwwYAMD",
+				dps = "124.4k",
+				hps = "1,485.9k",
 			},
 		},
 	},
@@ -414,60 +413,60 @@ local talentData = {
 		["havoc"] = {
 			["MythicPlus"] = {
 				talentString = "CEkAAAAAAAAAAAAAAAAAAAAAAYmZmZmZGMzMjxMZmZGAAAAAAwsNMmhZGMzsNbjxMYmNssBLziZMMbMNGzMjBD",
-				dps = "1,347.0k",
+				dps = "1,347.5k",
 				keystone = "+14"
 			},
 			["Raiding"] = {
 				talentString = "CEkAAAAAAAAAAAAAAAAAAAAAAYGMzMzgZmZMmJmZGAAAAAAwsMmxMMGLzMz2sNLjZGmZBLbwysYGDzGTDmZmZwA",
-				dps = "1,436.2k",
+				dps = "1,515.1k",
 			},
 		},
 		["vengeance"] = {
 			["MythicPlus"] = {
 				talentString = "CUkAAAAAAAAAAAAAAAAAAAAAAAAmZMMjhZkZmBDzYbMmZsNDzMjZ8AGz2MzsZmZbmhZAAAAAWmFzYYWYagZmBD",
-				dps = "791.7k",
+				dps = "794.3k",
 				keystone = "+16"
 			},
 			["Raiding"] = {
 				talentString = "CUkAAAAAAAAAAAAAAAAAAAAAAAAGjZmZMmZkZmxYYMbzMYsNjZegZMzwMjZGbjZYGMAAAAALziZMMbMNwMzMMA",
-				dps = "816.4k",
+				dps = "878.1k",
 			},
 		},
 	},
 	["evoker"] = {
 		["devastation"] = {
-			["Raiding"] = {
-				talentString = "CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMYmNzgBMwYmpZMzkZbsNmZmxMmZbGwMmZbMzsNmBGYMYBWGjGbDgZAYA",
-				dps = "1,257.3k",
-			},
 			["MythicPlus"] = {
 				talentString = "CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZGYGmxMDMYMmZaYmJz2MbzMzMjZMzyMgZMz2YmxMzADMGsALjRjlBwMAMA",
-				dps = "1,330.5k",
+				dps = "1,331.5k",
 				keystone = "+13"
 			},
-		},
-		["augmentation"] = {
 			["Raiding"] = {
-				talentString = "CEcBAAAAAAAAAAAAAAAAAAAAAwMmZbmZmhBzMLzMjhZ2AAAAAAAAwMDMgxM1YmZGAAAAMjZ2GzMbjZGYsNjBLwyYYsMAmBxgZA",
-				dps = "1,198.6k",
-			},
-			["MythicPlus"] = {
-				talentString = "CEcBAAAAAAAAAAAAAAAAAAAAAgZZsNzMzYZGmZWmxMDzsBAAAAAAAgZGMDGjZqhZmBAAAAGzsNmZWGzMwYbGDWglxwYZAMDiBD",
-				dps = "1,197.5k",
-				keystone = "+14"
+				talentString = "CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMYmNzgBMYMTzYmJz2YbMzMjZMz2MgZMz2YmZbMDMwYwCsMGN2GAzAwgB",
+				dps = "1,330.0k",
 			},
 		},
 		["preservation"] = {
-			["Raiding"] = {
-				talentString = "CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAYmZMLzghZGzixMbjZGAAwMDjBMmZEmBAAAYmZmY2mZmZbmZAwMmNYBsAmhJwAjB",
-				dps = "51.5k",
-				hps = "1,861.9k",
-			},
 			["MythicPlus"] = {
-				talentString = "CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2mlBGzMjZZGzYAAAwMjZMYMmZEzMAAAAzMz0MWmZMmZGAAGzmFWgBmhhGMGA",
-				dps = "291.3k",
-				hps = "689.4k",
+				talentString = "CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2mlBGzMjZZGzYADAAmZMjBjxMjYmBAAAYmZmM2mZMmZGAAGzmFWgBmhhGMGA",
+				dps = "290.0k",
+				hps = "685.6k",
 				keystone = "+12"
+			},
+			["Raiding"] = {
+				talentString = "CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAGzMz2sNwYmZMLYmNmZAAAzMmxwYMjYmBAAAYmZmMjZGz2MzDAgBGzmFWgBmhhGwAD",
+				dps = "167.5k",
+				hps = "1,620.9k",
+			},
+		},
+		["augmentation"] = {
+			["MythicPlus"] = {
+				talentString = "CEcBAAAAAAAAAAAAAAAAAAAAAgZZsNzMzYZGmZWmxMDzsBAAAAAAAgZGMDGjZqhZmBAAAAmZmtxMjxMDM2mxgFYZMMWGAzgYwA",
+				dps = "1,195.4k",
+				keystone = "+14"
+			},
+			["Raiding"] = {
+				talentString = "CEcBAAAAAAAAAAAAAAAAAAAAAwMmZbmZmhBzMLzMjhZ2AAAAAADAAmZAwYqZMzMAAAAYGzsNmZ2GzMwYbGDWglxwYbAMDiBzMA",
+				dps = "1,235.7k",
 			},
 		},
 	},
