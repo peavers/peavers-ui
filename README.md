@@ -25,10 +25,7 @@ they create a new character or reinstall their game.
 
 ## Preset Talents
 
-- Best talent choices for Mythic+ and Raiding based on popular websites recommendations.
-- Includes specific information about how popular a talent choice, as well as the maximum DPS/HPS output.
-- All classes and spec talent combinations.
-- Database of best specs is updated daily.
+Now found in [PeaversTalents](https://www.curseforge.com/wow/addons/peaverstalents) addon
 
 ## Preset WeakAuras
 
